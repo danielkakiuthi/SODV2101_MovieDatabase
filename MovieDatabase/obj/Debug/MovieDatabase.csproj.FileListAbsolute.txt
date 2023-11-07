@@ -31,3 +31,13 @@ C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Numerics.Vecto
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.csproj.CopyComplete
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.ValueTuple.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.EnvironmentVariables.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.ValueTuple.xml

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
 
 namespace MovieDatabase {
     public partial class FormTitleInformation : Form {
@@ -27,13 +28,16 @@ namespace MovieDatabase {
 
 
         public async Task<string> GetTitle() {
+            var config = new ConfigurationBuilder().AddEnvironmentVariables().Build();
+            var omdb_ApiKey = config["OMDB_APIKEY"];
 
+            Console.WriteLine(omdb_ApiKey);
             try {
                 using(HttpClient myClient = new HttpClient()) {
 
                     myClient.BaseAddress = new Uri("http://www.omdbapi.com");
 
-                    using(HttpResponseMessage res = await myClient.GetAsync("/?t=avengers&apikey=d12c6861")) {
+                    using(HttpResponseMessage res = await myClient.GetAsync($"/?t=avengers&apikey={omdb_ApiKey}")) {
 
                         using (HttpContent content = res.Content) {
 
@@ -48,7 +52,7 @@ namespace MovieDatabase {
                 }
             }
             catch (Exception ex) {
-                string message = $"[API Error]: {ex.Message}";
+                string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
                 labelError.Text = message;
             }
             return string.Empty;
