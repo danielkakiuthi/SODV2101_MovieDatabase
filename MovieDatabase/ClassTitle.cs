@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieDatabase {
 
-    public class ClassRating {
+        public class ClassRating {
 
         public string Source { get; set; }
         public string Value { get; set; }

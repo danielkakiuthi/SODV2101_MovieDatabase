@@ -2,16 +2,16 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace MovieDatabase {
     internal class OmdbApiClient {
 
-        private readonly string omdbApiKey;
+        private string omdbApiKey;
 
         public OmdbApiClient() {
             //Set Credentials from Environment Variables
@@ -24,6 +24,7 @@ namespace MovieDatabase {
             HttpClient httpClient;
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://www.omdbapi.com");
+            Debug.WriteLine($"API Key: {omdbApiKey}");
 
             try {
                 using(httpClient) {
@@ -40,7 +41,7 @@ namespace MovieDatabase {
                     using(HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString)) {
                         using (HttpContent httpContent = httpResponseMessage.Content) {
                             string taskString = await httpContent.ReadAsStringAsync();
-                            ClassResponseSearch deserializedObj = JsonConvert.DeserializeObject<ClassResponseSearch>(taskString);
+                            ClassResponseSearch? deserializedObj = JsonConvert.DeserializeObject<ClassResponseSearch>(taskString);
                             return deserializedObj;
                         }
                     }
@@ -72,7 +73,7 @@ namespace MovieDatabase {
                     using(HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString)) {
                         using (HttpContent httpContent = httpResponseMessage.Content) {
                             string taskString = await httpContent.ReadAsStringAsync();
-                            ClassTitle deserializedObj = JsonConvert.DeserializeObject<ClassTitle>(taskString);
+                            ClassTitle? deserializedObj = JsonConvert.DeserializeObject<ClassTitle>(taskString);
                             return deserializedObj;
                         }
                     }

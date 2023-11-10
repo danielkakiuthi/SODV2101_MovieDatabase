@@ -1,12 +1,12 @@
 ﻿namespace MovieDatabase {
     partial class FormHomepage {
         /// <summary>
-        /// Required designer variable.
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing) {
@@ -19,101 +19,101 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.panelContent_Homepage = new System.Windows.Forms.Panel();
-            this.buttonTestApi = new System.Windows.Forms.Button();
-            this.buttonAccount = new System.Windows.Forms.Button();
-            this.buttonHomepage = new System.Windows.Forms.Button();
-            this.groupBoxMenu = new System.Windows.Forms.GroupBox();
-            this.groupBoxMenu.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panelContent_Homepage
-            // 
-            this.panelContent_Homepage.Location = new System.Drawing.Point(184, 0);
-            this.panelContent_Homepage.Name = "panelContent_Homepage";
-            this.panelContent_Homepage.Size = new System.Drawing.Size(1018, 692);
-            this.panelContent_Homepage.TabIndex = 1;
-            // 
-            // buttonTestApi
-            // 
-            this.buttonTestApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTestApi.Image = global::MovieDatabase.Properties.Resources.IconTestApi;
-            this.buttonTestApi.Location = new System.Drawing.Point(19, 121);
-            this.buttonTestApi.Name = "buttonTestApi";
-            this.buttonTestApi.Size = new System.Drawing.Size(140, 41);
-            this.buttonTestApi.TabIndex = 5;
-            this.buttonTestApi.Text = "Test API";
-            this.buttonTestApi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonTestApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonTestApi.UseVisualStyleBackColor = true;
-            this.buttonTestApi.Click += new System.EventHandler(this.buttonTestAPI_Click);
-            // 
-            // buttonAccount
-            // 
-            this.buttonAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAccount.Image = global::MovieDatabase.Properties.Resources.IconAccount;
-            this.buttonAccount.Location = new System.Drawing.Point(19, 74);
-            this.buttonAccount.Name = "buttonAccount";
-            this.buttonAccount.Size = new System.Drawing.Size(140, 41);
-            this.buttonAccount.TabIndex = 4;
-            this.buttonAccount.Text = "Account";
-            this.buttonAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAccount.UseVisualStyleBackColor = true;
-            // 
-            // buttonHomepage
-            // 
-            this.buttonHomepage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHomepage.Image = global::MovieDatabase.Properties.Resources.IconHomepage;
-            this.buttonHomepage.Location = new System.Drawing.Point(19, 27);
-            this.buttonHomepage.Name = "buttonHomepage";
-            this.buttonHomepage.Size = new System.Drawing.Size(140, 41);
-            this.buttonHomepage.TabIndex = 3;
-            this.buttonHomepage.Text = "Homepage";
-            this.buttonHomepage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonHomepage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonHomepage.UseVisualStyleBackColor = true;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHomepage));
+            groupBoxMenu = new GroupBox();
+            buttonSearch_Menu = new Button();
+            buttonAccount_Menu = new Button();
+            buttonHomepage_Menu = new Button();
+            panelContent_Homepage = new Panel();
+            groupBoxMenu.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBoxMenu
             // 
-            this.groupBoxMenu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.groupBoxMenu.Controls.Add(this.buttonHomepage);
-            this.groupBoxMenu.Controls.Add(this.buttonTestApi);
-            this.groupBoxMenu.Controls.Add(this.buttonAccount);
-            this.groupBoxMenu.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxMenu.Name = "groupBoxMenu";
-            this.groupBoxMenu.Size = new System.Drawing.Size(188, 692);
-            this.groupBoxMenu.TabIndex = 6;
-            this.groupBoxMenu.TabStop = false;
-            this.groupBoxMenu.Text = "Menu";
+            groupBoxMenu.BackColor = SystemColors.ControlDarkDark;
+            groupBoxMenu.Controls.Add(buttonSearch_Menu);
+            groupBoxMenu.Controls.Add(buttonAccount_Menu);
+            groupBoxMenu.Controls.Add(buttonHomepage_Menu);
+            groupBoxMenu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBoxMenu.Location = new Point(0, 0);
+            groupBoxMenu.Margin = new Padding(4);
+            groupBoxMenu.Name = "groupBoxMenu";
+            groupBoxMenu.Padding = new Padding(4);
+            groupBoxMenu.Size = new Size(194, 629);
+            groupBoxMenu.TabIndex = 0;
+            groupBoxMenu.TabStop = false;
+            groupBoxMenu.Text = "Menu";
+            // 
+            // buttonSearch_Menu
+            // 
+            buttonSearch_Menu.Image = (Image)resources.GetObject("buttonSearch_Menu.Image");
+            buttonSearch_Menu.Location = new Point(12, 113);
+            buttonSearch_Menu.Name = "buttonSearch_Menu";
+            buttonSearch_Menu.Size = new Size(175, 36);
+            buttonSearch_Menu.TabIndex = 2;
+            buttonSearch_Menu.Text = "Search";
+            buttonSearch_Menu.TextAlign = ContentAlignment.MiddleRight;
+            buttonSearch_Menu.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSearch_Menu.UseVisualStyleBackColor = true;
+            buttonSearch_Menu.Click += buttonSearch_Menu_Click;
+            // 
+            // buttonAccount_Menu
+            // 
+            buttonAccount_Menu.Image = (Image)resources.GetObject("buttonAccount_Menu.Image");
+            buttonAccount_Menu.Location = new Point(12, 71);
+            buttonAccount_Menu.Name = "buttonAccount_Menu";
+            buttonAccount_Menu.Size = new Size(175, 36);
+            buttonAccount_Menu.TabIndex = 1;
+            buttonAccount_Menu.Text = "Account";
+            buttonAccount_Menu.TextAlign = ContentAlignment.MiddleRight;
+            buttonAccount_Menu.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonAccount_Menu.UseVisualStyleBackColor = true;
+            // 
+            // buttonHomepage_Menu
+            // 
+            buttonHomepage_Menu.Image = Properties.Resources.IconHomepage;
+            buttonHomepage_Menu.Location = new Point(12, 29);
+            buttonHomepage_Menu.Name = "buttonHomepage_Menu";
+            buttonHomepage_Menu.Size = new Size(175, 36);
+            buttonHomepage_Menu.TabIndex = 0;
+            buttonHomepage_Menu.Text = "Homepage";
+            buttonHomepage_Menu.TextAlign = ContentAlignment.MiddleRight;
+            buttonHomepage_Menu.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonHomepage_Menu.UseVisualStyleBackColor = true;
+            // 
+            // panelContent_Homepage
+            // 
+            panelContent_Homepage.BackColor = Color.Silver;
+            panelContent_Homepage.Location = new Point(201, 0);
+            panelContent_Homepage.Name = "panelContent_Homepage";
+            panelContent_Homepage.Size = new Size(842, 629);
+            panelContent_Homepage.TabIndex = 1;
             // 
             // FormHomepage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.groupBoxMenu);
-            this.Controls.Add(this.panelContent_Homepage);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "FormHomepage";
-            this.Text = "[FormHomepage] Landing Page";
-            this.groupBoxMenu.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1045, 630);
+            Controls.Add(panelContent_Homepage);
+            Controls.Add(groupBoxMenu);
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4);
+            Name = "FormHomepage";
+            Text = "[FormHomepage] Landing Page";
+            groupBoxMenu.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelContent_Homepage;
-        private System.Windows.Forms.Button buttonTestApi;
-        private System.Windows.Forms.Button buttonAccount;
-        private System.Windows.Forms.Button buttonHomepage;
-        private System.Windows.Forms.GroupBox groupBoxMenu;
+
+        private GroupBox groupBoxMenu;
+        private Panel panelContent_Homepage;
+        private Button buttonHomepage_Menu;
+        private Button buttonSearch_Menu;
+        private Button buttonAccount_Menu;
     }
 }
-

@@ -63,29 +63,9 @@ namespace MovieDatabase.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconAccount {
-            get {
-                object obj = ResourceManager.GetObject("IconAccount", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap IconHomepage {
             get {
                 object obj = ResourceManager.GetObject("IconHomepage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconTestApi {
-            get {
-                object obj = ResourceManager.GetObject("IconTestApi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

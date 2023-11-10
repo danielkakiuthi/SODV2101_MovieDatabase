@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
 using System.Windows.Forms;
-using Microsoft.Extensions.Configuration;
-using System.Text.Json;
-using Newtonsoft.Json;
-
 
 namespace MovieDatabase {
     public partial class FormTitleInformation : Form {
@@ -30,11 +26,11 @@ namespace MovieDatabase {
 
         private async void buttonSearch_Click(object sender, EventArgs e) {
             string querySearch = textBoxInputSearch.Text;
-            string queryYear = textBoxInputYear.Text;
-            string queryType = comboBoxInputType.Text;
+            string? queryYear = textBoxInputYear.Text;
+            string? queryType = comboBoxInputType.Text;
 
             myResponse = await apiClient.GetBySearch(querySearch, queryYear, queryType);
-            Console.WriteLine(myResponse.ToString());
+            //Debug.WriteLine(myResponse.ToString());
             listBoxResponseSearch.DataSource = myResponse?.Search;
 
             string message = string.Empty;
@@ -57,10 +53,10 @@ namespace MovieDatabase {
         private async void listBoxResponseSearch_SelectedIndexChanged(object sender, EventArgs e) {
             textBoxTitleDetails.Text = string.Empty;
 
-            if(listBoxResponseSearch.SelectedIndex >= 0) {
+            if (listBoxResponseSearch.SelectedIndex >= 0) {
                 string imdbId = (listBoxResponseSearch.SelectedItem as ClassTitle).ImdbID;
 
-                if(imdbId!=null) {
+                if (imdbId != null) {
                     ClassTitle selectedTitle = await apiClient.GetByImdbId(imdbId);
 
                     textBoxTitleDetails.Text += $"Director: {selectedTitle.Director}" + Environment.NewLine;
@@ -71,10 +67,10 @@ namespace MovieDatabase {
                     textBoxTitleDetails.Text += $"Plot: {selectedTitle.Plot}";
 
                     if (!string.IsNullOrEmpty(selectedTitle.Poster) && !selectedTitle.Poster.Equals("N/A")) {
-                        pictureBoxPoster.Load(selectedTitle.Poster);
+                        pictureBoxTitlePoster.Load(selectedTitle.Poster);
                     }
                     else {
-                        pictureBoxPoster.Image = null;
+                        pictureBoxTitlePoster.Image = null;
                     }
                 }
             }
@@ -85,8 +81,8 @@ namespace MovieDatabase {
 
             if (listBoxFavorites.SelectedIndex >= 0) {
                 string imdbID = (listBoxFavorites.SelectedItem as ClassTitle)?.ImdbID;
-                
-                if (imdbID!=null) {
+
+                if (imdbID != null) {
                     ClassTitle selectedFavorite = await apiClient.GetByImdbId(imdbID);
 
                     textBoxFavoriteDetails.Text += $"Director: {selectedFavorite.Director}" + Environment.NewLine;
@@ -95,6 +91,13 @@ namespace MovieDatabase {
                     textBoxFavoriteDetails.Text += $"Runtime: {selectedFavorite.Runtime}" + Environment.NewLine;
                     textBoxFavoriteDetails.Text += $"Genre: {selectedFavorite.Genre}" + Environment.NewLine;
                     textBoxFavoriteDetails.Text += $"Plot: {selectedFavorite.Plot}";
+
+                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A")) {
+                        pictureBoxFavoritePoster.Load(selectedFavorite.Poster);
+                    }
+                    else {
+                        pictureBoxFavoritePoster.Image = null;
+                    }
                 }
             }
         }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace MovieDatabase {
 
     public partial class FormLoginUser : Form {
-        
+
         public string emailLogin;
         public string passwordLogin;
 
