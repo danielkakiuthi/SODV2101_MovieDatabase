@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormHomepage : Form {
-        public FormHomepage() {
+    public partial class FormUserDetails : Form {
+        public FormUserDetails() {
             InitializeComponent();
         }
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormRegisterUser : Form {
+    public partial class FormUserRegister : Form {
 
         public string emailNewUser;
         public string passwordNewUser;
@@ -18,7 +18,7 @@ namespace MovieDatabase {
         public string countryNewUser;
 
 
-        public FormRegisterUser() {
+        public FormUserRegister() {
             InitializeComponent();
         }
     }

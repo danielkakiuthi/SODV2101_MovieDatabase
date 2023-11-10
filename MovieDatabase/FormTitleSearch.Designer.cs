@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormTitleInformation {
+    partial class FormTitleSearch {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -43,6 +43,7 @@
             pictureBoxTitlePoster = new PictureBox();
             pictureBoxFavoritePoster = new PictureBox();
             comboBoxInputType = new ComboBox();
+            labelHeader_TitleSearch = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).BeginInit();
             SuspendLayout();
@@ -50,7 +51,7 @@
             // labelInputSearch
             // 
             labelInputSearch.AutoSize = true;
-            labelInputSearch.Location = new Point(12, 9);
+            labelInputSearch.Location = new Point(12, 90);
             labelInputSearch.Name = "labelInputSearch";
             labelInputSearch.Size = new Size(60, 21);
             labelInputSearch.TabIndex = 0;
@@ -59,7 +60,7 @@
             // labelInputYear
             // 
             labelInputYear.AutoSize = true;
-            labelInputYear.Location = new Point(12, 42);
+            labelInputYear.Location = new Point(12, 123);
             labelInputYear.Name = "labelInputYear";
             labelInputYear.Size = new Size(118, 21);
             labelInputYear.TabIndex = 1;
@@ -68,7 +69,7 @@
             // labelInputType
             // 
             labelInputType.AutoSize = true;
-            labelInputType.Location = new Point(12, 74);
+            labelInputType.Location = new Point(12, 155);
             labelInputType.Name = "labelInputType";
             labelInputType.Size = new Size(45, 21);
             labelInputType.TabIndex = 2;
@@ -76,14 +77,14 @@
             // 
             // textBoxInputSearch
             // 
-            textBoxInputSearch.Location = new Point(136, 6);
+            textBoxInputSearch.Location = new Point(136, 87);
             textBoxInputSearch.Name = "textBoxInputSearch";
             textBoxInputSearch.Size = new Size(195, 29);
             textBoxInputSearch.TabIndex = 3;
             // 
             // textBoxInputYear
             // 
-            textBoxInputYear.Location = new Point(136, 39);
+            textBoxInputYear.Location = new Point(136, 120);
             textBoxInputYear.Name = "textBoxInputYear";
             textBoxInputYear.Size = new Size(195, 29);
             textBoxInputYear.TabIndex = 4;
@@ -91,7 +92,7 @@
             // labelSearchResults
             // 
             labelSearchResults.AutoSize = true;
-            labelSearchResults.Location = new Point(12, 126);
+            labelSearchResults.Location = new Point(12, 214);
             labelSearchResults.Name = "labelSearchResults";
             labelSearchResults.Size = new Size(111, 21);
             labelSearchResults.TabIndex = 6;
@@ -101,9 +102,9 @@
             // 
             listBoxResponseSearch.FormattingEnabled = true;
             listBoxResponseSearch.ItemHeight = 21;
-            listBoxResponseSearch.Location = new Point(12, 150);
+            listBoxResponseSearch.Location = new Point(12, 238);
             listBoxResponseSearch.Name = "listBoxResponseSearch";
-            listBoxResponseSearch.Size = new Size(319, 214);
+            listBoxResponseSearch.Size = new Size(319, 172);
             listBoxResponseSearch.TabIndex = 7;
             listBoxResponseSearch.SelectedIndexChanged += listBoxResponseSearch_SelectedIndexChanged;
             // 
@@ -111,16 +112,16 @@
             // 
             listBoxFavorites.FormattingEnabled = true;
             listBoxFavorites.ItemHeight = 21;
-            listBoxFavorites.Location = new Point(12, 413);
+            listBoxFavorites.Location = new Point(12, 455);
             listBoxFavorites.Name = "listBoxFavorites";
-            listBoxFavorites.Size = new Size(319, 214);
+            listBoxFavorites.Size = new Size(319, 172);
             listBoxFavorites.TabIndex = 8;
             listBoxFavorites.SelectedIndexChanged += listBoxFavorites_SelectedIndexChanged;
             // 
             // labelFavorites
             // 
             labelFavorites.AutoSize = true;
-            labelFavorites.Location = new Point(12, 389);
+            labelFavorites.Location = new Point(12, 431);
             labelFavorites.Name = "labelFavorites";
             labelFavorites.Size = new Size(111, 21);
             labelFavorites.TabIndex = 9;
@@ -129,7 +130,7 @@
             // buttonSearch
             // 
             buttonSearch.BackColor = Color.Green;
-            buttonSearch.Location = new Point(337, 57);
+            buttonSearch.Location = new Point(337, 150);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(119, 38);
             buttonSearch.TabIndex = 10;
@@ -150,24 +151,24 @@
             // 
             // textBoxTitleDetails
             // 
-            textBoxTitleDetails.Location = new Point(462, 150);
+            textBoxTitleDetails.Location = new Point(462, 238);
             textBoxTitleDetails.Multiline = true;
             textBoxTitleDetails.Name = "textBoxTitleDetails";
-            textBoxTitleDetails.Size = new Size(319, 214);
+            textBoxTitleDetails.Size = new Size(319, 172);
             textBoxTitleDetails.TabIndex = 12;
             // 
             // textBoxFavoriteDetails
             // 
-            textBoxFavoriteDetails.Location = new Point(462, 413);
+            textBoxFavoriteDetails.Location = new Point(462, 455);
             textBoxFavoriteDetails.Multiline = true;
             textBoxFavoriteDetails.Name = "textBoxFavoriteDetails";
-            textBoxFavoriteDetails.Size = new Size(319, 214);
+            textBoxFavoriteDetails.Size = new Size(319, 172);
             textBoxFavoriteDetails.TabIndex = 13;
             // 
             // labelTitleDetails
             // 
             labelTitleDetails.AutoSize = true;
-            labelTitleDetails.Location = new Point(462, 126);
+            labelTitleDetails.Location = new Point(462, 214);
             labelTitleDetails.Name = "labelTitleDetails";
             labelTitleDetails.Size = new Size(90, 21);
             labelTitleDetails.TabIndex = 14;
@@ -176,7 +177,7 @@
             // labelFavoriteDetails
             // 
             labelFavoriteDetails.AutoSize = true;
-            labelFavoriteDetails.Location = new Point(462, 389);
+            labelFavoriteDetails.Location = new Point(462, 431);
             labelFavoriteDetails.Name = "labelFavoriteDetails";
             labelFavoriteDetails.Size = new Size(116, 21);
             labelFavoriteDetails.TabIndex = 15;
@@ -185,7 +186,7 @@
             // labelTitlePoster
             // 
             labelTitlePoster.AutoSize = true;
-            labelTitlePoster.Location = new Point(801, 126);
+            labelTitlePoster.Location = new Point(801, 214);
             labelTitlePoster.Name = "labelTitlePoster";
             labelTitlePoster.Size = new Size(86, 21);
             labelTitlePoster.TabIndex = 16;
@@ -194,7 +195,7 @@
             // labelFavoritePoster
             // 
             labelFavoritePoster.AutoSize = true;
-            labelFavoritePoster.Location = new Point(801, 389);
+            labelFavoritePoster.Location = new Point(801, 431);
             labelFavoritePoster.Name = "labelFavoritePoster";
             labelFavoritePoster.Size = new Size(112, 21);
             labelFavoritePoster.TabIndex = 17;
@@ -203,9 +204,9 @@
             // pictureBoxTitlePoster
             // 
             pictureBoxTitlePoster.BackColor = Color.Transparent;
-            pictureBoxTitlePoster.Location = new Point(801, 150);
+            pictureBoxTitlePoster.Location = new Point(801, 238);
             pictureBoxTitlePoster.Name = "pictureBoxTitlePoster";
-            pictureBoxTitlePoster.Size = new Size(178, 214);
+            pictureBoxTitlePoster.Size = new Size(144, 172);
             pictureBoxTitlePoster.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxTitlePoster.TabIndex = 18;
             pictureBoxTitlePoster.TabStop = false;
@@ -213,9 +214,9 @@
             // pictureBoxFavoritePoster
             // 
             pictureBoxFavoritePoster.BackColor = Color.Transparent;
-            pictureBoxFavoritePoster.Location = new Point(801, 413);
+            pictureBoxFavoritePoster.Location = new Point(801, 455);
             pictureBoxFavoritePoster.Name = "pictureBoxFavoritePoster";
-            pictureBoxFavoritePoster.Size = new Size(178, 214);
+            pictureBoxFavoritePoster.Size = new Size(144, 172);
             pictureBoxFavoritePoster.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxFavoritePoster.TabIndex = 19;
             pictureBoxFavoritePoster.TabStop = false;
@@ -224,17 +225,28 @@
             // 
             comboBoxInputType.FormattingEnabled = true;
             comboBoxInputType.Items.AddRange(new object[] { "movie", "series", "episode" });
-            comboBoxInputType.Location = new Point(136, 74);
+            comboBoxInputType.Location = new Point(136, 155);
             comboBoxInputType.Name = "comboBoxInputType";
             comboBoxInputType.Size = new Size(195, 29);
             comboBoxInputType.TabIndex = 20;
             // 
-            // FormTitleInformation
+            // labelHeader_TitleSearch
+            // 
+            labelHeader_TitleSearch.AutoSize = true;
+            labelHeader_TitleSearch.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_TitleSearch.Location = new Point(12, 9);
+            labelHeader_TitleSearch.Name = "labelHeader_TitleSearch";
+            labelHeader_TitleSearch.Size = new Size(167, 37);
+            labelHeader_TitleSearch.TabIndex = 21;
+            labelHeader_TitleSearch.Text = "Title Search";
+            // 
+            // FormTitleSearch
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(1029, 630);
+            Controls.Add(labelHeader_TitleSearch);
             Controls.Add(comboBoxInputType);
             Controls.Add(pictureBoxFavoritePoster);
             Controls.Add(pictureBoxTitlePoster);
@@ -257,8 +269,8 @@
             Controls.Add(labelInputSearch);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "FormTitleInformation";
-            Text = "FormTitleInformation";
+            Name = "FormTitleSearch";
+            Text = "[FormTitleSearch]";
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
             ResumeLayout(false);
@@ -287,5 +299,6 @@
         private PictureBox pictureBoxTitlePoster;
         private PictureBox pictureBoxFavoritePoster;
         private ComboBox comboBoxInputType;
+        private Label labelHeader_TitleSearch;
     }
 }

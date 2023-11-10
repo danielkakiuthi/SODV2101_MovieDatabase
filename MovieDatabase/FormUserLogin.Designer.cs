@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormLoginUser {
+    partial class FormUserLogin {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,20 +23,35 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            labelHeader_UserLogin = new Label();
             SuspendLayout();
             // 
-            // FormLoginUser
+            // labelHeader_UserLogin
+            // 
+            labelHeader_UserLogin.AutoSize = true;
+            labelHeader_UserLogin.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_UserLogin.Location = new Point(12, 9);
+            labelHeader_UserLogin.Name = "labelHeader_UserLogin";
+            labelHeader_UserLogin.Size = new Size(154, 37);
+            labelHeader_UserLogin.TabIndex = 22;
+            labelHeader_UserLogin.Text = "User Login";
+            // 
+            // FormUserLogin
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
+            Controls.Add(labelHeader_UserLogin);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "FormLoginUser";
-            Text = "FormLoginUser";
+            Margin = new Padding(4);
+            Name = "FormUserLogin";
+            Text = "[FormUserLogin]";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label labelHeader_UserLogin;
     }
 }

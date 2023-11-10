@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormRegisterUser {
+    partial class FormUserRegister {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,20 +23,35 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            labelHeader_UserRegister = new Label();
             SuspendLayout();
+            // 
+            // labelHeader_UserRegister
+            // 
+            labelHeader_UserRegister.AutoSize = true;
+            labelHeader_UserRegister.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_UserRegister.Location = new Point(12, 9);
+            labelHeader_UserRegister.Name = "labelHeader_UserRegister";
+            labelHeader_UserRegister.Size = new Size(188, 37);
+            labelHeader_UserRegister.TabIndex = 23;
+            labelHeader_UserRegister.Text = "User Register";
             // 
             // FormRegisterUser
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
+            Controls.Add(labelHeader_UserRegister);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormRegisterUser";
-            Text = "FormRegisterUser";
+            Text = "[FormUserRegister]";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label labelHeader_UserRegister;
     }
 }

@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormSearchTitle {
+    partial class FormUserDetails {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,20 +23,34 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            labelHeader_UserDetails = new Label();
             SuspendLayout();
             // 
-            // FormSearchTitle
+            // labelHeader_UserDetails
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            labelHeader_UserDetails.AutoSize = true;
+            labelHeader_UserDetails.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_UserDetails.Location = new Point(12, 9);
+            labelHeader_UserDetails.Name = "labelHeader_UserDetails";
+            labelHeader_UserDetails.Size = new Size(171, 37);
+            labelHeader_UserDetails.TabIndex = 22;
+            labelHeader_UserDetails.Text = "User Details";
+            // 
+            // FormUserDetails
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 630);
-            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "FormSearchTitle";
-            Text = "FormSearchTitle";
+            ClientSize = new Size(800, 450);
+            Controls.Add(labelHeader_UserDetails);
+            Name = "FormUserDetails";
+            Text = "[FormUserDetails]";
+            Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label labelHeader_UserDetails;
     }
 }

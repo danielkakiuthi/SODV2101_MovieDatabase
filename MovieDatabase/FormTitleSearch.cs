@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormTitleInformation : Form {
+    public partial class FormTitleSearch : Form {
 
-        private ClassResponseSearch myResponse;
+        private ClassResponseSearch? myResponse;
         private readonly OmdbApiClient apiClient;
         private readonly List<ClassTitle> listFavorites;
 
 
-        public FormTitleInformation() {
+        public FormTitleSearch() {
             InitializeComponent();
             apiClient = new OmdbApiClient();
             listFavorites = new List<ClassTitle>();
@@ -41,7 +41,7 @@ namespace MovieDatabase {
 
 
         private void buttonAddFavorites_Click(object sender, EventArgs e) {
-            ClassTitle selectedTitle = listBoxResponseSearch.SelectedItem as ClassTitle;
+            ClassTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassTitle;
             if (selectedTitle != null) {
                 listFavorites.Add(selectedTitle);
                 listBoxFavorites.DataSource = null;
@@ -54,7 +54,7 @@ namespace MovieDatabase {
             textBoxTitleDetails.Text = string.Empty;
 
             if (listBoxResponseSearch.SelectedIndex >= 0) {
-                string imdbId = (listBoxResponseSearch.SelectedItem as ClassTitle).ImdbID;
+                string? imdbId = (listBoxResponseSearch.SelectedItem as ClassTitle)?.ImdbID;
 
                 if (imdbId != null) {
                     ClassTitle selectedTitle = await apiClient.GetByImdbId(imdbId);
@@ -80,7 +80,7 @@ namespace MovieDatabase {
             textBoxFavoriteDetails.Text = string.Empty;
 
             if (listBoxFavorites.SelectedIndex >= 0) {
-                string imdbID = (listBoxFavorites.SelectedItem as ClassTitle)?.ImdbID;
+                string? imdbID = (listBoxFavorites.SelectedItem as ClassTitle)?.ImdbID;
 
                 if (imdbID != null) {
                     ClassTitle selectedFavorite = await apiClient.GetByImdbId(imdbID);
@@ -101,5 +101,6 @@ namespace MovieDatabase {
                 }
             }
         }
+
     }
 }

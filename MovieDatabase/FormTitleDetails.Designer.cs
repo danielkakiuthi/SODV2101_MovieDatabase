@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormHomepage {
+    partial class FormTitleDetails {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,36 +23,35 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            labelHeader_Homepage = new Label();
+            labelHeader_TitleDetails = new Label();
             SuspendLayout();
             // 
-            // labelHeader_Homepage
+            // labelHeader_TitleDetails
             // 
-            labelHeader_Homepage.AutoSize = true;
-            labelHeader_Homepage.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            labelHeader_Homepage.Location = new Point(12, 9);
-            labelHeader_Homepage.Name = "labelHeader_Homepage";
-            labelHeader_Homepage.Size = new Size(159, 37);
-            labelHeader_Homepage.TabIndex = 23;
-            labelHeader_Homepage.Text = "Homepage";
+            labelHeader_TitleDetails.AutoSize = true;
+            labelHeader_TitleDetails.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_TitleDetails.Location = new Point(12, 9);
+            labelHeader_TitleDetails.Name = "labelHeader_TitleDetails";
+            labelHeader_TitleDetails.Size = new Size(171, 37);
+            labelHeader_TitleDetails.TabIndex = 22;
+            labelHeader_TitleDetails.Text = "Title Details";
             // 
-            // FormHomepage
+            // FormTitleDetails
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
-            Controls.Add(labelHeader_Homepage);
+            Controls.Add(labelHeader_TitleDetails);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "FormHomepage";
-            Text = "[FormHomepage]";
-            Load += Form1_Load;
+            Name = "FormTitleDetails";
+            Text = "[FormTitleDetails]";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label labelHeader_Homepage;
+        private Label labelHeader_TitleDetails;
     }
 }

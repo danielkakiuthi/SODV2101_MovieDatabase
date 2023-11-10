@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormSearchTitle : Form {
 
-        public string KeywordQuery { get; set; }
-        public string GenreQuery { get; set; }
-        public int YearQuery { get; set; }
-        public string RatingQuery { get; set; }
+    public partial class FormUserLogin : Form {
+
+        public string emailLogin;
+        public string passwordLogin;
 
 
-        public FormSearchTitle() {
+        public FormUserLogin() {
             InitializeComponent();
         }
     }

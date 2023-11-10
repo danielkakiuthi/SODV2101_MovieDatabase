@@ -22,7 +22,7 @@ namespace MovieDatabase {
             //Debug.WriteLine(pathDotenv);
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormHomepage());
+            Application.Run(new FormMain());
         }
     }
 }
