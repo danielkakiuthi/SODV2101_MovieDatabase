@@ -49,6 +49,8 @@ namespace MovieDatabase {
             FormTitleInformation formTitleInformation = new FormTitleInformation();
             formTitleInformation.TopLevel = false;
             formTitleInformation.AutoScroll = true;
+            formTitleInformation.Dock = DockStyle.Fill;
+            formTitleInformation.FormBorderStyle = FormBorderStyle.None;
 
 
             Panel panelContent_Homepage = (Panel)((Button)sender).Parent.Parent.Controls["panelContent_Homepage"];

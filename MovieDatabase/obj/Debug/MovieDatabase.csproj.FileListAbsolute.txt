@@ -2,7 +2,6 @@ C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\MovieDatabase.exe.con
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\MovieDatabase.exe
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\MovieDatabase.pdb
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.csproj.AssemblyReference.cache
-C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.csproj.SuggestedBindingRedirects.cache
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.FormHomepage.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.FormLoginUser.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\MovieDatabase.FormRegisterUser.resources
@@ -41,3 +40,19 @@ C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.EnvironmentVariables.xml
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.ValueTuple.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.Json.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileProviders.Physical.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Text.Encodings.Web.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Text.Json.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.Configuration.Json.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileProviders.Physical.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Text.Encodings.Web.xml
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\System.Text.Json.xml
