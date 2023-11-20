@@ -7,7 +7,7 @@
     <Compile Update="FormHomepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormMain.cs">
+    <Compile Update="FormFrame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormUserLogin.cs">

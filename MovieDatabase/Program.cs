@@ -13,16 +13,16 @@ namespace MovieDatabase {
         /// </summary>
         [STAThread]
         static void Main() {
-            var pathDebug = Directory.GetCurrentDirectory();
-            //Debug.WriteLine(pathDebug);
-            var pathRoot = Path.Combine(pathDebug, @"..\..\..");
-            //Debug.WriteLine(pathRoot);
+            var pathCwd = Directory.GetCurrentDirectory();
+            //Debug.WriteLine($"pathCwd: {pathCwd}");             //DEBUG
+            var pathRoot = Path.Combine(pathCwd, @"..\..\..");
+            //Debug.WriteLine($"pathRoot: {pathRoot}");           //DEBUG
             var pathDotenv = Path.Combine(pathRoot, ".env");
+            //Debug.WriteLine($"pathDotenv: {pathDotenv}");       //DEBUG
             DotEnv.Load(pathDotenv);
-            //Debug.WriteLine(pathDotenv);
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMain());
+            Application.Run(new FormUserLogin());
         }
     }
 }

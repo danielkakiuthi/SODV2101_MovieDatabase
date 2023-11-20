@@ -21,10 +21,16 @@ C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\Micros
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.csproj.CopyComplete
-C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormMain.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormHomepage.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormTitleDetails.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormTitleSearch.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormUserLogin.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormUserRegister.resources
 C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormUserDetails.resources
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\obj\Debug\net6.0-windows\MovieDatabase.FormFrame.resources
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
