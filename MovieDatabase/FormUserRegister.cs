@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +23,26 @@ namespace MovieDatabase {
             ConnectionString = connectionString;
 
             this.CenterToScreen();
+            PopulateCountryComboBox();
+
         }
+
+
+        //Populate comboBoxCountry_Register
+        private void PopulateCountryComboBox() {
+            RegionInfo country = new RegionInfo(new CultureInfo("en-US", false).LCID);
+            List<string> countryNames = new List<string>();
+            foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
+                country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
+                countryNames.Add(country.EnglishName.ToString());
+            }
+            IEnumerable nameAdded = countryNames.OrderBy(names => names).Distinct();
+            foreach (string item in nameAdded) {
+                comboBoxCountry_Register.Items.Add(item);
+            }
+            comboBoxCountry_Register.SelectedItem = "Canada";
+        }
+
 
         private void buttonRegister_Register_Click(object sender, EventArgs e) {
             //Build Select Query
@@ -28,17 +50,17 @@ namespace MovieDatabase {
             string inputPassword = textBoxPassword_Register.Text;
             string inputFirstName = textBoxFirstName_Register.Text;
             string inputLastName = textBoxLastName_Register.Text;
-            string inputDateBirth = textBoxDateBirth_Register.Text;
-            string inputCountry = textBoxCountry_Register.Text;
+            string inputDateBirth = dateTimePickerDateBirth_Register.Value.ToShortDateString();
+            string inputCountry = comboBoxCountry_Register.Text;
+            Debug.WriteLine($"inputDateBirth: {inputDateBirth}");
 
-
-            if(inputEmail=="" || inputPassword=="" || inputFirstName=="" || inputLastName=="" || inputDateBirth=="" || inputCountry=="") {
+            if (inputEmail == "" || inputPassword == "" || inputFirstName == "" || inputLastName == "" || inputCountry == "") {
                 MessageBox.Show($"[ERROR] Please fill all required (*) fields!");
                 return;
             }
 
             string insertQuery = "INSERT INTO dbo.Users (email, password, firstName, lastName, dateBirth, country) ";
-            insertQuery += $"VALUES ('{inputEmail}', '{inputPassword}', '{inputFirstName}', '{inputLastName}', {inputDateBirth}, '{inputCountry}'); ";
+            insertQuery += $"VALUES ('{inputEmail}', '{inputPassword}', '{inputFirstName}', '{inputLastName}', '{inputDateBirth}', '{inputCountry}'); ";
 
             try {
                 using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
@@ -47,8 +69,9 @@ namespace MovieDatabase {
                         cmd.ExecuteNonQuery();
 
                         //Switch Forms
-                        this.Close();
                         this.Owner.Show();
+                        this.Close();
+                        MessageBox.Show($"[User Registered] New user {inputEmail} was successfully added!");
                     }
                 }
             }
@@ -60,8 +83,8 @@ namespace MovieDatabase {
 
         private void buttonCancel_Register_Click(object sender, EventArgs e) {
             //Switch Forms
-            this.Hide();
             this.Owner.Show();
+            this.Close();
         }
 
     }

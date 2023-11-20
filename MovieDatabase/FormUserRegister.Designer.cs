@@ -25,10 +25,10 @@
         private void InitializeComponent() {
             labelHeader_UserRegister = new Label();
             groupBox_UserRegister = new GroupBox();
+            comboBoxCountry_Register = new ComboBox();
+            dateTimePickerDateBirth_Register = new DateTimePicker();
             buttonCancel_Register = new Button();
-            textBoxCountry_Register = new TextBox();
             labelCountry_Register = new Label();
-            textBoxDateBirth_Register = new TextBox();
             labelDateBirth_Register = new Label();
             textBoxLastName_Register = new TextBox();
             labelLastName_Register = new Label();
@@ -55,10 +55,10 @@
             // groupBox_UserRegister
             // 
             groupBox_UserRegister.BackColor = Color.White;
+            groupBox_UserRegister.Controls.Add(comboBoxCountry_Register);
+            groupBox_UserRegister.Controls.Add(dateTimePickerDateBirth_Register);
             groupBox_UserRegister.Controls.Add(buttonCancel_Register);
-            groupBox_UserRegister.Controls.Add(textBoxCountry_Register);
             groupBox_UserRegister.Controls.Add(labelCountry_Register);
-            groupBox_UserRegister.Controls.Add(textBoxDateBirth_Register);
             groupBox_UserRegister.Controls.Add(labelDateBirth_Register);
             groupBox_UserRegister.Controls.Add(textBoxLastName_Register);
             groupBox_UserRegister.Controls.Add(labelLastName_Register);
@@ -76,6 +76,22 @@
             groupBox_UserRegister.TabStop = false;
             groupBox_UserRegister.Text = "User Register";
             // 
+            // comboBoxCountry_Register
+            // 
+            comboBoxCountry_Register.FormattingEnabled = true;
+            comboBoxCountry_Register.ItemHeight = 21;
+            comboBoxCountry_Register.Location = new Point(220, 301);
+            comboBoxCountry_Register.Name = "comboBoxCountry_Register";
+            comboBoxCountry_Register.Size = new Size(238, 29);
+            comboBoxCountry_Register.TabIndex = 14;
+            // 
+            // dateTimePickerDateBirth_Register
+            // 
+            dateTimePickerDateBirth_Register.Location = new Point(220, 247);
+            dateTimePickerDateBirth_Register.Name = "dateTimePickerDateBirth_Register";
+            dateTimePickerDateBirth_Register.Size = new Size(238, 29);
+            dateTimePickerDateBirth_Register.TabIndex = 12;
+            // 
             // buttonCancel_Register
             // 
             buttonCancel_Register.BackColor = Color.FromArgb(192, 0, 0);
@@ -87,14 +103,6 @@
             buttonCancel_Register.UseVisualStyleBackColor = false;
             buttonCancel_Register.Click += buttonCancel_Register_Click;
             // 
-            // textBoxCountry_Register
-            // 
-            textBoxCountry_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxCountry_Register.Location = new Point(220, 293);
-            textBoxCountry_Register.Name = "textBoxCountry_Register";
-            textBoxCountry_Register.Size = new Size(238, 29);
-            textBoxCountry_Register.TabIndex = 14;
-            // 
             // labelCountry_Register
             // 
             labelCountry_Register.AutoSize = true;
@@ -103,14 +111,6 @@
             labelCountry_Register.Size = new Size(90, 21);
             labelCountry_Register.TabIndex = 13;
             labelCountry_Register.Text = "Country (*):";
-            // 
-            // textBoxDateBirth_Register
-            // 
-            textBoxDateBirth_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxDateBirth_Register.Location = new Point(220, 245);
-            textBoxDateBirth_Register.Name = "textBoxDateBirth_Register";
-            textBoxDateBirth_Register.Size = new Size(238, 29);
-            textBoxDateBirth_Register.TabIndex = 12;
             // 
             // labelDateBirth_Register
             // 
@@ -231,14 +231,14 @@
         private TextBox textBoxPassword_Register;
         private Label labelPassword_Register;
         private TextBox textBoxEmail_Register;
-        private TextBox textBoxCountry_Register;
         private Label labelCountry_Register;
-        private TextBox textBoxDateBirth_Register;
         private Label labelDateBirth_Register;
         private TextBox textBoxLastName_Register;
         private Label labelLastName_Register;
         private TextBox textBoxFirstName_Register;
         private Label labelFirstName_Register;
         private Button buttonCancel_Register;
+        private DateTimePicker dateTimePickerDateBirth_Register;
+        private ComboBox comboBoxCountry_Register;
     }
 }
