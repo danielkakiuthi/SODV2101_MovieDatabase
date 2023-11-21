@@ -25,12 +25,12 @@
         private void InitializeComponent() {
             labelHeader_UserLogin = new Label();
             groupBox_UserLogin = new GroupBox();
-            linkLabelRegister_Login = new LinkLabel();
-            buttonLogin_Login = new Button();
-            textBoxPassword_Login = new TextBox();
-            labelPassword_Login = new Label();
-            textBoxEmail_Login = new TextBox();
-            labelEmail_Login = new Label();
+            linkLabelRegister_UserLogin = new LinkLabel();
+            buttonLogin_UserLogin = new Button();
+            textBoxPassword_UserLogin = new TextBox();
+            labelPassword_UserLogin = new Label();
+            textBoxEmail_UserLogin = new TextBox();
+            labelEmail_UserLogin = new Label();
             groupBox_UserLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,12 +47,12 @@
             // groupBox_UserLogin
             // 
             groupBox_UserLogin.BackColor = Color.White;
-            groupBox_UserLogin.Controls.Add(linkLabelRegister_Login);
-            groupBox_UserLogin.Controls.Add(buttonLogin_Login);
-            groupBox_UserLogin.Controls.Add(textBoxPassword_Login);
-            groupBox_UserLogin.Controls.Add(labelPassword_Login);
-            groupBox_UserLogin.Controls.Add(textBoxEmail_Login);
-            groupBox_UserLogin.Controls.Add(labelEmail_Login);
+            groupBox_UserLogin.Controls.Add(linkLabelRegister_UserLogin);
+            groupBox_UserLogin.Controls.Add(buttonLogin_UserLogin);
+            groupBox_UserLogin.Controls.Add(textBoxPassword_UserLogin);
+            groupBox_UserLogin.Controls.Add(labelPassword_UserLogin);
+            groupBox_UserLogin.Controls.Add(textBoxEmail_UserLogin);
+            groupBox_UserLogin.Controls.Add(labelEmail_UserLogin);
             groupBox_UserLogin.Location = new Point(63, 129);
             groupBox_UserLogin.Name = "groupBox_UserLogin";
             groupBox_UserLogin.Size = new Size(306, 438);
@@ -60,62 +60,62 @@
             groupBox_UserLogin.TabStop = false;
             groupBox_UserLogin.Text = "User Login";
             // 
-            // linkLabelRegister_Login
+            // linkLabelRegister_UserLogin
             // 
-            linkLabelRegister_Login.AutoSize = true;
-            linkLabelRegister_Login.Location = new Point(75, 314);
-            linkLabelRegister_Login.Name = "linkLabelRegister_Login";
-            linkLabelRegister_Login.Size = new Size(139, 21);
-            linkLabelRegister_Login.TabIndex = 8;
-            linkLabelRegister_Login.TabStop = true;
-            linkLabelRegister_Login.Text = "Register New User";
-            linkLabelRegister_Login.LinkClicked += linkLabelRegister_Login_LinkClicked;
+            linkLabelRegister_UserLogin.AutoSize = true;
+            linkLabelRegister_UserLogin.Location = new Point(75, 314);
+            linkLabelRegister_UserLogin.Name = "linkLabelRegister_UserLogin";
+            linkLabelRegister_UserLogin.Size = new Size(139, 21);
+            linkLabelRegister_UserLogin.TabIndex = 8;
+            linkLabelRegister_UserLogin.TabStop = true;
+            linkLabelRegister_UserLogin.Text = "Register New User";
+            linkLabelRegister_UserLogin.LinkClicked += linkLabelRegister_UserLogin_LinkClicked;
             // 
-            // buttonLogin_Login
+            // buttonLogin_UserLogin
             // 
-            buttonLogin_Login.BackColor = Color.Green;
-            buttonLogin_Login.Location = new Point(61, 259);
-            buttonLogin_Login.Name = "buttonLogin_Login";
-            buttonLogin_Login.Size = new Size(177, 40);
-            buttonLogin_Login.TabIndex = 7;
-            buttonLogin_Login.Text = "Login";
-            buttonLogin_Login.UseVisualStyleBackColor = false;
-            buttonLogin_Login.Click += buttonLogin_Login_Click;
+            buttonLogin_UserLogin.BackColor = Color.Green;
+            buttonLogin_UserLogin.Location = new Point(61, 259);
+            buttonLogin_UserLogin.Name = "buttonLogin_UserLogin";
+            buttonLogin_UserLogin.Size = new Size(177, 40);
+            buttonLogin_UserLogin.TabIndex = 7;
+            buttonLogin_UserLogin.Text = "Login";
+            buttonLogin_UserLogin.UseVisualStyleBackColor = false;
+            buttonLogin_UserLogin.Click += buttonLogin_UserLogin_Click;
             // 
-            // textBoxPassword_Login
+            // textBoxPassword_UserLogin
             // 
-            textBoxPassword_Login.BorderStyle = BorderStyle.FixedSingle;
-            textBoxPassword_Login.Location = new Point(35, 198);
-            textBoxPassword_Login.Name = "textBoxPassword_Login";
-            textBoxPassword_Login.PasswordChar = '*';
-            textBoxPassword_Login.Size = new Size(238, 29);
-            textBoxPassword_Login.TabIndex = 6;
+            textBoxPassword_UserLogin.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPassword_UserLogin.Location = new Point(35, 198);
+            textBoxPassword_UserLogin.Name = "textBoxPassword_UserLogin";
+            textBoxPassword_UserLogin.PasswordChar = '*';
+            textBoxPassword_UserLogin.Size = new Size(238, 29);
+            textBoxPassword_UserLogin.TabIndex = 6;
             // 
-            // labelPassword_Login
+            // labelPassword_UserLogin
             // 
-            labelPassword_Login.AutoSize = true;
-            labelPassword_Login.Location = new Point(35, 162);
-            labelPassword_Login.Name = "labelPassword_Login";
-            labelPassword_Login.Size = new Size(79, 21);
-            labelPassword_Login.TabIndex = 5;
-            labelPassword_Login.Text = "Password:";
+            labelPassword_UserLogin.AutoSize = true;
+            labelPassword_UserLogin.Location = new Point(35, 162);
+            labelPassword_UserLogin.Name = "labelPassword_UserLogin";
+            labelPassword_UserLogin.Size = new Size(79, 21);
+            labelPassword_UserLogin.TabIndex = 5;
+            labelPassword_UserLogin.Text = "Password:";
             // 
-            // textBoxEmail_Login
+            // textBoxEmail_UserLogin
             // 
-            textBoxEmail_Login.BorderStyle = BorderStyle.FixedSingle;
-            textBoxEmail_Login.Location = new Point(35, 100);
-            textBoxEmail_Login.Name = "textBoxEmail_Login";
-            textBoxEmail_Login.Size = new Size(238, 29);
-            textBoxEmail_Login.TabIndex = 4;
+            textBoxEmail_UserLogin.BorderStyle = BorderStyle.FixedSingle;
+            textBoxEmail_UserLogin.Location = new Point(35, 100);
+            textBoxEmail_UserLogin.Name = "textBoxEmail_UserLogin";
+            textBoxEmail_UserLogin.Size = new Size(238, 29);
+            textBoxEmail_UserLogin.TabIndex = 4;
             // 
-            // labelEmail_Login
+            // labelEmail_UserLogin
             // 
-            labelEmail_Login.AutoSize = true;
-            labelEmail_Login.Location = new Point(35, 64);
-            labelEmail_Login.Name = "labelEmail_Login";
-            labelEmail_Login.Size = new Size(51, 21);
-            labelEmail_Login.TabIndex = 3;
-            labelEmail_Login.Text = "Email:";
+            labelEmail_UserLogin.AutoSize = true;
+            labelEmail_UserLogin.Location = new Point(35, 64);
+            labelEmail_UserLogin.Name = "labelEmail_UserLogin";
+            labelEmail_UserLogin.Size = new Size(51, 21);
+            labelEmail_UserLogin.TabIndex = 3;
+            labelEmail_UserLogin.Text = "Email:";
             // 
             // FormUserLogin
             // 
@@ -138,11 +138,11 @@
 
         private Label labelHeader_UserLogin;
         private GroupBox groupBox_UserLogin;
-        private LinkLabel linkLabelRegister_Login;
-        private Button buttonLogin_Login;
-        private TextBox textBoxPassword_Login;
-        private Label labelPassword_Login;
-        private TextBox textBoxEmail_Login;
-        private Label labelEmail_Login;
+        private LinkLabel linkLabelRegister_UserLogin;
+        private Button buttonLogin_UserLogin;
+        private TextBox textBoxPassword_UserLogin;
+        private Label labelPassword_UserLogin;
+        private TextBox textBoxEmail_UserLogin;
+        private Label labelEmail_UserLogin;
     }
 }
