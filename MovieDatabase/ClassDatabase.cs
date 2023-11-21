@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieDatabase.OmdbApi;
 
-namespace MovieDatabase {
+namespace MovieDatabase
+{
     public class ClassDatabase {
 
-        public List<ClassTitle> listMostRecent;
-        public List<ClassTitle> listTopRated;
-        public List<ClassTitle> listFavourites;
-        public List<ClassTitle> listFeatured;
-        public List<ClassTitle> listTopBoxOffice;
+        public List<ClassOmdbTitle> listMostRecent;
+        public List<ClassOmdbTitle> listTopRated;
+        public List<ClassOmdbTitle> listFavourites;
+        public List<ClassOmdbTitle> listFeatured;
+        public List<ClassOmdbTitle> listTopBoxOffice;
 
 
         public ClassDatabase() {
@@ -19,27 +21,27 @@ namespace MovieDatabase {
         }
 
 
-        public ClassTitle GetTitleById(string idTitle) {
+        public ClassOmdbTitle GetTitleById(string idTitle) {
             return null;
         }
 
-        public List<ClassTitle> GetListMostRecent() {
+        public List<ClassOmdbTitle> GetListMostRecent() {
             return null;
         }
 
-        public List<ClassTitle> GetListTopRated() {
+        public List<ClassOmdbTitle> GetListTopRated() {
             return null;
         }
 
-        public List<ClassTitle> GetListFavourites() {
+        public List<ClassOmdbTitle> GetListFavourites() {
             return null;
         }
 
-        public List<ClassTitle> GetListFeatured() {
+        public List<ClassOmdbTitle> GetListFeatured() {
             return null;
         }
 
-        public List<ClassTitle> GetListTopBoxOffice() {
+        public List<ClassOmdbTitle> GetListTopBoxOffice() {
             return null;
         }
 

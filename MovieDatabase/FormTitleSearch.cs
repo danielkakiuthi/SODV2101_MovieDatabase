@@ -8,19 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieDatabase.OmdbApi;
 
-namespace MovieDatabase {
+namespace MovieDatabase
+{
     public partial class FormTitleSearch : Form {
 
-        private ClassResponseSearch? myResponse;
-        private readonly OmdbApiClient apiClient;
-        private readonly List<ClassTitle> listFavorites;
+        private ClassOmdbResponseSearch? myResponse;
+        private readonly OmdbApiClient omdbApiClient;
+        private readonly List<ClassOmdbTitle> listFavorites;
 
 
         public FormTitleSearch() {
             InitializeComponent();
-            apiClient = new OmdbApiClient();
-            listFavorites = new List<ClassTitle>();
+            omdbApiClient = new OmdbApiClient();
+            listFavorites = new List<ClassOmdbTitle>();
         }
 
 
@@ -29,7 +31,7 @@ namespace MovieDatabase {
             string? queryYear = textBoxInputYear.Text;
             string? queryType = comboBoxInputType.Text;
 
-            myResponse = await apiClient.GetBySearch(querySearch, queryYear, queryType);
+            myResponse = await omdbApiClient.GetBySearch(querySearch, queryYear, queryType);
             //Debug.WriteLine(myResponse.ToString());
             listBoxResponseSearch.DataSource = myResponse?.Search;
 
@@ -41,7 +43,7 @@ namespace MovieDatabase {
 
 
         private void buttonAddFavorites_Click(object sender, EventArgs e) {
-            ClassTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassTitle;
+            ClassOmdbTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassOmdbTitle;
             if (selectedTitle != null) {
                 listFavorites.Add(selectedTitle);
                 listBoxFavorites.DataSource = null;
@@ -54,10 +56,10 @@ namespace MovieDatabase {
             textBoxTitleDetails.Text = string.Empty;
 
             if (listBoxResponseSearch.SelectedIndex >= 0) {
-                string? imdbId = (listBoxResponseSearch.SelectedItem as ClassTitle)?.ImdbID;
+                string? imdbId = (listBoxResponseSearch.SelectedItem as ClassOmdbTitle)?.ImdbID;
 
                 if (imdbId != null) {
-                    ClassTitle selectedTitle = await apiClient.GetByImdbId(imdbId);
+                    ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(imdbId);
 
                     textBoxTitleDetails.Text += $"Director: {selectedTitle.Director}" + Environment.NewLine;
                     textBoxTitleDetails.Text += $"Rated: {selectedTitle.Rated}" + Environment.NewLine;
@@ -80,10 +82,10 @@ namespace MovieDatabase {
             textBoxFavoriteDetails.Text = string.Empty;
 
             if (listBoxFavorites.SelectedIndex >= 0) {
-                string? imdbID = (listBoxFavorites.SelectedItem as ClassTitle)?.ImdbID;
+                string? imdbID = (listBoxFavorites.SelectedItem as ClassOmdbTitle)?.ImdbID;
 
                 if (imdbID != null) {
-                    ClassTitle selectedFavorite = await apiClient.GetByImdbId(imdbID);
+                    ClassOmdbTitle selectedFavorite = await omdbApiClient.GetByImdbId(imdbID);
 
                     textBoxFavoriteDetails.Text += $"Director: {selectedFavorite.Director}" + Environment.NewLine;
                     textBoxFavoriteDetails.Text += $"Rated: {selectedFavorite.Rated}" + Environment.NewLine;
