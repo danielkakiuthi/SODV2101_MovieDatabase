@@ -28,9 +28,7 @@ namespace MovieDatabase {
 
         }
 
-        public void Logout() {
 
-        }
 
     }
 }

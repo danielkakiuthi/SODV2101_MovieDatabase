@@ -25,20 +25,20 @@
         private void InitializeComponent() {
             labelHeader_UserRegister = new Label();
             groupBox_UserRegister = new GroupBox();
-            comboBoxCountry_Register = new ComboBox();
-            dateTimePickerDateBirth_Register = new DateTimePicker();
-            buttonCancel_Register = new Button();
-            labelCountry_Register = new Label();
-            labelDateBirth_Register = new Label();
-            textBoxLastName_Register = new TextBox();
-            labelLastName_Register = new Label();
-            textBoxFirstName_Register = new TextBox();
-            labelFirstName_Register = new Label();
-            textBoxEmail_Register = new TextBox();
-            textBoxPassword_Register = new TextBox();
-            labelPassword_Register = new Label();
-            buttonRegister_Register = new Button();
-            labelEmail_Register = new Label();
+            comboBoxCountry_UserRegister = new ComboBox();
+            dateTimePickerDateBirth_UserRegister = new DateTimePicker();
+            buttonCancel_UserRegister = new Button();
+            labelCountry_UserRegister = new Label();
+            labelDateBirth_UserRegister = new Label();
+            textBoxLastName_UserRegister = new TextBox();
+            labelLastName_UserRegister = new Label();
+            textBoxFirstName_UserRegister = new TextBox();
+            labelFirstName_UserRegister = new Label();
+            textBoxEmail_UserRegister = new TextBox();
+            textBoxPassword_UserRegister = new TextBox();
+            labelPassword_UserRegister = new Label();
+            buttonRegister_UserRegister = new Button();
+            labelEmail_UserRegister = new Label();
             groupBox_UserRegister.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,20 +55,20 @@
             // groupBox_UserRegister
             // 
             groupBox_UserRegister.BackColor = Color.White;
-            groupBox_UserRegister.Controls.Add(comboBoxCountry_Register);
-            groupBox_UserRegister.Controls.Add(dateTimePickerDateBirth_Register);
-            groupBox_UserRegister.Controls.Add(buttonCancel_Register);
-            groupBox_UserRegister.Controls.Add(labelCountry_Register);
-            groupBox_UserRegister.Controls.Add(labelDateBirth_Register);
-            groupBox_UserRegister.Controls.Add(textBoxLastName_Register);
-            groupBox_UserRegister.Controls.Add(labelLastName_Register);
-            groupBox_UserRegister.Controls.Add(textBoxFirstName_Register);
-            groupBox_UserRegister.Controls.Add(labelFirstName_Register);
-            groupBox_UserRegister.Controls.Add(textBoxEmail_Register);
-            groupBox_UserRegister.Controls.Add(textBoxPassword_Register);
-            groupBox_UserRegister.Controls.Add(labelPassword_Register);
-            groupBox_UserRegister.Controls.Add(buttonRegister_Register);
-            groupBox_UserRegister.Controls.Add(labelEmail_Register);
+            groupBox_UserRegister.Controls.Add(comboBoxCountry_UserRegister);
+            groupBox_UserRegister.Controls.Add(dateTimePickerDateBirth_UserRegister);
+            groupBox_UserRegister.Controls.Add(buttonCancel_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelCountry_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelDateBirth_UserRegister);
+            groupBox_UserRegister.Controls.Add(textBoxLastName_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelLastName_UserRegister);
+            groupBox_UserRegister.Controls.Add(textBoxFirstName_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelFirstName_UserRegister);
+            groupBox_UserRegister.Controls.Add(textBoxEmail_UserRegister);
+            groupBox_UserRegister.Controls.Add(textBoxPassword_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelPassword_UserRegister);
+            groupBox_UserRegister.Controls.Add(buttonRegister_UserRegister);
+            groupBox_UserRegister.Controls.Add(labelEmail_UserRegister);
             groupBox_UserRegister.Location = new Point(38, 64);
             groupBox_UserRegister.Name = "groupBox_UserRegister";
             groupBox_UserRegister.Size = new Size(494, 491);
@@ -76,130 +76,130 @@
             groupBox_UserRegister.TabStop = false;
             groupBox_UserRegister.Text = "User Register";
             // 
-            // comboBoxCountry_Register
+            // comboBoxCountry_UserRegister
             // 
-            comboBoxCountry_Register.FormattingEnabled = true;
-            comboBoxCountry_Register.ItemHeight = 21;
-            comboBoxCountry_Register.Location = new Point(220, 301);
-            comboBoxCountry_Register.Name = "comboBoxCountry_Register";
-            comboBoxCountry_Register.Size = new Size(238, 29);
-            comboBoxCountry_Register.TabIndex = 14;
+            comboBoxCountry_UserRegister.FormattingEnabled = true;
+            comboBoxCountry_UserRegister.ItemHeight = 21;
+            comboBoxCountry_UserRegister.Location = new Point(220, 301);
+            comboBoxCountry_UserRegister.Name = "comboBoxCountry_UserRegister";
+            comboBoxCountry_UserRegister.Size = new Size(238, 29);
+            comboBoxCountry_UserRegister.TabIndex = 14;
             // 
-            // dateTimePickerDateBirth_Register
+            // dateTimePickerDateBirth_UserRegister
             // 
-            dateTimePickerDateBirth_Register.Location = new Point(220, 247);
-            dateTimePickerDateBirth_Register.Name = "dateTimePickerDateBirth_Register";
-            dateTimePickerDateBirth_Register.Size = new Size(238, 29);
-            dateTimePickerDateBirth_Register.TabIndex = 12;
+            dateTimePickerDateBirth_UserRegister.Location = new Point(220, 247);
+            dateTimePickerDateBirth_UserRegister.Name = "dateTimePickerDateBirth_UserRegister";
+            dateTimePickerDateBirth_UserRegister.Size = new Size(238, 29);
+            dateTimePickerDateBirth_UserRegister.TabIndex = 12;
             // 
-            // buttonCancel_Register
+            // buttonCancel_UserRegister
             // 
-            buttonCancel_Register.BackColor = Color.FromArgb(192, 0, 0);
-            buttonCancel_Register.Location = new Point(141, 417);
-            buttonCancel_Register.Name = "buttonCancel_Register";
-            buttonCancel_Register.Size = new Size(177, 40);
-            buttonCancel_Register.TabIndex = 16;
-            buttonCancel_Register.Text = "Cancel";
-            buttonCancel_Register.UseVisualStyleBackColor = false;
-            buttonCancel_Register.Click += buttonCancel_Register_Click;
+            buttonCancel_UserRegister.BackColor = Color.FromArgb(192, 0, 0);
+            buttonCancel_UserRegister.Location = new Point(141, 417);
+            buttonCancel_UserRegister.Name = "buttonCancel_UserRegister";
+            buttonCancel_UserRegister.Size = new Size(177, 40);
+            buttonCancel_UserRegister.TabIndex = 16;
+            buttonCancel_UserRegister.Text = "Cancel";
+            buttonCancel_UserRegister.UseVisualStyleBackColor = false;
+            buttonCancel_UserRegister.Click += buttonCancel_Register_Click;
             // 
-            // labelCountry_Register
+            // labelCountry_UserRegister
             // 
-            labelCountry_Register.AutoSize = true;
-            labelCountry_Register.Location = new Point(35, 301);
-            labelCountry_Register.Name = "labelCountry_Register";
-            labelCountry_Register.Size = new Size(90, 21);
-            labelCountry_Register.TabIndex = 13;
-            labelCountry_Register.Text = "Country (*):";
+            labelCountry_UserRegister.AutoSize = true;
+            labelCountry_UserRegister.Location = new Point(35, 301);
+            labelCountry_UserRegister.Name = "labelCountry_UserRegister";
+            labelCountry_UserRegister.Size = new Size(90, 21);
+            labelCountry_UserRegister.TabIndex = 13;
+            labelCountry_UserRegister.Text = "Country (*):";
             // 
-            // labelDateBirth_Register
+            // labelDateBirth_UserRegister
             // 
-            labelDateBirth_Register.AutoSize = true;
-            labelDateBirth_Register.Location = new Point(35, 253);
-            labelDateBirth_Register.Name = "labelDateBirth_Register";
-            labelDateBirth_Register.Size = new Size(124, 21);
-            labelDateBirth_Register.TabIndex = 11;
-            labelDateBirth_Register.Text = "Date Of Birth (*):";
+            labelDateBirth_UserRegister.AutoSize = true;
+            labelDateBirth_UserRegister.Location = new Point(35, 253);
+            labelDateBirth_UserRegister.Name = "labelDateBirth_UserRegister";
+            labelDateBirth_UserRegister.Size = new Size(124, 21);
+            labelDateBirth_UserRegister.TabIndex = 11;
+            labelDateBirth_UserRegister.Text = "Date Of Birth (*):";
             // 
-            // textBoxLastName_Register
+            // textBoxLastName_UserRegister
             // 
-            textBoxLastName_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxLastName_Register.Location = new Point(220, 197);
-            textBoxLastName_Register.Name = "textBoxLastName_Register";
-            textBoxLastName_Register.Size = new Size(238, 29);
-            textBoxLastName_Register.TabIndex = 10;
+            textBoxLastName_UserRegister.BorderStyle = BorderStyle.FixedSingle;
+            textBoxLastName_UserRegister.Location = new Point(220, 197);
+            textBoxLastName_UserRegister.Name = "textBoxLastName_UserRegister";
+            textBoxLastName_UserRegister.Size = new Size(238, 29);
+            textBoxLastName_UserRegister.TabIndex = 10;
             // 
-            // labelLastName_Register
+            // labelLastName_UserRegister
             // 
-            labelLastName_Register.AutoSize = true;
-            labelLastName_Register.Location = new Point(35, 205);
-            labelLastName_Register.Name = "labelLastName_Register";
-            labelLastName_Register.Size = new Size(108, 21);
-            labelLastName_Register.TabIndex = 9;
-            labelLastName_Register.Text = "Last Name (*):";
+            labelLastName_UserRegister.AutoSize = true;
+            labelLastName_UserRegister.Location = new Point(35, 205);
+            labelLastName_UserRegister.Name = "labelLastName_UserRegister";
+            labelLastName_UserRegister.Size = new Size(108, 21);
+            labelLastName_UserRegister.TabIndex = 9;
+            labelLastName_UserRegister.Text = "Last Name (*):";
             // 
-            // textBoxFirstName_Register
+            // textBoxFirstName_UserRegister
             // 
-            textBoxFirstName_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxFirstName_Register.Location = new Point(220, 151);
-            textBoxFirstName_Register.Name = "textBoxFirstName_Register";
-            textBoxFirstName_Register.Size = new Size(238, 29);
-            textBoxFirstName_Register.TabIndex = 8;
+            textBoxFirstName_UserRegister.BorderStyle = BorderStyle.FixedSingle;
+            textBoxFirstName_UserRegister.Location = new Point(220, 151);
+            textBoxFirstName_UserRegister.Name = "textBoxFirstName_UserRegister";
+            textBoxFirstName_UserRegister.Size = new Size(238, 29);
+            textBoxFirstName_UserRegister.TabIndex = 8;
             // 
-            // labelFirstName_Register
+            // labelFirstName_UserRegister
             // 
-            labelFirstName_Register.AutoSize = true;
-            labelFirstName_Register.Location = new Point(35, 159);
-            labelFirstName_Register.Name = "labelFirstName_Register";
-            labelFirstName_Register.Size = new Size(110, 21);
-            labelFirstName_Register.TabIndex = 7;
-            labelFirstName_Register.Text = "First Name (*):";
+            labelFirstName_UserRegister.AutoSize = true;
+            labelFirstName_UserRegister.Location = new Point(35, 159);
+            labelFirstName_UserRegister.Name = "labelFirstName_UserRegister";
+            labelFirstName_UserRegister.Size = new Size(110, 21);
+            labelFirstName_UserRegister.TabIndex = 7;
+            labelFirstName_UserRegister.Text = "First Name (*):";
             // 
-            // textBoxEmail_Register
+            // textBoxEmail_UserRegister
             // 
-            textBoxEmail_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxEmail_Register.Location = new Point(220, 56);
-            textBoxEmail_Register.Name = "textBoxEmail_Register";
-            textBoxEmail_Register.Size = new Size(238, 29);
-            textBoxEmail_Register.TabIndex = 4;
+            textBoxEmail_UserRegister.BorderStyle = BorderStyle.FixedSingle;
+            textBoxEmail_UserRegister.Location = new Point(220, 56);
+            textBoxEmail_UserRegister.Name = "textBoxEmail_UserRegister";
+            textBoxEmail_UserRegister.Size = new Size(238, 29);
+            textBoxEmail_UserRegister.TabIndex = 4;
             // 
-            // textBoxPassword_Register
+            // textBoxPassword_UserRegister
             // 
-            textBoxPassword_Register.BorderStyle = BorderStyle.FixedSingle;
-            textBoxPassword_Register.Location = new Point(220, 104);
-            textBoxPassword_Register.Name = "textBoxPassword_Register";
-            textBoxPassword_Register.PasswordChar = '*';
-            textBoxPassword_Register.Size = new Size(238, 29);
-            textBoxPassword_Register.TabIndex = 6;
+            textBoxPassword_UserRegister.BorderStyle = BorderStyle.FixedSingle;
+            textBoxPassword_UserRegister.Location = new Point(220, 104);
+            textBoxPassword_UserRegister.Name = "textBoxPassword_UserRegister";
+            textBoxPassword_UserRegister.PasswordChar = '*';
+            textBoxPassword_UserRegister.Size = new Size(238, 29);
+            textBoxPassword_UserRegister.TabIndex = 6;
             // 
-            // labelPassword_Register
+            // labelPassword_UserRegister
             // 
-            labelPassword_Register.AutoSize = true;
-            labelPassword_Register.Location = new Point(35, 112);
-            labelPassword_Register.Name = "labelPassword_Register";
-            labelPassword_Register.Size = new Size(100, 21);
-            labelPassword_Register.TabIndex = 5;
-            labelPassword_Register.Text = "Password (*):";
+            labelPassword_UserRegister.AutoSize = true;
+            labelPassword_UserRegister.Location = new Point(35, 112);
+            labelPassword_UserRegister.Name = "labelPassword_UserRegister";
+            labelPassword_UserRegister.Size = new Size(100, 21);
+            labelPassword_UserRegister.TabIndex = 5;
+            labelPassword_UserRegister.Text = "Password (*):";
             // 
-            // buttonRegister_Register
+            // buttonRegister_UserRegister
             // 
-            buttonRegister_Register.BackColor = Color.Green;
-            buttonRegister_Register.Location = new Point(141, 358);
-            buttonRegister_Register.Name = "buttonRegister_Register";
-            buttonRegister_Register.Size = new Size(177, 40);
-            buttonRegister_Register.TabIndex = 15;
-            buttonRegister_Register.Text = "Register";
-            buttonRegister_Register.UseVisualStyleBackColor = false;
-            buttonRegister_Register.Click += buttonRegister_Register_Click;
+            buttonRegister_UserRegister.BackColor = Color.Green;
+            buttonRegister_UserRegister.Location = new Point(141, 358);
+            buttonRegister_UserRegister.Name = "buttonRegister_UserRegister";
+            buttonRegister_UserRegister.Size = new Size(177, 40);
+            buttonRegister_UserRegister.TabIndex = 15;
+            buttonRegister_UserRegister.Text = "Register";
+            buttonRegister_UserRegister.UseVisualStyleBackColor = false;
+            buttonRegister_UserRegister.Click += buttonRegister_Register_Click;
             // 
-            // labelEmail_Register
+            // labelEmail_UserRegister
             // 
-            labelEmail_Register.AutoSize = true;
-            labelEmail_Register.Location = new Point(35, 64);
-            labelEmail_Register.Name = "labelEmail_Register";
-            labelEmail_Register.Size = new Size(72, 21);
-            labelEmail_Register.TabIndex = 3;
-            labelEmail_Register.Text = "Email (*):";
+            labelEmail_UserRegister.AutoSize = true;
+            labelEmail_UserRegister.Location = new Point(35, 64);
+            labelEmail_UserRegister.Name = "labelEmail_UserRegister";
+            labelEmail_UserRegister.Size = new Size(72, 21);
+            labelEmail_UserRegister.TabIndex = 3;
+            labelEmail_UserRegister.Text = "Email (*):";
             // 
             // FormUserRegister
             // 
@@ -223,22 +223,22 @@
         private Label labelHeader_UserRegister;
         private GroupBox groupBox_UserRegister;
         private LinkLabel linkLabelRegister_Login;
-        private Button buttonRegister_Register;
+        private Button buttonRegister_UserRegister;
         private TextBox textBoxPassword_Login;
         private Label labelPassword_Login;
         private TextBox textBoxEmail_Login;
-        private Label labelEmail_Register;
-        private TextBox textBoxPassword_Register;
-        private Label labelPassword_Register;
-        private TextBox textBoxEmail_Register;
-        private Label labelCountry_Register;
-        private Label labelDateBirth_Register;
-        private TextBox textBoxLastName_Register;
-        private Label labelLastName_Register;
-        private TextBox textBoxFirstName_Register;
-        private Label labelFirstName_Register;
-        private Button buttonCancel_Register;
-        private DateTimePicker dateTimePickerDateBirth_Register;
-        private ComboBox comboBoxCountry_Register;
+        private Label labelEmail_UserRegister;
+        private TextBox textBoxPassword_UserRegister;
+        private Label labelPassword_UserRegister;
+        private TextBox textBoxEmail_UserRegister;
+        private Label labelCountry_UserRegister;
+        private Label labelDateBirth_UserRegister;
+        private TextBox textBoxLastName_UserRegister;
+        private Label labelLastName_UserRegister;
+        private TextBox textBoxFirstName_UserRegister;
+        private Label labelFirstName_UserRegister;
+        private Button buttonCancel_UserRegister;
+        private DateTimePicker dateTimePickerDateBirth_UserRegister;
+        private ComboBox comboBoxCountry_UserRegister;
     }
 }

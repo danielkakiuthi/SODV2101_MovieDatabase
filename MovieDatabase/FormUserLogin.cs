@@ -36,12 +36,12 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonLogin_Login_Click(object sender, EventArgs e) {
+        private void buttonLogin_UserLogin_Click(object sender, EventArgs e) {
 
             //Build Select Query
-            string selectQuery = "SELECT id, email, firstName, lastName, dateBirth, country ";
+            string selectQuery = "SELECT id, email, password, firstName, lastName, dateBirth, country ";
             selectQuery += "FROM dbo.Users ";
-            selectQuery += $"WHERE email = '{textBoxEmail_Login.Text}' AND password = '{textBoxPassword_Login.Text}'; ";
+            selectQuery += $"WHERE email = '{textBoxEmail_UserLogin.Text}' AND password = '{textBoxPassword_UserLogin.Text}'; ";
 
             try {
                 using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
@@ -51,8 +51,15 @@ namespace MovieDatabase {
                             if (myReader.Read()) {
 
                                 //Create MyUserLogged Object
-                                MyUserLogged = new ClassUser((int)myReader[0], (string)myReader[1], (string)myReader[2], (string)myReader[3], myReader[4].ToString(), (string)myReader[5]);
-                                Debug.WriteLine($"Login Sucessful\nLogged in as: {MyUserLogged.FirstName} {MyUserLogged.LastName}");
+                                int inputId = (int)myReader[0];
+                                string inputEmail = (string)myReader[1];
+                                string inputPassword = (string)myReader[2];
+                                string inputFirstName = (string)myReader[3];
+                                string inputLastName = (string)myReader[4];
+                                DateOnly inputDateBirth = DateOnly.ParseExact(myReader[5].ToString(), "yyyy-MM-dd hh:mm:ss tt");
+                                string inputCountry = (string)myReader[6];
+                                MyUserLogged = new ClassUser(inputId, inputEmail, inputPassword, inputFirstName, inputLastName, inputDateBirth, inputCountry);
+                                Debug.WriteLine($"[Login Successful] Logged in as: {MyUserLogged.FirstName} {MyUserLogged.LastName}");
 
                                 //Switch windows
                                 MyFormFrame = new FormFrame(ConnectionString, MyUserLogged);
@@ -61,11 +68,11 @@ namespace MovieDatabase {
                                 MyFormFrame.Show();
                             }
                             else {
-                                MessageBox.Show("Incorrect Credentials!");
+                                MessageBox.Show("[Incorrect Credentials] Try Again!");
                             }
 
-                            textBoxEmail_Login.Text = string.Empty;
-                            textBoxPassword_Login.Text = string.Empty;
+                            textBoxEmail_UserLogin.Text = string.Empty;
+                            textBoxPassword_UserLogin.Text = string.Empty;
                         }
                     }
                 }
@@ -75,7 +82,7 @@ namespace MovieDatabase {
             }
         }
 
-        private void linkLabelRegister_Login_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void linkLabelRegister_UserLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             //Switch Forms
             MyFormUserRegister = new FormUserRegister(ConnectionString);
             MyFormUserRegister.Owner = this;

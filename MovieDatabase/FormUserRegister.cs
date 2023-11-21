@@ -38,20 +38,20 @@ namespace MovieDatabase {
             }
             IEnumerable nameAdded = countryNames.OrderBy(names => names).Distinct();
             foreach (string item in nameAdded) {
-                comboBoxCountry_Register.Items.Add(item);
+                comboBoxCountry_UserRegister.Items.Add(item);
             }
-            comboBoxCountry_Register.SelectedItem = "Canada";
+            comboBoxCountry_UserRegister.SelectedItem = "Canada";
         }
 
 
         private void buttonRegister_Register_Click(object sender, EventArgs e) {
             //Build Select Query
-            string inputEmail = textBoxEmail_Register.Text;
-            string inputPassword = textBoxPassword_Register.Text;
-            string inputFirstName = textBoxFirstName_Register.Text;
-            string inputLastName = textBoxLastName_Register.Text;
-            string inputDateBirth = dateTimePickerDateBirth_Register.Value.ToShortDateString();
-            string inputCountry = comboBoxCountry_Register.Text;
+            string inputEmail = textBoxEmail_UserRegister.Text;
+            string inputPassword = textBoxPassword_UserRegister.Text;
+            string inputFirstName = textBoxFirstName_UserRegister.Text;
+            string inputLastName = textBoxLastName_UserRegister.Text;
+            string inputDateBirth = dateTimePickerDateBirth_UserRegister.Value.ToShortDateString();
+            string inputCountry = comboBoxCountry_UserRegister.Text;
             Debug.WriteLine($"inputDateBirth: {inputDateBirth}");
 
             if (inputEmail == "" || inputPassword == "" || inputFirstName == "" || inputLastName == "" || inputCountry == "") {

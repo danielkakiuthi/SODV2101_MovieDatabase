@@ -7,8 +7,6 @@ namespace MovieDatabase {
         private ClassUser myUserLogged;
         private ClassController myController;
         private TabPage? tabHomepage;
-        private TabPage? tabUserRegister;
-        private TabPage? tabUserLogin;
         private TabPage? tabUserDetails;
         private TabPage? tabTitleSearch;
         private TabPage? tabTitleDetails;
@@ -34,65 +32,79 @@ namespace MovieDatabase {
             buttonHomepage_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
             buttonUserDetails_Frame.Location = new Point(0, 150);
             buttonUserDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
-            buttonSearch_Frame.Location = new Point(0, 200);
-            buttonSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
+            buttonTitleSearch_Frame.Location = new Point(0, 200);
+            buttonTitleSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
+            buttonTitleDetails_Frame.Location = new Point(0, 250);
+            buttonTitleDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
             buttonLogout_Frame.Location = new Point(0, screenHeight - 100);
             buttonLogout_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage();
-            formHomepage.TopLevel = false;
-            formHomepage.AutoScroll = true;
-            formHomepage.Dock = DockStyle.Fill;
-            formHomepage.FormBorderStyle = FormBorderStyle.None;
+            FormHomepage formHomepage = new FormHomepage() {
+                TopLevel = false,
+                AutoScroll = true,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None,
+            };
             formHomepage.Show();
-            tabHomepage = new TabPage("Tab Homepage");
-            tabHomepage.Controls.Add(formHomepage);
+            tabHomepage = new TabPage() {
+                Text = "Tab Homepage",
+                Name = "TabHomepage",
+                Controls = {formHomepage}
+            };
             tabControlContent_Frame.TabPages.Add(tabHomepage);
-            tabControlContent_Frame.SelectTab(tabHomepage);
-
-            //Initialize TitleSearch Tab
-            FormTitleSearch formTitleInformation = new FormTitleSearch();
-            formTitleInformation.TopLevel = false;
-            formTitleInformation.AutoScroll = true;
-            formTitleInformation.Dock = DockStyle.Fill;
-            formTitleInformation.FormBorderStyle = FormBorderStyle.None;
-            formTitleInformation.Show();
-            tabTitleSearch = new TabPage("Tab Title Search");
-            tabTitleSearch.Controls.Add(formTitleInformation);
-            tabControlContent_Frame.TabPages.Add(tabTitleSearch);
-            tabControlContent_Frame.SelectTab(tabTitleSearch);
 
             //Initialize UserDetails Tab
-            FormUserDetails formUserDetails = new FormUserDetails();
-            formUserDetails.TopLevel = false;
-            formUserDetails.AutoScroll = true;
-            formUserDetails.Dock = DockStyle.Fill;
-            formUserDetails.FormBorderStyle = FormBorderStyle.None;
+            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged) {
+                TopLevel = false,
+                AutoScroll = true,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None
+            };
             formUserDetails.Show();
-            tabUserDetails = new TabPage("Tab User Details");
-            tabUserDetails.Controls.Add(formUserDetails);
+            tabUserDetails = new TabPage() {
+                Text = "Tab User Details",
+                Name = "TabUserDetails",
+                Controls = {formUserDetails}
+            };
             tabControlContent_Frame.TabPages.Add(tabUserDetails);
-            tabControlContent_Frame.SelectTab(tabUserDetails);
 
-            //Initialize UserLogin Tab
-            FormUserLogin formUserLogin = new FormUserLogin();
-            formUserLogin.TopLevel = false;
-            formUserLogin.AutoScroll = true;
-            formUserLogin.Dock = DockStyle.Fill;
-            formUserLogin.FormBorderStyle = FormBorderStyle.None;
-            formUserLogin.Show();
-            tabUserLogin = new TabPage("Tab User Login");
-            tabUserLogin.Controls.Add(formUserLogin);
-            tabControlContent_Frame.TabPages.Add(tabUserLogin);
-            tabControlContent_Frame.SelectTab(tabUserLogin);
+            //Initialize TitleSearch Tab
+            FormTitleSearch formTitleInformation = new FormTitleSearch() {
+                TopLevel = false,
+                AutoScroll = true,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            formTitleInformation.Show();
+            tabTitleSearch = new TabPage() {
+                Text = "Tab Title Search",
+                Name = "TabTitleSearch",
+                Controls = {formTitleInformation}
+            };
+            tabControlContent_Frame.TabPages.Add(tabTitleSearch);
+
+            //Initialize TitleDetails Tab
+            FormTitleDetails formTitleDetails = new FormTitleDetails() {
+                TopLevel = false,
+                AutoScroll = true,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            formTitleDetails.Show();
+            tabTitleDetails = new TabPage() {
+                Text = "Tab Title Details",
+                Name = "TabTitleDetails",
+                Controls = {formTitleDetails}
+            };
+            tabControlContent_Frame.TabPages.Add(tabTitleDetails);
 
             //Adjust Tab Control properties
             tabControlContent_Frame.Location = new Point(groupBoxMenu_Frame.Width, 0);
             tabControlContent_Frame.Size = new Size(screenWidth - groupBoxMenu_Frame.Width, screenHeight);
-            tabControlContent_Frame.BackColor = Color.LightSteelBlue; //Just to check area of the panel
-            tabControlContent_Frame.SelectTab(tabHomepage);          //Start on Homepage tab
+            tabControlContent_Frame.BackColor = Color.Red;          //Just to check area of the panel
+            tabControlContent_Frame.SelectTab(tabHomepage);         //Start on Homepage tab
 
             //Hide Tab Headers
             {
@@ -107,20 +119,23 @@ namespace MovieDatabase {
         }
 
         private void buttonHomepage_Frame_Click(object sender, EventArgs e) {
-
             tabControlContent_Frame.SelectTab(tabHomepage);
         }
 
 
-        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
+        private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
+            tabControlContent_Frame.SelectTab(tabUserDetails);
+        }
 
+
+        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleSearch);
         }
 
-        private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
-
-            tabControlContent_Frame.SelectTab(tabUserDetails);
+        private void buttonTitleDetails_Frame_Click(object sender, EventArgs e) {
+            tabControlContent_Frame.SelectTab(tabTitleDetails);
         }
+
 
         private void buttonLogout_Frame_Click(object sender, EventArgs e) {
             this.Owner.Show();
