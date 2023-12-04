@@ -43,7 +43,7 @@
             // 
             listBoxTopRated_Homepage.FormattingEnabled = true;
             listBoxTopRated_Homepage.ItemHeight = 21;
-            listBoxTopRated_Homepage.Location = new Point(12, 278);
+            listBoxTopRated_Homepage.Location = new Point(12, 421);
             listBoxTopRated_Homepage.Name = "listBoxTopRated_Homepage";
             listBoxTopRated_Homepage.Size = new Size(599, 235);
             listBoxTopRated_Homepage.TabIndex = 24;
@@ -62,12 +62,17 @@
             // 
             tableLayoutPanelTopRated.AutoSize = true;
             tableLayoutPanelTopRated.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanelTopRated.ColumnCount = 5;
-            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanelTopRated.ColumnCount = 10;
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanelTopRated.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanelTopRated.Location = new Point(12, 89);
             tableLayoutPanelTopRated.Name = "tableLayoutPanelTopRated";
             tableLayoutPanelTopRated.RowCount = 1;

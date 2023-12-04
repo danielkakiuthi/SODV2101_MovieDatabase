@@ -26,8 +26,10 @@ namespace MovieDatabase {
             screenHeight = Screen.PrimaryScreen.Bounds.Height;
 
             //Adjust Menu properties
+            int _frameWidth = (int)(screenWidth * 0.1);
+            int _frameHeight = (int)(screenHeight);
             groupBoxMenu_Frame.Location = new Point(0, 0);
-            groupBoxMenu_Frame.Size = new Size((int)(screenWidth * 0.1), screenHeight);
+            groupBoxMenu_Frame.Size = new Size(_frameWidth, _frameHeight);
 
             //Adjust Menu Buttons properties
             buttonHomepage_Frame.Location = new Point(0, 100);
@@ -43,7 +45,7 @@ namespace MovieDatabase {
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage()
+            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width)
             {
                 TopLevel = false,
                 AutoScroll = true,

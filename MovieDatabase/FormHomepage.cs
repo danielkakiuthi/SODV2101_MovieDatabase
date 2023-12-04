@@ -17,12 +17,13 @@ namespace MovieDatabase {
         private TmdbApiClient tmdbApiClient;
         private ClassTmdbResponse myResponse;
 
-        public FormHomepage() {
+        public FormHomepage(int width) {
             InitializeComponent();
             tmdbApiClient = new TmdbApiClient();
 
             //Adjust TableLayoutPanelTopRated
             tableLayoutPanelTopRated.ColumnCount = 10;
+            tableLayoutPanelTopRated.Size = new System.Drawing.Size(width, 200);
 
         }
 
@@ -30,29 +31,29 @@ namespace MovieDatabase {
 
             myResponse = await tmdbApiClient.GetTopRated();
             Debug.WriteLine(myResponse.ToString());
+
+
             listBoxTopRated_Homepage.DataSource = myResponse?.Results;
 
+
             string message = string.Empty;
-            /*if (myResponse.Results == null)
-            {
+            if (myResponse.Results == null) {
                 MessageBox.Show("No Title found. Try another search term.");
             }
 
             List<string> listImageUrls = new List<string>();
-            foreach (ClassTmdbTitle c in myResponse.Results)
-            {
+            foreach (ClassTmdbTitle c in myResponse.Results) {
                 listImageUrls.Add($"https://image.tmdb.org/t/p/w500/{c.PosterPath}");
             }
 
-            for (int i = 0; i < tableLayoutPanelTopRated.ColumnCount; i++)
-            {
-                PictureBox newPictureBox = new PictureBox()
-                {
+            for (int i = 0; i < tableLayoutPanelTopRated.ColumnCount; i++) {
+                PictureBox newPictureBox = new PictureBox() {
+                    Size = new Size(tableLayoutPanelTopRated.Size.Width / tableLayoutPanelTopRated.ColumnCount, 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
                 newPictureBox.Load(listImageUrls[i]);
                 tableLayoutPanelTopRated.Controls.Add(newPictureBox, i, 0);
-            }*/
+            }
         }
 
     }
