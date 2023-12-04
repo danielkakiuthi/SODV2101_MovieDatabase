@@ -14,6 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MovieDatabase
-build_property.ProjectDir = C:\Users\rafam\source\repos\SODV2101_MovieDatabase\MovieDatabase\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\0_Github\SODV2101_MovieDatabase\MovieDatabase\

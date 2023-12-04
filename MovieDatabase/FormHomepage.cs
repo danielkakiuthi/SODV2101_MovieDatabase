@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,13 @@ using System.Windows.Forms;
 using MovieDatabase.OmdbApi;
 using MovieDatabase.TmdbApi;
 
-namespace MovieDatabase
-{
-    public partial class FormHomepage : Form
-    {
+namespace MovieDatabase {
+    public partial class FormHomepage : Form {
 
         private TmdbApiClient tmdbApiClient;
         private ClassTmdbResponse myResponse;
 
-        public FormHomepage()
-        {
+        public FormHomepage() {
             InitializeComponent();
             tmdbApiClient = new TmdbApiClient();
 
@@ -28,11 +26,10 @@ namespace MovieDatabase
 
         }
 
-        public async void Form1_Load(object sender, EventArgs e)
-        {
+        public async void FormHomepage_Load(object sender, EventArgs e) {
 
             myResponse = await tmdbApiClient.GetTopRated();
-            //Debug.WriteLine(myResponse.ToString());
+            Debug.WriteLine(myResponse.ToString());
             listBoxTopRated_Homepage.DataSource = myResponse?.Results;
 
             string message = string.Empty;
@@ -57,5 +54,6 @@ namespace MovieDatabase
                 tableLayoutPanelTopRated.Controls.Add(newPictureBox, i, 0);
             }*/
         }
+
     }
 }
