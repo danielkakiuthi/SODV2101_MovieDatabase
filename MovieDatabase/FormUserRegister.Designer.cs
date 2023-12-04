@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelHeader_UserRegister = new Label();
             groupBox_UserRegister = new GroupBox();
             comboBoxCountry_UserRegister = new ComboBox();
@@ -69,6 +70,7 @@
             groupBox_UserRegister.Controls.Add(labelPassword_UserRegister);
             groupBox_UserRegister.Controls.Add(buttonRegister_UserRegister);
             groupBox_UserRegister.Controls.Add(labelEmail_UserRegister);
+            groupBox_UserRegister.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox_UserRegister.Location = new Point(38, 64);
             groupBox_UserRegister.Name = "groupBox_UserRegister";
             groupBox_UserRegister.Size = new Size(494, 491);
@@ -79,22 +81,23 @@
             // comboBoxCountry_UserRegister
             // 
             comboBoxCountry_UserRegister.FormattingEnabled = true;
-            comboBoxCountry_UserRegister.ItemHeight = 21;
+            comboBoxCountry_UserRegister.ItemHeight = 23;
             comboBoxCountry_UserRegister.Location = new Point(220, 301);
             comboBoxCountry_UserRegister.Name = "comboBoxCountry_UserRegister";
-            comboBoxCountry_UserRegister.Size = new Size(238, 29);
+            comboBoxCountry_UserRegister.Size = new Size(238, 31);
             comboBoxCountry_UserRegister.TabIndex = 14;
             // 
             // dateTimePickerDateBirth_UserRegister
             // 
             dateTimePickerDateBirth_UserRegister.Location = new Point(220, 247);
             dateTimePickerDateBirth_UserRegister.Name = "dateTimePickerDateBirth_UserRegister";
-            dateTimePickerDateBirth_UserRegister.Size = new Size(238, 29);
+            dateTimePickerDateBirth_UserRegister.Size = new Size(238, 30);
             dateTimePickerDateBirth_UserRegister.TabIndex = 12;
             // 
             // buttonCancel_UserRegister
             // 
             buttonCancel_UserRegister.BackColor = Color.FromArgb(192, 0, 0);
+            buttonCancel_UserRegister.ForeColor = Color.White;
             buttonCancel_UserRegister.Location = new Point(141, 417);
             buttonCancel_UserRegister.Name = "buttonCancel_UserRegister";
             buttonCancel_UserRegister.Size = new Size(177, 40);
@@ -108,7 +111,7 @@
             labelCountry_UserRegister.AutoSize = true;
             labelCountry_UserRegister.Location = new Point(35, 301);
             labelCountry_UserRegister.Name = "labelCountry_UserRegister";
-            labelCountry_UserRegister.Size = new Size(90, 21);
+            labelCountry_UserRegister.Size = new Size(99, 23);
             labelCountry_UserRegister.TabIndex = 13;
             labelCountry_UserRegister.Text = "Country (*):";
             // 
@@ -117,7 +120,7 @@
             labelDateBirth_UserRegister.AutoSize = true;
             labelDateBirth_UserRegister.Location = new Point(35, 253);
             labelDateBirth_UserRegister.Name = "labelDateBirth_UserRegister";
-            labelDateBirth_UserRegister.Size = new Size(124, 21);
+            labelDateBirth_UserRegister.Size = new Size(145, 23);
             labelDateBirth_UserRegister.TabIndex = 11;
             labelDateBirth_UserRegister.Text = "Date Of Birth (*):";
             // 
@@ -126,7 +129,7 @@
             textBoxLastName_UserRegister.BorderStyle = BorderStyle.FixedSingle;
             textBoxLastName_UserRegister.Location = new Point(220, 197);
             textBoxLastName_UserRegister.Name = "textBoxLastName_UserRegister";
-            textBoxLastName_UserRegister.Size = new Size(238, 29);
+            textBoxLastName_UserRegister.Size = new Size(238, 30);
             textBoxLastName_UserRegister.TabIndex = 10;
             // 
             // labelLastName_UserRegister
@@ -134,7 +137,7 @@
             labelLastName_UserRegister.AutoSize = true;
             labelLastName_UserRegister.Location = new Point(35, 205);
             labelLastName_UserRegister.Name = "labelLastName_UserRegister";
-            labelLastName_UserRegister.Size = new Size(108, 21);
+            labelLastName_UserRegister.Size = new Size(117, 23);
             labelLastName_UserRegister.TabIndex = 9;
             labelLastName_UserRegister.Text = "Last Name (*):";
             // 
@@ -143,7 +146,7 @@
             textBoxFirstName_UserRegister.BorderStyle = BorderStyle.FixedSingle;
             textBoxFirstName_UserRegister.Location = new Point(220, 151);
             textBoxFirstName_UserRegister.Name = "textBoxFirstName_UserRegister";
-            textBoxFirstName_UserRegister.Size = new Size(238, 29);
+            textBoxFirstName_UserRegister.Size = new Size(238, 30);
             textBoxFirstName_UserRegister.TabIndex = 8;
             // 
             // labelFirstName_UserRegister
@@ -151,7 +154,7 @@
             labelFirstName_UserRegister.AutoSize = true;
             labelFirstName_UserRegister.Location = new Point(35, 159);
             labelFirstName_UserRegister.Name = "labelFirstName_UserRegister";
-            labelFirstName_UserRegister.Size = new Size(110, 21);
+            labelFirstName_UserRegister.Size = new Size(123, 23);
             labelFirstName_UserRegister.TabIndex = 7;
             labelFirstName_UserRegister.Text = "First Name (*):";
             // 
@@ -160,7 +163,7 @@
             textBoxEmail_UserRegister.BorderStyle = BorderStyle.FixedSingle;
             textBoxEmail_UserRegister.Location = new Point(220, 56);
             textBoxEmail_UserRegister.Name = "textBoxEmail_UserRegister";
-            textBoxEmail_UserRegister.Size = new Size(238, 29);
+            textBoxEmail_UserRegister.Size = new Size(238, 30);
             textBoxEmail_UserRegister.TabIndex = 4;
             // 
             // textBoxPassword_UserRegister
@@ -169,7 +172,7 @@
             textBoxPassword_UserRegister.Location = new Point(220, 104);
             textBoxPassword_UserRegister.Name = "textBoxPassword_UserRegister";
             textBoxPassword_UserRegister.PasswordChar = '*';
-            textBoxPassword_UserRegister.Size = new Size(238, 29);
+            textBoxPassword_UserRegister.Size = new Size(238, 30);
             textBoxPassword_UserRegister.TabIndex = 6;
             // 
             // labelPassword_UserRegister
@@ -177,13 +180,14 @@
             labelPassword_UserRegister.AutoSize = true;
             labelPassword_UserRegister.Location = new Point(35, 112);
             labelPassword_UserRegister.Name = "labelPassword_UserRegister";
-            labelPassword_UserRegister.Size = new Size(100, 21);
+            labelPassword_UserRegister.Size = new Size(107, 23);
             labelPassword_UserRegister.TabIndex = 5;
             labelPassword_UserRegister.Text = "Password (*):";
             // 
             // buttonRegister_UserRegister
             // 
             buttonRegister_UserRegister.BackColor = Color.Green;
+            buttonRegister_UserRegister.ForeColor = Color.White;
             buttonRegister_UserRegister.Location = new Point(141, 358);
             buttonRegister_UserRegister.Name = "buttonRegister_UserRegister";
             buttonRegister_UserRegister.Size = new Size(177, 40);
@@ -197,7 +201,7 @@
             labelEmail_UserRegister.AutoSize = true;
             labelEmail_UserRegister.Location = new Point(35, 64);
             labelEmail_UserRegister.Name = "labelEmail_UserRegister";
-            labelEmail_UserRegister.Size = new Size(72, 21);
+            labelEmail_UserRegister.Size = new Size(80, 23);
             labelEmail_UserRegister.TabIndex = 3;
             labelEmail_UserRegister.Text = "Email (*):";
             // 
@@ -205,6 +209,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(585, 630);
             Controls.Add(groupBox_UserRegister);
             Controls.Add(labelHeader_UserRegister);

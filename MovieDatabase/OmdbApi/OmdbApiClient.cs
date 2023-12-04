@@ -8,26 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace MovieDatabase.OmdbApi {
-    internal class OmdbApiClient {
+namespace MovieDatabase.OmdbApi
+{
+    internal class OmdbApiClient
+    {
 
         private string omdbApiKey;
 
-        public OmdbApiClient() {
+        public OmdbApiClient()
+        {
             //Set Credentials from Environment Variables
             IConfigurationRoot config = new ConfigurationBuilder().AddEnvironmentVariables().Build();
             omdbApiKey = config["OMDB_APIKEY"];
         }
 
 
-        public async Task<ClassOmdbResponseSearch> GetBySearch(string inputSearchTerm, string inputYear, string inputType) {
+        public async Task<ClassOmdbResponseSearch> GetBySearch(string inputSearchTerm, string inputYear, string inputType)
+        {
             HttpClient httpClient;
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://www.omdbapi.com");
             Debug.WriteLine($"API Key: {omdbApiKey}");
 
-            try {
-                using (httpClient) {
+            try
+            {
+                using (httpClient)
+                {
                     //Build query string
                     string queryString = string.Empty;
                     queryString += $"/?apikey={omdbApiKey}";                                //API KEY parameter
@@ -38,8 +44,10 @@ namespace MovieDatabase.OmdbApi {
                     if (inputType != null) queryString += $"&type={inputType}";               //Type of result to return.
 
                     //API Request
-                    using (HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString)) {
-                        using (HttpContent httpContent = httpResponseMessage.Content) {
+                    using (HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString))
+                    {
+                        using (HttpContent httpContent = httpResponseMessage.Content)
+                        {
                             string taskString = await httpContent.ReadAsStringAsync();
                             ClassOmdbResponseSearch? deserializedObj = JsonConvert.DeserializeObject<ClassOmdbResponseSearch>(taskString);
                             return deserializedObj;
@@ -47,20 +55,24 @@ namespace MovieDatabase.OmdbApi {
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
                 Debug.WriteLine(message);
                 return null;
             }
         }
 
-        public async Task<ClassOmdbTitle> GetByImdbId(string imdbID) {
+        public async Task<ClassOmdbTitle> GetByImdbId(string imdbID)
+        {
             HttpClient httpClient;
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://www.omdbapi.com");
 
-            try {
-                using (httpClient) {
+            try
+            {
+                using (httpClient)
+                {
                     //Build query string
                     string queryString = string.Empty;
                     queryString += $"/?apikey={omdbApiKey}";                                //API KEY parameter
@@ -70,8 +82,10 @@ namespace MovieDatabase.OmdbApi {
                     queryString += $"&i={imdbID}";                                          //A valid IMDb ID (e.g. tt1285016)
 
                     //API Request
-                    using (HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString)) {
-                        using (HttpContent httpContent = httpResponseMessage.Content) {
+                    using (HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(queryString))
+                    {
+                        using (HttpContent httpContent = httpResponseMessage.Content)
+                        {
                             string taskString = await httpContent.ReadAsStringAsync();
                             ClassOmdbTitle? deserializedObj = JsonConvert.DeserializeObject<ClassOmdbTitle>(taskString);
                             return deserializedObj;
@@ -79,7 +93,8 @@ namespace MovieDatabase.OmdbApi {
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
                 Debug.WriteLine(message);
                 return null;

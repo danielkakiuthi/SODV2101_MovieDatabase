@@ -22,9 +22,10 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             groupBoxMenu_Frame = new GroupBox();
-            buttonTitleDetails_Frame = new Button();
+            buttonFavoriteDetails_Frame = new Button();
             labelHeader_Frame = new Label();
             buttonLogout_Frame = new Button();
             buttonTitleSearch_Frame = new Button();
@@ -36,8 +37,8 @@
             // 
             // groupBoxMenu_Frame
             // 
-            groupBoxMenu_Frame.BackColor = SystemColors.ControlDarkDark;
-            groupBoxMenu_Frame.Controls.Add(buttonTitleDetails_Frame);
+            groupBoxMenu_Frame.BackColor = Color.FromArgb(128, 128, 255);
+            groupBoxMenu_Frame.Controls.Add(buttonFavoriteDetails_Frame);
             groupBoxMenu_Frame.Controls.Add(labelHeader_Frame);
             groupBoxMenu_Frame.Controls.Add(buttonLogout_Frame);
             groupBoxMenu_Frame.Controls.Add(buttonTitleSearch_Frame);
@@ -51,28 +52,31 @@
             groupBoxMenu_Frame.Size = new Size(194, 629);
             groupBoxMenu_Frame.TabIndex = 0;
             groupBoxMenu_Frame.TabStop = false;
+            groupBoxMenu_Frame.Enter += groupBoxMenu_Frame_Enter;
             // 
-            // buttonTitleDetails_Frame
+            // buttonFavoriteDetails_Frame
             // 
-            buttonTitleDetails_Frame.BackColor = SystemColors.GrayText;
-            buttonTitleDetails_Frame.Image = Properties.Resources.IconTitleDetails1;
-            buttonTitleDetails_Frame.Location = new Point(12, 200);
-            buttonTitleDetails_Frame.Name = "buttonTitleDetails_Frame";
-            buttonTitleDetails_Frame.Size = new Size(175, 36);
-            buttonTitleDetails_Frame.TabIndex = 5;
-            buttonTitleDetails_Frame.Text = "Title Details";
-            buttonTitleDetails_Frame.TextAlign = ContentAlignment.MiddleRight;
-            buttonTitleDetails_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonTitleDetails_Frame.UseVisualStyleBackColor = false;
-            buttonTitleDetails_Frame.Click += buttonTitleDetails_Frame_Click;
+            buttonFavoriteDetails_Frame.BackColor = Color.Blue;
+            buttonFavoriteDetails_Frame.ForeColor = Color.White;
+            buttonFavoriteDetails_Frame.Image = Properties.Resources.IconTitleDetails1;
+            buttonFavoriteDetails_Frame.Location = new Point(12, 200);
+            buttonFavoriteDetails_Frame.Name = "buttonFavoriteDetails_Frame";
+            buttonFavoriteDetails_Frame.Size = new Size(175, 36);
+            buttonFavoriteDetails_Frame.TabIndex = 5;
+            buttonFavoriteDetails_Frame.Text = "Favorites";
+            buttonFavoriteDetails_Frame.TextAlign = ContentAlignment.MiddleRight;
+            buttonFavoriteDetails_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonFavoriteDetails_Frame.UseVisualStyleBackColor = false;
+            buttonFavoriteDetails_Frame.Click += buttonFavoriteDetails_Frame_Click;
             // 
             // labelHeader_Frame
             // 
             labelHeader_Frame.AutoSize = true;
-            labelHeader_Frame.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelHeader_Frame.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelHeader_Frame.ForeColor = Color.White;
             labelHeader_Frame.Location = new Point(12, 26);
             labelHeader_Frame.Name = "labelHeader_Frame";
-            labelHeader_Frame.Size = new Size(77, 25);
+            labelHeader_Frame.Size = new Size(98, 27);
             labelHeader_Frame.TabIndex = 4;
             labelHeader_Frame.Text = "Hello, ...";
             // 
@@ -91,6 +95,8 @@
             // 
             // buttonTitleSearch_Frame
             // 
+            buttonTitleSearch_Frame.BackColor = Color.Blue;
+            buttonTitleSearch_Frame.ForeColor = Color.White;
             buttonTitleSearch_Frame.Image = Properties.Resources.IconTestApi;
             buttonTitleSearch_Frame.Location = new Point(12, 158);
             buttonTitleSearch_Frame.Name = "buttonTitleSearch_Frame";
@@ -99,11 +105,13 @@
             buttonTitleSearch_Frame.Text = "Title Search";
             buttonTitleSearch_Frame.TextAlign = ContentAlignment.MiddleRight;
             buttonTitleSearch_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonTitleSearch_Frame.UseVisualStyleBackColor = true;
+            buttonTitleSearch_Frame.UseVisualStyleBackColor = false;
             buttonTitleSearch_Frame.Click += buttonTitleSearch_Frame_Click;
             // 
             // buttonUserDetails_Frame
             // 
+            buttonUserDetails_Frame.BackColor = Color.Blue;
+            buttonUserDetails_Frame.ForeColor = Color.White;
             buttonUserDetails_Frame.Image = Properties.Resources.IconAccount;
             buttonUserDetails_Frame.Location = new Point(12, 116);
             buttonUserDetails_Frame.Name = "buttonUserDetails_Frame";
@@ -112,12 +120,13 @@
             buttonUserDetails_Frame.Text = "User Details";
             buttonUserDetails_Frame.TextAlign = ContentAlignment.MiddleRight;
             buttonUserDetails_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonUserDetails_Frame.UseVisualStyleBackColor = true;
+            buttonUserDetails_Frame.UseVisualStyleBackColor = false;
             buttonUserDetails_Frame.Click += buttonUserDetails_Frame_Click;
             // 
             // buttonHomepage_Frame
             // 
-            buttonHomepage_Frame.BackColor = SystemColors.GrayText;
+            buttonHomepage_Frame.BackColor = Color.Blue;
+            buttonHomepage_Frame.ForeColor = Color.White;
             buttonHomepage_Frame.Image = Properties.Resources.IconHomepage;
             buttonHomepage_Frame.Location = new Point(12, 74);
             buttonHomepage_Frame.Name = "buttonHomepage_Frame";
@@ -162,6 +171,6 @@
         private TabControl tabControlContent_Frame;
         private Button buttonLogout_Frame;
         private Label labelHeader_Frame;
-        private Button buttonTitleDetails_Frame;
+        private Button buttonFavoriteDetails_Frame;
     }
 }

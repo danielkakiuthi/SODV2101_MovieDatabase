@@ -1,5 +1,6 @@
 namespace MovieDatabase {
-    public partial class FormFrame : Form {
+    public partial class FormFrame : Form
+    {
 
         private int screenWidth;
         private int screenHeight;
@@ -11,7 +12,8 @@ namespace MovieDatabase {
         private TabPage? tabTitleSearch;
         private TabPage? tabTitleDetails;
 
-        public FormFrame(string connectionString, ClassUser userLogged) {
+        public FormFrame(string connectionString, ClassUser userLogged)
+        {
             //Initialize Objects
             InitializeComponent();
             ConnectionString = connectionString;
@@ -34,69 +36,77 @@ namespace MovieDatabase {
             buttonUserDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
             buttonTitleSearch_Frame.Location = new Point(0, 200);
             buttonTitleSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
-            buttonTitleDetails_Frame.Location = new Point(0, 250);
-            buttonTitleDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
+            buttonFavoriteDetails_Frame.Location = new Point(0, 250);
+            buttonFavoriteDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
             buttonLogout_Frame.Location = new Point(0, screenHeight - 100);
             buttonLogout_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage() {
+            FormHomepage formHomepage = new FormHomepage()
+            {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None,
             };
             formHomepage.Show();
-            tabHomepage = new TabPage() {
+            tabHomepage = new TabPage()
+            {
                 Text = "Tab Homepage",
                 Name = "TabHomepage",
-                Controls = {formHomepage}
+                Controls = { formHomepage }
             };
             tabControlContent_Frame.TabPages.Add(tabHomepage);
 
             //Initialize UserDetails Tab
-            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged) {
+            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged)
+            {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formUserDetails.Show();
-            tabUserDetails = new TabPage() {
+            tabUserDetails = new TabPage()
+            {
                 Text = "Tab User Details",
                 Name = "TabUserDetails",
-                Controls = {formUserDetails}
+                Controls = { formUserDetails }
             };
             tabControlContent_Frame.TabPages.Add(tabUserDetails);
 
             //Initialize TitleSearch Tab
-            FormTitleSearch formTitleInformation = new FormTitleSearch() {
+            FormTitleSearch formTitleInformation = new FormTitleSearch()
+            {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formTitleInformation.Show();
-            tabTitleSearch = new TabPage() {
+            tabTitleSearch = new TabPage()
+            {
                 Text = "Tab Title Search",
                 Name = "TabTitleSearch",
-                Controls = {formTitleInformation}
+                Controls = { formTitleInformation }
             };
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
             //Initialize TitleDetails Tab
-            FormTitleDetails formTitleDetails = new FormTitleDetails() {
+            FormTitleDetails formTitleDetails = new FormTitleDetails()
+            {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formTitleDetails.Show();
-            tabTitleDetails = new TabPage() {
+            tabTitleDetails = new TabPage()
+            {
                 Text = "Tab Title Details",
                 Name = "TabTitleDetails",
-                Controls = {formTitleDetails}
+                Controls = { formTitleDetails }
             };
             tabControlContent_Frame.TabPages.Add(tabTitleDetails);
 
@@ -118,29 +128,54 @@ namespace MovieDatabase {
 
         }
 
-        private void buttonHomepage_Frame_Click(object sender, EventArgs e) {
+        private void buttonHomepage_Frame_Click(object sender, EventArgs e)
+        {
             tabControlContent_Frame.SelectTab(tabHomepage);
+            buttonHomepage_Frame.BackColor = System.Drawing.Color.Green;
+            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
         }
 
 
-        private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
+        private void buttonUserDetails_Frame_Click(object sender, EventArgs e)
+        {
             tabControlContent_Frame.SelectTab(tabUserDetails);
+            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Green;
+            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
         }
 
 
-        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
+        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e)
+        {
             tabControlContent_Frame.SelectTab(tabTitleSearch);
+            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Green;
+            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
         }
-
-        private void buttonTitleDetails_Frame_Click(object sender, EventArgs e) {
+        private void buttonFavoriteDetails_Frame_Click(object sender, EventArgs e)
+        {
             tabControlContent_Frame.SelectTab(tabTitleDetails);
+            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Green;
+            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
         }
 
-
-        private void buttonLogout_Frame_Click(object sender, EventArgs e) {
+        private void buttonLogout_Frame_Click(object sender, EventArgs e)
+        {
             this.Owner.Show();
             this.Close();
         }
+
+        private void groupBoxMenu_Frame_Enter(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

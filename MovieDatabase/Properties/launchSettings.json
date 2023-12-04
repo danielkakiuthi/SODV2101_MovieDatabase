@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MovieDatabase": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "OMDB_APIKEY": "400a5f9b"
+      }
+    }
+  }
+}

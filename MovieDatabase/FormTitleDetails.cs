@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormTitleDetails : Form {
+    public partial class FormTitleDetails : Form
+    {
 
         public string KeywordQuery { get; set; }
         public string GenreQuery { get; set; }
@@ -17,8 +18,14 @@ namespace MovieDatabase {
         public string RatingQuery { get; set; }
 
 
-        public FormTitleDetails() {
-            InitializeComponent();
+        public FormTitleDetails()
+        {
+            InitializeComponent();          
+        }
+
+        private void FormTitleDetails_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

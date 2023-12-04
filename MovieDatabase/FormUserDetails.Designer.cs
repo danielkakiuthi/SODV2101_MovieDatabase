@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelHeader_UserDetails = new Label();
             groupBox_UserRegister = new GroupBox();
             comboBoxCountry_UserDetails = new ComboBox();
@@ -95,6 +96,8 @@
             // buttonCancel_UserDetails
             // 
             buttonCancel_UserDetails.BackColor = Color.FromArgb(192, 0, 0);
+            buttonCancel_UserDetails.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCancel_UserDetails.ForeColor = Color.White;
             buttonCancel_UserDetails.Location = new Point(141, 417);
             buttonCancel_UserDetails.Name = "buttonCancel_UserDetails";
             buttonCancel_UserDetails.Size = new Size(177, 40);
@@ -184,6 +187,8 @@
             // buttonUpdate_UserDetails
             // 
             buttonUpdate_UserDetails.BackColor = Color.Green;
+            buttonUpdate_UserDetails.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonUpdate_UserDetails.ForeColor = Color.White;
             buttonUpdate_UserDetails.Location = new Point(141, 358);
             buttonUpdate_UserDetails.Name = "buttonUpdate_UserDetails";
             buttonUpdate_UserDetails.Size = new Size(177, 40);
