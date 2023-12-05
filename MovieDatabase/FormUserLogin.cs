@@ -36,6 +36,7 @@ namespace MovieDatabase {
         }
 
 
+
         private void buttonLogin_UserLogin_Click(object sender, EventArgs e) {
 
             //Build Select Query

@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             groupBox_UserLogin = new GroupBox();
             linkLabelRegister_UserLogin = new LinkLabel();
             buttonLogin_UserLogin = new Button();
@@ -44,7 +43,7 @@
             groupBox_UserLogin.Controls.Add(textBoxEmail_UserLogin);
             groupBox_UserLogin.Controls.Add(labelEmail_UserLogin);
             groupBox_UserLogin.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox_UserLogin.Location = new Point(63, 129);
+            groupBox_UserLogin.Location = new Point(227, 106);
             groupBox_UserLogin.Name = "groupBox_UserLogin";
             groupBox_UserLogin.Size = new Size(306, 438);
             groupBox_UserLogin.TabIndex = 2;
@@ -116,7 +115,7 @@
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.OIG__1_;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(434, 661);
+            ClientSize = new Size(740, 661);
             Controls.Add(groupBox_UserLogin);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);

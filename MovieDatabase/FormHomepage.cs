@@ -38,6 +38,8 @@ namespace MovieDatabase {
 
         public async void FormHomepage_Load(object sender, EventArgs e) {
 
+            this.SuspendLayout();
+
             //get data of lists of titles from API
             myTopRatedResponse = await tmdbApiClient.GetTopRated();
             myPopularResponse = await tmdbApiClient.GetPopular();
@@ -85,7 +87,7 @@ namespace MovieDatabase {
                     Size = new Size((int)(tableLayoutPanelTopRated.Size.Width *0.9 / tableLayoutPanelTopRated.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
-                newPictureBox.Load(listTopRatedImageUrls[i]);
+                newPictureBox.LoadAsync(listTopRatedImageUrls[i]);
                 tableLayoutPanelTopRated.Controls.Add(newPictureBox, i, 0);
             }
             for (int i = 0; i < tableLayoutPanelPopular.ColumnCount; i++) {
@@ -93,7 +95,7 @@ namespace MovieDatabase {
                     Size = new Size((int)(tableLayoutPanelPopular.Size.Width*0.9 / tableLayoutPanelPopular.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
-                newPictureBox.Load(listPopularImageUrls[i]);
+                newPictureBox.LoadAsync(listPopularImageUrls[i]);
                 tableLayoutPanelPopular.Controls.Add(newPictureBox, i, 0);
             }
             for (int i = 0; i < tableLayoutPanelUpcoming.ColumnCount; i++) {
@@ -101,9 +103,11 @@ namespace MovieDatabase {
                     Size = new Size((int)(tableLayoutPanelUpcoming.Size.Width*0.9 / tableLayoutPanelUpcoming.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
-                newPictureBox.Load(listUpcomingImageUrls[i]);
+                newPictureBox.LoadAsync(listUpcomingImageUrls[i]);
                 tableLayoutPanelUpcoming.Controls.Add(newPictureBox, i, 0);
             }
+
+            this.ResumeLayout();
         }
 
     }
