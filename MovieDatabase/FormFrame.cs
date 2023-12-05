@@ -26,10 +26,10 @@ namespace MovieDatabase {
             screenHeight = Screen.PrimaryScreen.Bounds.Height;
 
             //Adjust Menu properties
-            int _frameWidth = (int)(screenWidth * 0.1);
-            int _frameHeight = (int)(screenHeight);
+            int _menuWidth = (int)(screenWidth * 0.1);
+            int _menuHeight = (int)(screenHeight);
             groupBoxMenu_Frame.Location = new Point(0, 0);
-            groupBoxMenu_Frame.Size = new Size(_frameWidth, _frameHeight);
+            groupBoxMenu_Frame.Size = new Size(_menuWidth, _menuHeight);
 
             //Adjust Menu Buttons properties
             buttonHomepage_Frame.Location = new Point(0, 100);

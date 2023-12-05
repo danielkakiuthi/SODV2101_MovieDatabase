@@ -42,10 +42,55 @@ namespace MovieDatabase.TmdbApi {
                 Debug.WriteLine(message);
                 return null;
             }
-
-
         }
 
+
+        public async Task<ClassTmdbResponse> GetPopular() {
+            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1");
+
+            try {
+                using (var client = new RestClient(options)) {
+                    RestRequest request = new RestRequest("");
+                    request.AddHeader("accept", "application/json");
+                    request.AddHeader("Authorization", $"Bearer {tmdbApiKey}");
+                    var response = await client.GetAsync(request);
+
+                    Debug.WriteLine($"{response.Content}");
+
+                    ClassTmdbResponse? deserializedObj = JsonConvert.DeserializeObject<ClassTmdbResponse>(response.Content);
+                    return deserializedObj;
+                }
+            }
+            catch (Exception ex) {
+                string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
+                Debug.WriteLine(message);
+                return null;
+            }
+        }
+
+
+        public async Task<ClassTmdbResponse> GetUpcoming() {
+            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1");
+
+            try {
+                using (var client = new RestClient(options)) {
+                    RestRequest request = new RestRequest("");
+                    request.AddHeader("accept", "application/json");
+                    request.AddHeader("Authorization", $"Bearer {tmdbApiKey}");
+                    var response = await client.GetAsync(request);
+
+                    Debug.WriteLine($"{response.Content}");
+
+                    ClassTmdbResponse? deserializedObj = JsonConvert.DeserializeObject<ClassTmdbResponse>(response.Content);
+                    return deserializedObj;
+                }
+            }
+            catch (Exception ex) {
+                string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
+                Debug.WriteLine(message);
+                return null;
+            }
+        }
 
     }
 }

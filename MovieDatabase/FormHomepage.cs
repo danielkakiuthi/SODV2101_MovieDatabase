@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MovieDatabase.OmdbApi;
+﻿using System.Diagnostics;
 using MovieDatabase.TmdbApi;
+
+
 
 namespace MovieDatabase {
     public partial class FormHomepage : Form {
 
         private TmdbApiClient tmdbApiClient;
-        private ClassTmdbResponse myResponse;
+        private ClassTmdbResponse myTopRatedResponse;
+        private ClassTmdbResponse myPopularResponse;
+        private ClassTmdbResponse myUpcomingResponse;
 
         public FormHomepage(int width) {
             InitializeComponent();
@@ -23,36 +17,92 @@ namespace MovieDatabase {
 
             //Adjust TableLayoutPanelTopRated
             tableLayoutPanelTopRated.ColumnCount = 10;
-            tableLayoutPanelTopRated.Size = new System.Drawing.Size(width, 200);
+            tableLayoutPanelTopRated.Size = new Size(width, 180);
+            tableLayoutPanelTopRated.Location = new Point(10, 100);
+            labelTopRated_Homepage.Location = new Point(10, 70);
+
+            //Adjust TableLayoutPanelPopular
+            tableLayoutPanelPopular.ColumnCount = 10;
+            tableLayoutPanelPopular.Size = new Size(width, 180);
+            tableLayoutPanelPopular.Location = new Point(10, 350);
+            labelPopular_Homepage.Location = new Point(10, 320);
+
+            //Adjust TableLayoutPanelUpcoming
+            tableLayoutPanelUpcoming.ColumnCount = 10;
+            tableLayoutPanelUpcoming.Size = new Size(width, 180);
+            tableLayoutPanelUpcoming.Location = new Point(10, 600);
+            labelUpcoming_Homepage.Location = new Point(10, 570);
 
         }
 
+
         public async void FormHomepage_Load(object sender, EventArgs e) {
 
-            myResponse = await tmdbApiClient.GetTopRated();
-            Debug.WriteLine(myResponse.ToString());
+            //get data of lists of titles from API
+            myTopRatedResponse = await tmdbApiClient.GetTopRated();
+            myPopularResponse = await tmdbApiClient.GetPopular();
+            myUpcomingResponse = await tmdbApiClient.GetUpcoming();
 
 
-            listBoxTopRated_Homepage.DataSource = myResponse?.Results;
+            //check data in responses
+            Debug.WriteLine(myTopRatedResponse.ToString());
 
 
-            string message = string.Empty;
-            if (myResponse.Results == null) {
-                MessageBox.Show("No Title found. Try another search term.");
+            //DEBUG (DELETE LATER)
+            listBoxTopRated_Homepage.DataSource = myTopRatedResponse?.Results;
+
+
+            //Check for errors
+            if (myTopRatedResponse.Results == null) {
+                MessageBox.Show("[ERROR] No Top Rated Title found.");
+            }
+            if (myPopularResponse.Results == null) {
+                MessageBox.Show("[ERROR] No Popular Title found.");
+            }
+            if (myUpcomingResponse.Results == null) {
+                MessageBox.Show("[ERROR] No Upcoming Title found.");
             }
 
-            List<string> listImageUrls = new List<string>();
-            foreach (ClassTmdbTitle c in myResponse.Results) {
-                listImageUrls.Add($"https://image.tmdb.org/t/p/w500/{c.PosterPath}");
+
+            //Create lists of URL to display posters in Homepage
+            List<string> listTopRatedImageUrls = new List<string>();
+            foreach (ClassTmdbTitle c in myTopRatedResponse.Results) {
+                listTopRatedImageUrls.Add($"https://image.tmdb.org/t/p/w200/{c.PosterPath}");
+            }
+            List<string> listPopularImageUrls = new List<string>();
+            foreach (ClassTmdbTitle c in myPopularResponse.Results) {
+                listPopularImageUrls.Add($"https://image.tmdb.org/t/p/w200/{c.PosterPath}");
+            }
+            List<string> listUpcomingImageUrls = new List<string>();
+            foreach (ClassTmdbTitle c in myUpcomingResponse.Results) {
+                listUpcomingImageUrls.Add($"https://image.tmdb.org/t/p/w200/{c.PosterPath}");
             }
 
+
+            //Populate controls inside Homepage
             for (int i = 0; i < tableLayoutPanelTopRated.ColumnCount; i++) {
                 PictureBox newPictureBox = new PictureBox() {
-                    Size = new Size(tableLayoutPanelTopRated.Size.Width / tableLayoutPanelTopRated.ColumnCount, 200),
+                    Size = new Size((int)(tableLayoutPanelTopRated.Size.Width *0.9 / tableLayoutPanelTopRated.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
-                newPictureBox.Load(listImageUrls[i]);
+                newPictureBox.Load(listTopRatedImageUrls[i]);
                 tableLayoutPanelTopRated.Controls.Add(newPictureBox, i, 0);
+            }
+            for (int i = 0; i < tableLayoutPanelPopular.ColumnCount; i++) {
+                PictureBox newPictureBox = new PictureBox() {
+                    Size = new Size((int)(tableLayoutPanelPopular.Size.Width*0.9 / tableLayoutPanelPopular.ColumnCount), 200),
+                    SizeMode = PictureBoxSizeMode.Zoom
+                };
+                newPictureBox.Load(listPopularImageUrls[i]);
+                tableLayoutPanelPopular.Controls.Add(newPictureBox, i, 0);
+            }
+            for (int i = 0; i < tableLayoutPanelUpcoming.ColumnCount; i++) {
+                PictureBox newPictureBox = new PictureBox() {
+                    Size = new Size((int)(tableLayoutPanelUpcoming.Size.Width*0.9 / tableLayoutPanelUpcoming.ColumnCount), 200),
+                    SizeMode = PictureBoxSizeMode.Zoom
+                };
+                newPictureBox.Load(listUpcomingImageUrls[i]);
+                tableLayoutPanelUpcoming.Controls.Add(newPictureBox, i, 0);
             }
         }
 
