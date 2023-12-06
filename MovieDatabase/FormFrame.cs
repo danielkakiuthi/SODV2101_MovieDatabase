@@ -1,6 +1,7 @@
+using System.Drawing.Drawing2D;
+
 namespace MovieDatabase {
-    public partial class FormFrame : Form
-    {
+    public partial class FormFrame : Form {
 
         private int screenWidth;
         private int screenHeight;
@@ -12,8 +13,7 @@ namespace MovieDatabase {
         private TabPage? tabTitleSearch;
         private TabPage? tabTitleDetails;
 
-        public FormFrame(string connectionString, ClassUser userLogged)
-        {
+        public FormFrame(string connectionString, ClassUser userLogged) {
             //Initialize Objects
             InitializeComponent();
             ConnectionString = connectionString;
@@ -31,6 +31,10 @@ namespace MovieDatabase {
             groupBoxMenu_Frame.Location = new Point(0, 0);
             groupBoxMenu_Frame.Size = new Size(_menuWidth, _menuHeight);
 
+            //Adjust Logo
+            pictureBoxLogo.Image = Image.FromFile("../../../Resources/MovieDatabase_HighResLogo_White_Cropped.png");
+            pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+
             //Adjust Menu Buttons properties
             buttonHomepage_Frame.Location = new Point(0, 100);
             buttonHomepage_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
@@ -45,16 +49,14 @@ namespace MovieDatabase {
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width)
-            {
+            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None,
             };
             formHomepage.Show();
-            tabHomepage = new TabPage()
-            {
+            tabHomepage = new TabPage() {
                 Text = "Tab Homepage",
                 Name = "TabHomepage",
                 Controls = { formHomepage }
@@ -62,16 +64,14 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabHomepage);
 
             //Initialize UserDetails Tab
-            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged)
-            {
+            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formUserDetails.Show();
-            tabUserDetails = new TabPage()
-            {
+            tabUserDetails = new TabPage() {
                 Text = "Tab User Details",
                 Name = "TabUserDetails",
                 Controls = { formUserDetails }
@@ -79,16 +79,14 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabUserDetails);
 
             //Initialize TitleSearch Tab
-            FormTitleSearch formTitleInformation = new FormTitleSearch()
-            {
+            FormTitleSearch formTitleInformation = new FormTitleSearch() {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formTitleInformation.Show();
-            tabTitleSearch = new TabPage()
-            {
+            tabTitleSearch = new TabPage() {
                 Text = "Tab Title Search",
                 Name = "TabTitleSearch",
                 Controls = { formTitleInformation }
@@ -96,16 +94,14 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
             //Initialize TitleDetails Tab
-            FormTitleDetails formTitleDetails = new FormTitleDetails()
-            {
+            FormTitleDetails formTitleDetails = new FormTitleDetails() {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formTitleDetails.Show();
-            tabTitleDetails = new TabPage()
-            {
+            tabTitleDetails = new TabPage() {
                 Text = "Tab Title Details",
                 Name = "TabTitleDetails",
                 Controls = { formTitleDetails }
@@ -130,8 +126,7 @@ namespace MovieDatabase {
 
         }
 
-        private void buttonHomepage_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonHomepage_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabHomepage);
             buttonHomepage_Frame.BackColor = System.Drawing.Color.Green;
             buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
@@ -140,8 +135,7 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonUserDetails_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabUserDetails);
             buttonUserDetails_Frame.BackColor = System.Drawing.Color.Green;
             buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
@@ -150,16 +144,14 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleSearch);
             buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Green;
             buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
             buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
             buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
         }
-        private void buttonFavoriteDetails_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonFavoriteDetails_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleDetails);
             buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Green;
             buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
@@ -167,17 +159,33 @@ namespace MovieDatabase {
             buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
         }
 
-        private void buttonLogout_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonLogout_Frame_Click(object sender, EventArgs e) {
             this.Owner.Show();
             this.Close();
         }
 
-        private void groupBoxMenu_Frame_Enter(object sender, EventArgs e)
-        {
+        private void groupBoxMenu_Frame_Paint(object sender, PaintEventArgs e) {
+
+            Color c1 = Color.FromArgb(255, 174, 0, 255);
+            Color c2 = Color.FromArgb(255, 163, 5, 243);
+            Color c3 = Color.FromArgb(255, 153, 8, 231);
+            Color c4 = Color.FromArgb(255, 143, 11, 219);
+            Color c5 = Color.FromArgb(255, 133, 13, 207);
+            Color c6 = Color.FromArgb(255, 123, 14, 195);
+            Color c7 = Color.FromArgb(255, 114, 14, 183);
+
+            // Changed: c1 / c7 as start colors, and at 90 degrees.  Removed later transform.
+            LinearGradientBrush br = new LinearGradientBrush(this.ClientRectangle, c1, c7, 270, true);
+            ColorBlend cb = new ColorBlend();
+            cb.Positions = new[] { 0, (float)0.146, (float)0.317, (float)0.439, (float)0.585, (float)0.797, 1 };
+            cb.Colors = new[] { c1, c2, c3, c4, c5, c6, c7 };
+            br.InterpolationColors = cb;
+
+            // removed rotate call
+
+            // paint
+            e.Graphics.FillRectangle(br, this.ClientRectangle);
 
         }
-
-
     }
 }

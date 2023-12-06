@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Drawing.Drawing2D;
 using MovieDatabase.TmdbApi;
 
 
@@ -17,6 +18,7 @@ namespace MovieDatabase {
 
             //Adjust TableLayoutPanelTopRated
             tableLayoutPanelTopRated.ColumnCount = 10;
+            tableLayoutPanelTopRated.AutoScroll = true;
             tableLayoutPanelTopRated.Size = new Size(width, 180);
             tableLayoutPanelTopRated.Location = new Point(10, 100);
             labelTopRated_Homepage.Location = new Point(10, 70);
@@ -84,7 +86,7 @@ namespace MovieDatabase {
             //Populate controls inside Homepage
             for (int i = 0; i < tableLayoutPanelTopRated.ColumnCount; i++) {
                 PictureBox newPictureBox = new PictureBox() {
-                    Size = new Size((int)(tableLayoutPanelTopRated.Size.Width *0.9 / tableLayoutPanelTopRated.ColumnCount), 200),
+                    Size = new Size((int)(tableLayoutPanelTopRated.Size.Width * 0.9 / tableLayoutPanelTopRated.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
                 newPictureBox.LoadAsync(listTopRatedImageUrls[i]);
@@ -92,7 +94,7 @@ namespace MovieDatabase {
             }
             for (int i = 0; i < tableLayoutPanelPopular.ColumnCount; i++) {
                 PictureBox newPictureBox = new PictureBox() {
-                    Size = new Size((int)(tableLayoutPanelPopular.Size.Width*0.9 / tableLayoutPanelPopular.ColumnCount), 200),
+                    Size = new Size((int)(tableLayoutPanelPopular.Size.Width * 0.9 / tableLayoutPanelPopular.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
                 newPictureBox.LoadAsync(listPopularImageUrls[i]);
@@ -100,7 +102,7 @@ namespace MovieDatabase {
             }
             for (int i = 0; i < tableLayoutPanelUpcoming.ColumnCount; i++) {
                 PictureBox newPictureBox = new PictureBox() {
-                    Size = new Size((int)(tableLayoutPanelUpcoming.Size.Width*0.9 / tableLayoutPanelUpcoming.ColumnCount), 200),
+                    Size = new Size((int)(tableLayoutPanelUpcoming.Size.Width * 0.9 / tableLayoutPanelUpcoming.ColumnCount), 200),
                     SizeMode = PictureBoxSizeMode.Zoom
                 };
                 newPictureBox.LoadAsync(listUpcomingImageUrls[i]);
@@ -110,5 +112,34 @@ namespace MovieDatabase {
             this.ResumeLayout();
         }
 
+        private void FormHomepage_Paint(object sender, PaintEventArgs e) {
+            //Color c1 = Color.FromArgb(255, 252, 254, 255);
+            //Color c2 = Color.FromArgb(255, 247, 251, 253);
+            //Color c3 = Color.FromArgb(255, 228, 239, 247);
+            //Color c4 = Color.FromArgb(255, 217, 228, 238);
+            //Color c5 = Color.FromArgb(255, 200, 212, 217);
+            //Color c6 = Color.FromArgb(255, 177, 198, 215);
+            //Color c7 = Color.FromArgb(255, 166, 186, 208);
+
+            Color c1 = Color.FromArgb(255, 27, 118, 255);
+            Color c2 = Color.FromArgb(255, 39, 136, 255);
+            Color c3 = Color.FromArgb(255, 63, 153, 255);
+            Color c4 = Color.FromArgb(255, 89, 169, 255);
+            Color c5 = Color.FromArgb(255, 116, 184, 254);
+            Color c6 = Color.FromArgb(255, 144, 199, 250);
+            Color c7 = Color.FromArgb(255, 173, 213, 247);
+
+            // Changed: c1 / c7 as start colors, and at 90 degrees.  Removed later transform.
+            LinearGradientBrush br = new LinearGradientBrush(this.ClientRectangle, c1, c7, 90, true);
+            ColorBlend cb = new ColorBlend();
+            cb.Positions = new[] { 0, (float)0.146, (float)0.317, (float)0.439, (float)0.585, (float)0.797, 1 };
+            cb.Colors = new[] { c1, c2, c3, c4, c5, c6, c7 };
+            br.InterpolationColors = cb;
+
+            // removed rotate call
+
+            // paint
+            e.Graphics.FillRectangle(br, this.ClientRectangle);
+        }
     }
 }

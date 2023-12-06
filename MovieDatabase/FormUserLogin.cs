@@ -33,6 +33,10 @@ namespace MovieDatabase {
             ConnectionString += "Integrated Security=True; ";
 
             this.CenterToScreen();
+
+            //Fill Placeholders text
+            textBoxEmail_UserLogin.PlaceholderText = "email@email.com";
+            textBoxPassword_UserLogin.PlaceholderText = "**********";
         }
 
 

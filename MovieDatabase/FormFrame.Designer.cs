@@ -22,9 +22,9 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             groupBoxMenu_Frame = new GroupBox();
+            pictureBoxLogo = new PictureBox();
             buttonFavoriteDetails_Frame = new Button();
             labelHeader_Frame = new Label();
             buttonLogout_Frame = new Button();
@@ -33,11 +33,13 @@
             buttonHomepage_Frame = new Button();
             tabControlContent_Frame = new TabControl();
             groupBoxMenu_Frame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             SuspendLayout();
             // 
             // groupBoxMenu_Frame
             // 
-            groupBoxMenu_Frame.BackColor = Color.FromArgb(128, 128, 255);
+            groupBoxMenu_Frame.BackColor = Color.DarkSlateBlue;
+            groupBoxMenu_Frame.Controls.Add(pictureBoxLogo);
             groupBoxMenu_Frame.Controls.Add(buttonFavoriteDetails_Frame);
             groupBoxMenu_Frame.Controls.Add(labelHeader_Frame);
             groupBoxMenu_Frame.Controls.Add(buttonLogout_Frame);
@@ -52,14 +54,22 @@
             groupBoxMenu_Frame.Size = new Size(194, 629);
             groupBoxMenu_Frame.TabIndex = 0;
             groupBoxMenu_Frame.TabStop = false;
-            groupBoxMenu_Frame.Enter += groupBoxMenu_Frame_Enter;
+            groupBoxMenu_Frame.Paint += groupBoxMenu_Frame_Paint;
+            // 
+            // pictureBoxLogo
+            // 
+            pictureBoxLogo.Location = new Point(0, 0);
+            pictureBoxLogo.Name = "pictureBoxLogo";
+            pictureBoxLogo.Size = new Size(194, 50);
+            pictureBoxLogo.TabIndex = 6;
+            pictureBoxLogo.TabStop = false;
             // 
             // buttonFavoriteDetails_Frame
             // 
-            buttonFavoriteDetails_Frame.BackColor = Color.Blue;
+            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
             buttonFavoriteDetails_Frame.ForeColor = Color.White;
             buttonFavoriteDetails_Frame.Image = Properties.Resources.IconTitleDetails1;
-            buttonFavoriteDetails_Frame.Location = new Point(12, 200);
+            buttonFavoriteDetails_Frame.Location = new Point(12, 248);
             buttonFavoriteDetails_Frame.Name = "buttonFavoriteDetails_Frame";
             buttonFavoriteDetails_Frame.Size = new Size(175, 36);
             buttonFavoriteDetails_Frame.TabIndex = 5;
@@ -72,9 +82,10 @@
             // labelHeader_Frame
             // 
             labelHeader_Frame.AutoSize = true;
+            labelHeader_Frame.BackColor = Color.Transparent;
             labelHeader_Frame.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelHeader_Frame.ForeColor = Color.White;
-            labelHeader_Frame.Location = new Point(12, 26);
+            labelHeader_Frame.Location = new Point(7, 53);
             labelHeader_Frame.Name = "labelHeader_Frame";
             labelHeader_Frame.Size = new Size(98, 27);
             labelHeader_Frame.TabIndex = 4;
@@ -95,10 +106,10 @@
             // 
             // buttonTitleSearch_Frame
             // 
-            buttonTitleSearch_Frame.BackColor = Color.Blue;
+            buttonTitleSearch_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.ForeColor = Color.White;
             buttonTitleSearch_Frame.Image = Properties.Resources.IconTestApi;
-            buttonTitleSearch_Frame.Location = new Point(12, 158);
+            buttonTitleSearch_Frame.Location = new Point(12, 206);
             buttonTitleSearch_Frame.Name = "buttonTitleSearch_Frame";
             buttonTitleSearch_Frame.Size = new Size(175, 36);
             buttonTitleSearch_Frame.TabIndex = 2;
@@ -110,10 +121,10 @@
             // 
             // buttonUserDetails_Frame
             // 
-            buttonUserDetails_Frame.BackColor = Color.Blue;
+            buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.ForeColor = Color.White;
             buttonUserDetails_Frame.Image = Properties.Resources.IconAccount;
-            buttonUserDetails_Frame.Location = new Point(12, 116);
+            buttonUserDetails_Frame.Location = new Point(12, 164);
             buttonUserDetails_Frame.Name = "buttonUserDetails_Frame";
             buttonUserDetails_Frame.Size = new Size(175, 36);
             buttonUserDetails_Frame.TabIndex = 1;
@@ -125,10 +136,10 @@
             // 
             // buttonHomepage_Frame
             // 
-            buttonHomepage_Frame.BackColor = Color.Blue;
+            buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonHomepage_Frame.ForeColor = Color.White;
             buttonHomepage_Frame.Image = Properties.Resources.IconHomepage;
-            buttonHomepage_Frame.Location = new Point(12, 74);
+            buttonHomepage_Frame.Location = new Point(12, 122);
             buttonHomepage_Frame.Name = "buttonHomepage_Frame";
             buttonHomepage_Frame.Size = new Size(175, 36);
             buttonHomepage_Frame.TabIndex = 0;
@@ -159,6 +170,7 @@
             Text = "[FormFrame] Landing Page";
             groupBoxMenu_Frame.ResumeLayout(false);
             groupBoxMenu_Frame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -172,5 +184,6 @@
         private Button buttonLogout_Frame;
         private Label labelHeader_Frame;
         private Button buttonFavoriteDetails_Frame;
+        private PictureBox pictureBoxLogo;
     }
 }

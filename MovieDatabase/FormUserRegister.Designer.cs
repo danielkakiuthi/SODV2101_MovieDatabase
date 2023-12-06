@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             labelHeader_UserRegister = new Label();
             groupBox_UserRegister = new GroupBox();
             comboBoxCountry_UserRegister = new ComboBox();
@@ -165,6 +164,7 @@
             textBoxEmail_UserRegister.Name = "textBoxEmail_UserRegister";
             textBoxEmail_UserRegister.Size = new Size(238, 30);
             textBoxEmail_UserRegister.TabIndex = 4;
+            textBoxEmail_UserRegister.Validating += textBoxEmail_UserRegister_Validating;
             // 
             // textBoxPassword_UserRegister
             // 

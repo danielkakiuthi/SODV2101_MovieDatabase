@@ -36,6 +36,7 @@
             // labelHeader_Homepage
             // 
             labelHeader_Homepage.AutoSize = true;
+            labelHeader_Homepage.BackColor = Color.Transparent;
             labelHeader_Homepage.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             labelHeader_Homepage.Location = new Point(12, 9);
             labelHeader_Homepage.Name = "labelHeader_Homepage";
@@ -47,7 +48,7 @@
             // 
             listBoxTopRated_Homepage.FormattingEnabled = true;
             listBoxTopRated_Homepage.ItemHeight = 21;
-            listBoxTopRated_Homepage.Location = new Point(258, 672);
+            listBoxTopRated_Homepage.Location = new Point(232, 752);
             listBoxTopRated_Homepage.Name = "listBoxTopRated_Homepage";
             listBoxTopRated_Homepage.Size = new Size(599, 235);
             listBoxTopRated_Homepage.TabIndex = 24;
@@ -55,6 +56,7 @@
             // labelTopRated_Homepage
             // 
             labelTopRated_Homepage.AutoSize = true;
+            labelTopRated_Homepage.BackColor = Color.Transparent;
             labelTopRated_Homepage.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             labelTopRated_Homepage.Location = new Point(12, 56);
             labelTopRated_Homepage.Name = "labelTopRated_Homepage";
@@ -81,14 +83,15 @@
             tableLayoutPanelTopRated.Name = "tableLayoutPanelTopRated";
             tableLayoutPanelTopRated.RowCount = 1;
             tableLayoutPanelTopRated.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelTopRated.Size = new Size(1131, 127);
+            tableLayoutPanelTopRated.Size = new Size(1272, 180);
             tableLayoutPanelTopRated.TabIndex = 33;
             // 
             // labelPopular_Homepage
             // 
             labelPopular_Homepage.AutoSize = true;
+            labelPopular_Homepage.BackColor = Color.Transparent;
             labelPopular_Homepage.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPopular_Homepage.Location = new Point(12, 236);
+            labelPopular_Homepage.Location = new Point(12, 283);
             labelPopular_Homepage.Name = "labelPopular_Homepage";
             labelPopular_Homepage.Size = new Size(86, 30);
             labelPopular_Homepage.TabIndex = 34;
@@ -109,18 +112,19 @@
             tableLayoutPanelPopular.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanelPopular.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanelPopular.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanelPopular.Location = new Point(12, 269);
+            tableLayoutPanelPopular.Location = new Point(12, 316);
             tableLayoutPanelPopular.Name = "tableLayoutPanelPopular";
             tableLayoutPanelPopular.RowCount = 1;
             tableLayoutPanelPopular.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelPopular.Size = new Size(1131, 127);
+            tableLayoutPanelPopular.Size = new Size(1272, 180);
             tableLayoutPanelPopular.TabIndex = 35;
             // 
             // labelUpcoming_Homepage
             // 
             labelUpcoming_Homepage.AutoSize = true;
+            labelUpcoming_Homepage.BackColor = Color.Transparent;
             labelUpcoming_Homepage.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelUpcoming_Homepage.Location = new Point(12, 419);
+            labelUpcoming_Homepage.Location = new Point(10, 514);
             labelUpcoming_Homepage.Name = "labelUpcoming_Homepage";
             labelUpcoming_Homepage.Size = new Size(113, 30);
             labelUpcoming_Homepage.TabIndex = 36;
@@ -141,11 +145,11 @@
             tableLayoutPanelUpcoming.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanelUpcoming.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanelUpcoming.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanelUpcoming.Location = new Point(12, 463);
+            tableLayoutPanelUpcoming.Location = new Point(12, 547);
             tableLayoutPanelUpcoming.Name = "tableLayoutPanelUpcoming";
             tableLayoutPanelUpcoming.RowCount = 1;
             tableLayoutPanelUpcoming.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelUpcoming.Size = new Size(1131, 127);
+            tableLayoutPanelUpcoming.Size = new Size(1272, 180);
             tableLayoutPanelUpcoming.TabIndex = 37;
             // 
             // FormHomepage
@@ -153,8 +157,8 @@
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1296, 812);
-            Controls.Add(tableLayoutPanelUpcoming);
             Controls.Add(labelUpcoming_Homepage);
+            Controls.Add(tableLayoutPanelUpcoming);
             Controls.Add(tableLayoutPanelPopular);
             Controls.Add(labelPopular_Homepage);
             Controls.Add(tableLayoutPanelTopRated);
@@ -166,6 +170,7 @@
             Name = "FormHomepage";
             Text = "[FormHomepage]";
             Load += FormHomepage_Load;
+            Paint += FormHomepage_Paint;
             ResumeLayout(false);
             PerformLayout();
         }
