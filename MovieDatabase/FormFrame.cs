@@ -43,8 +43,8 @@ namespace MovieDatabase {
             buttonUserDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
             buttonTitleSearch_Frame.Location = new Point(0, 220);
             buttonTitleSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
-            buttonFavoriteDetails_Frame.Location = new Point(0, 280);
-            buttonFavoriteDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
+            buttonFavorites_Frame.Location = new Point(0, 280);
+            buttonFavorites_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
             buttonLogout_Frame.Location = new Point(0, screenHeight - 100);
             buttonLogout_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
 
@@ -95,7 +95,7 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
             //Initialize TitleDetails Tab
-            FormTitleDetails formTitleDetails = new FormTitleDetails() {
+            FormFavorites formTitleDetails = new FormFavorites() {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
@@ -129,7 +129,7 @@ namespace MovieDatabase {
             buttonHomepage_Frame.BackColor = Color.MidnightBlue;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
-            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
+            buttonFavorites_Frame.BackColor = Color.Indigo;
 
         }
 
@@ -138,7 +138,7 @@ namespace MovieDatabase {
             buttonHomepage_Frame.BackColor = Color.MidnightBlue;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
-            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
+            buttonFavorites_Frame.BackColor = Color.Indigo;
         }
 
 
@@ -147,7 +147,7 @@ namespace MovieDatabase {
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.MidnightBlue;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
-            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
+            buttonFavorites_Frame.BackColor = Color.Indigo;
         }
 
 
@@ -156,14 +156,14 @@ namespace MovieDatabase {
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.MidnightBlue;
-            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
+            buttonFavorites_Frame.BackColor = Color.Indigo;
         }
-        private void buttonFavoriteDetails_Frame_Click(object sender, EventArgs e) {
+        private void buttonFavorites_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleDetails);
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
-            buttonFavoriteDetails_Frame.BackColor = Color.MidnightBlue;
+            buttonFavorites_Frame.BackColor = Color.MidnightBlue;
         }
 
         private void buttonLogout_Frame_Click(object sender, EventArgs e) {
@@ -190,6 +190,7 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
 
         }
+
 
     }
 }

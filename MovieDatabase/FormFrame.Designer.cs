@@ -26,7 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFrame));
             groupBoxMenu_Frame = new GroupBox();
             pictureBoxLogo_Frame = new PictureBox();
-            buttonFavoriteDetails_Frame = new Button();
+            buttonFavorites_Frame = new Button();
             labelHeader_Frame = new Label();
             buttonLogout_Frame = new Button();
             buttonTitleSearch_Frame = new Button();
@@ -41,7 +41,7 @@
             // 
             groupBoxMenu_Frame.BackColor = Color.DarkSlateBlue;
             groupBoxMenu_Frame.Controls.Add(pictureBoxLogo_Frame);
-            groupBoxMenu_Frame.Controls.Add(buttonFavoriteDetails_Frame);
+            groupBoxMenu_Frame.Controls.Add(buttonFavorites_Frame);
             groupBoxMenu_Frame.Controls.Add(labelHeader_Frame);
             groupBoxMenu_Frame.Controls.Add(buttonLogout_Frame);
             groupBoxMenu_Frame.Controls.Add(buttonTitleSearch_Frame);
@@ -51,7 +51,6 @@
             groupBoxMenu_Frame.Location = new Point(0, 0);
             groupBoxMenu_Frame.Margin = new Padding(0);
             groupBoxMenu_Frame.Name = "groupBoxMenu_Frame";
-            groupBoxMenu_Frame.Padding = new Padding(0);
             groupBoxMenu_Frame.Size = new Size(194, 629);
             groupBoxMenu_Frame.TabIndex = 0;
             groupBoxMenu_Frame.TabStop = false;
@@ -71,24 +70,24 @@
             pictureBoxLogo_Frame.TabIndex = 6;
             pictureBoxLogo_Frame.TabStop = false;
             // 
-            // buttonFavoriteDetails_Frame
+            // buttonFavorites_Frame
             // 
-            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
-            buttonFavoriteDetails_Frame.FlatAppearance.BorderColor = Color.Purple;
-            buttonFavoriteDetails_Frame.FlatAppearance.BorderSize = 3;
-            buttonFavoriteDetails_Frame.FlatAppearance.MouseOverBackColor = Color.DarkOrchid;
-            buttonFavoriteDetails_Frame.FlatStyle = FlatStyle.Flat;
-            buttonFavoriteDetails_Frame.ForeColor = Color.White;
-            buttonFavoriteDetails_Frame.Image = Properties.Resources.IconTitleDetails1;
-            buttonFavoriteDetails_Frame.Location = new Point(12, 250);
-            buttonFavoriteDetails_Frame.Name = "buttonFavoriteDetails_Frame";
-            buttonFavoriteDetails_Frame.Size = new Size(175, 42);
-            buttonFavoriteDetails_Frame.TabIndex = 5;
-            buttonFavoriteDetails_Frame.Text = "Favorites";
-            buttonFavoriteDetails_Frame.TextAlign = ContentAlignment.MiddleRight;
-            buttonFavoriteDetails_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonFavoriteDetails_Frame.UseVisualStyleBackColor = false;
-            buttonFavoriteDetails_Frame.Click += buttonFavoriteDetails_Frame_Click;
+            buttonFavorites_Frame.BackColor = Color.Indigo;
+            buttonFavorites_Frame.FlatAppearance.BorderColor = Color.Purple;
+            buttonFavorites_Frame.FlatAppearance.BorderSize = 3;
+            buttonFavorites_Frame.FlatAppearance.MouseOverBackColor = Color.DarkOrchid;
+            buttonFavorites_Frame.FlatStyle = FlatStyle.Flat;
+            buttonFavorites_Frame.ForeColor = Color.White;
+            buttonFavorites_Frame.Image = Properties.Resources.IconTitleDetails1;
+            buttonFavorites_Frame.Location = new Point(12, 250);
+            buttonFavorites_Frame.Name = "buttonFavorites_Frame";
+            buttonFavorites_Frame.Size = new Size(175, 42);
+            buttonFavorites_Frame.TabIndex = 5;
+            buttonFavorites_Frame.Text = "Favorites";
+            buttonFavorites_Frame.TextAlign = ContentAlignment.MiddleRight;
+            buttonFavorites_Frame.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonFavorites_Frame.UseVisualStyleBackColor = false;
+            buttonFavorites_Frame.Click += buttonFavorites_Frame_Click;
             // 
             // labelHeader_Frame
             // 
@@ -96,7 +95,7 @@
             labelHeader_Frame.BackColor = Color.Transparent;
             labelHeader_Frame.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelHeader_Frame.ForeColor = Color.White;
-            labelHeader_Frame.Location = new Point(3, 49);
+            labelHeader_Frame.Location = new Point(6, 52);
             labelHeader_Frame.Name = "labelHeader_Frame";
             labelHeader_Frame.Size = new Size(98, 27);
             labelHeader_Frame.TabIndex = 4;
@@ -183,7 +182,7 @@
             tabControlContent_Frame.Location = new Point(193, 0);
             tabControlContent_Frame.Margin = new Padding(0);
             tabControlContent_Frame.Name = "tabControlContent_Frame";
-            tabControlContent_Frame.Padding = new Point(0, 0);
+            tabControlContent_Frame.Padding = new Point(3, 3);
             tabControlContent_Frame.SelectedIndex = 0;
             tabControlContent_Frame.Size = new Size(854, 629);
             tabControlContent_Frame.TabIndex = 0;
@@ -214,7 +213,7 @@
         private TabControl tabControlContent_Frame;
         private Button buttonLogout_Frame;
         private Label labelHeader_Frame;
-        private Button buttonFavoriteDetails_Frame;
+        private Button buttonFavorites_Frame;
         private PictureBox pictureBoxLogo_Frame;
     }
 }

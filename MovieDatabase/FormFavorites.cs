@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormTitleDetails : Form {
+    public partial class FormFavorites : Form {
 
         public string KeywordQuery { get; set; }
         public string GenreQuery { get; set; }
@@ -18,15 +18,11 @@ namespace MovieDatabase {
         public string RatingQuery { get; set; }
 
 
-        public FormTitleDetails() {
+        public FormFavorites() {
             InitializeComponent();
         }
 
-        private void FormTitleDetails_Load(object sender, EventArgs e) {
-
-        }
-
-        private void FormTitleDetails_Paint(object sender, PaintEventArgs e) {
+        private void FormFavorites_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 0, 3, 88);
             Color c2 = Color.FromArgb(255, 0, 18, 94);
             Color c3 = Color.FromArgb(255, 0, 29, 99);
@@ -43,5 +39,11 @@ namespace MovieDatabase {
 
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
+
+        private void FormFavorites_Load(object sender, EventArgs e) {
+
+        }
+
+
     }
 }

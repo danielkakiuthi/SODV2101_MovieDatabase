@@ -1,5 +1,5 @@
 ﻿namespace MovieDatabase {
-    partial class FormTitleDetails {
+    partial class FormFavorites {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            labelHeader_TitleDetails = new Label();
+            labelHeader_Favorites = new Label();
             pictureBoxFavoritePoster = new PictureBox();
             labelFavoriteDetails = new Label();
             textBoxFavoriteDetails = new TextBox();
@@ -32,15 +32,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).BeginInit();
             SuspendLayout();
             // 
-            // labelHeader_TitleDetails
+            // labelHeader_Favorites
             // 
-            labelHeader_TitleDetails.AutoSize = true;
-            labelHeader_TitleDetails.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            labelHeader_TitleDetails.Location = new Point(12, 9);
-            labelHeader_TitleDetails.Name = "labelHeader_TitleDetails";
-            labelHeader_TitleDetails.Size = new Size(171, 37);
-            labelHeader_TitleDetails.TabIndex = 22;
-            labelHeader_TitleDetails.Text = "Title Details";
+            labelHeader_Favorites.AutoSize = true;
+            labelHeader_Favorites.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_Favorites.ForeColor = Color.White;
+            labelHeader_Favorites.Location = new Point(12, 9);
+            labelHeader_Favorites.Name = "labelHeader_Favorites";
+            labelHeader_Favorites.Size = new Size(134, 37);
+            labelHeader_Favorites.TabIndex = 22;
+            labelHeader_Favorites.Text = "Favorites";
             // 
             // pictureBoxFavoritePoster
             // 
@@ -55,6 +56,7 @@
             // labelFavoriteDetails
             // 
             labelFavoriteDetails.AutoSize = true;
+            labelFavoriteDetails.ForeColor = Color.White;
             labelFavoriteDetails.Location = new Point(498, 217);
             labelFavoriteDetails.Name = "labelFavoriteDetails";
             labelFavoriteDetails.Size = new Size(116, 21);
@@ -72,6 +74,7 @@
             // labelFavorites
             // 
             labelFavorites.AutoSize = true;
+            labelFavorites.ForeColor = Color.White;
             labelFavorites.Location = new Point(48, 217);
             labelFavorites.Name = "labelFavorites";
             labelFavorites.Size = new Size(111, 21);
@@ -87,7 +90,7 @@
             listBoxFavorites.Size = new Size(319, 172);
             listBoxFavorites.TabIndex = 23;
             // 
-            // FormTitleDetails
+            // FormFavorites
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -98,13 +101,13 @@
             Controls.Add(textBoxFavoriteDetails);
             Controls.Add(labelFavorites);
             Controls.Add(listBoxFavorites);
-            Controls.Add(labelHeader_TitleDetails);
+            Controls.Add(labelHeader_Favorites);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "FormTitleDetails";
+            Name = "FormFavorites";
             Text = "[FormTitleDetails]";
-            Load += FormTitleDetails_Load;
-            Paint += FormTitleDetails_Paint;
+            Load += FormFavorites_Load;
+            Paint += FormFavorites_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -112,7 +115,7 @@
 
         #endregion
 
-        private Label labelHeader_TitleDetails;
+        private Label labelHeader_Favorites;
         private PictureBox pictureBoxFavoritePoster;
         private Label labelFavoriteDetails;
         private TextBox textBoxFavoriteDetails;

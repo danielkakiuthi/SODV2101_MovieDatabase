@@ -46,6 +46,7 @@
             // 
             labelHeader_UserDetails.AutoSize = true;
             labelHeader_UserDetails.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            labelHeader_UserDetails.ForeColor = Color.White;
             labelHeader_UserDetails.Location = new Point(12, 9);
             labelHeader_UserDetails.Name = "labelHeader_UserDetails";
             labelHeader_UserDetails.Size = new Size(171, 37);
