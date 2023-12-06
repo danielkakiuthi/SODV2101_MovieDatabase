@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             labelInputSearch = new Label();
             labelInputYear = new Label();
             labelInputType = new Label();
@@ -45,8 +44,8 @@
             comboBoxInputType = new ComboBox();
             labelHeader_TitleSearch = new Label();
             gp_SearchFavorites = new GroupBox();
-            groupBox1 = new GroupBox();
             buttonDelFavorites = new Button();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).BeginInit();
             gp_SearchFavorites.SuspendLayout();
@@ -275,18 +274,6 @@
             gp_SearchFavorites.TabStop = false;
             gp_SearchFavorites.Text = "Favorites";
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(labelSearchResults);
-            groupBox1.Controls.Add(labelTitlePoster);
-            groupBox1.Controls.Add(buttonAddFavorites);
-            groupBox1.Location = new Point(4, 194);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(802, 791);
-            groupBox1.TabIndex = 23;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // 
             // buttonDelFavorites
             // 
             buttonDelFavorites.BackColor = Color.Olive;
@@ -300,11 +287,23 @@
             buttonDelFavorites.UseVisualStyleBackColor = false;
             buttonDelFavorites.Click += buttonDelFavorites_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(labelSearchResults);
+            groupBox1.Controls.Add(labelTitlePoster);
+            groupBox1.Controls.Add(buttonAddFavorites);
+            groupBox1.Location = new Point(4, 194);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(802, 791);
+            groupBox1.TabIndex = 23;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
             // FormTitleSearch
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RoyalBlue;
+            BackColor = Color.Navy;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1700, 989);
             Controls.Add(labelHeader_TitleSearch);
@@ -330,6 +329,7 @@
             Name = "FormTitleSearch";
             Text = "[FormTitleSearch]";
             Load += FormTitleSearch_Load;
+            Paint += FormTitleSearch_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
             gp_SearchFavorites.ResumeLayout(false);

@@ -1,4 +1,5 @@
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace MovieDatabase {
     public partial class FormFrame : Form {
@@ -32,20 +33,20 @@ namespace MovieDatabase {
             groupBoxMenu_Frame.Size = new Size(_menuWidth, _menuHeight);
 
             //Adjust Logo
-            pictureBoxLogo.Image = Image.FromFile("../../../Resources/MovieDatabase_HighResLogo_White_Cropped.png");
-            pictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLogo_Frame.Image = Image.FromFile("../../../Resources/MovieDatabase_HighResLogo_White_Cropped.png");
+            pictureBoxLogo_Frame.SizeMode = PictureBoxSizeMode.StretchImage;
 
             //Adjust Menu Buttons properties
             buttonHomepage_Frame.Location = new Point(0, 100);
-            buttonHomepage_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
-            buttonUserDetails_Frame.Location = new Point(0, 150);
-            buttonUserDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
-            buttonTitleSearch_Frame.Location = new Point(0, 200);
-            buttonTitleSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
-            buttonFavoriteDetails_Frame.Location = new Point(0, 250);
-            buttonFavoriteDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
+            buttonHomepage_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
+            buttonUserDetails_Frame.Location = new Point(0, 160);
+            buttonUserDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
+            buttonTitleSearch_Frame.Location = new Point(0, 220);
+            buttonTitleSearch_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
+            buttonFavoriteDetails_Frame.Location = new Point(0, 280);
+            buttonFavoriteDetails_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
             buttonLogout_Frame.Location = new Point(0, screenHeight - 100);
-            buttonLogout_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 30);
+            buttonLogout_Frame.Size = new Size(groupBoxMenu_Frame.Width - 10, 40);
 
 
             //Initialize Homepage Tab
@@ -124,39 +125,45 @@ namespace MovieDatabase {
             //Display logged User firstName
             labelHeader_Frame.Text = $"Hello, {myUserLogged.FirstName}!";
 
+            //Start button colors
+            buttonHomepage_Frame.BackColor = Color.MidnightBlue;
+            buttonUserDetails_Frame.BackColor = Color.Indigo;
+            buttonTitleSearch_Frame.BackColor = Color.Indigo;
+            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
+
         }
 
         private void buttonHomepage_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabHomepage);
-            buttonHomepage_Frame.BackColor = System.Drawing.Color.Green;
-            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonHomepage_Frame.BackColor = Color.MidnightBlue;
+            buttonUserDetails_Frame.BackColor = Color.Indigo;
+            buttonTitleSearch_Frame.BackColor = Color.Indigo;
+            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
         }
 
 
         private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabUserDetails);
-            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Green;
-            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonHomepage_Frame.BackColor = Color.Indigo;
+            buttonUserDetails_Frame.BackColor = Color.MidnightBlue;
+            buttonTitleSearch_Frame.BackColor = Color.Indigo;
+            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
         }
 
 
         private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleSearch);
-            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Green;
-            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonHomepage_Frame.BackColor = Color.Indigo;
+            buttonUserDetails_Frame.BackColor = Color.Indigo;
+            buttonTitleSearch_Frame.BackColor = Color.MidnightBlue;
+            buttonFavoriteDetails_Frame.BackColor = Color.Indigo;
         }
         private void buttonFavoriteDetails_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleDetails);
-            buttonFavoriteDetails_Frame.BackColor = System.Drawing.Color.Green;
-            buttonHomepage_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonUserDetails_Frame.BackColor = System.Drawing.Color.Blue;
-            buttonTitleSearch_Frame.BackColor = System.Drawing.Color.Blue;
+            buttonHomepage_Frame.BackColor = Color.Indigo;
+            buttonUserDetails_Frame.BackColor = Color.Indigo;
+            buttonTitleSearch_Frame.BackColor = Color.Indigo;
+            buttonFavoriteDetails_Frame.BackColor = Color.MidnightBlue;
         }
 
         private void buttonLogout_Frame_Click(object sender, EventArgs e) {
@@ -166,26 +173,23 @@ namespace MovieDatabase {
 
         private void groupBoxMenu_Frame_Paint(object sender, PaintEventArgs e) {
 
-            Color c1 = Color.FromArgb(255, 174, 0, 255);
-            Color c2 = Color.FromArgb(255, 163, 5, 243);
-            Color c3 = Color.FromArgb(255, 153, 8, 231);
-            Color c4 = Color.FromArgb(255, 143, 11, 219);
-            Color c5 = Color.FromArgb(255, 133, 13, 207);
-            Color c6 = Color.FromArgb(255, 123, 14, 195);
-            Color c7 = Color.FromArgb(255, 114, 14, 183);
+            Color c1 = Color.FromArgb(255, 63, 10, 104);
+            Color c2 = Color.FromArgb(255, 69, 12, 112);
+            Color c3 = Color.FromArgb(255, 75, 13, 121);
+            Color c4 = Color.FromArgb(255, 81, 15, 130);
+            Color c5 = Color.FromArgb(255, 87, 16, 138);
+            Color c6 = Color.FromArgb(255, 94, 18, 147);
+            Color c7 = Color.FromArgb(255, 100, 19, 156);
 
-            // Changed: c1 / c7 as start colors, and at 90 degrees.  Removed later transform.
-            LinearGradientBrush br = new LinearGradientBrush(this.ClientRectangle, c1, c7, 270, true);
+            LinearGradientBrush br = new LinearGradientBrush(this.ClientRectangle, c1, c7, 90, true);
             ColorBlend cb = new ColorBlend();
             cb.Positions = new[] { 0, (float)0.146, (float)0.317, (float)0.439, (float)0.585, (float)0.797, 1 };
             cb.Colors = new[] { c1, c2, c3, c4, c5, c6, c7 };
             br.InterpolationColors = cb;
 
-            // removed rotate call
-
-            // paint
             e.Graphics.FillRectangle(br, this.ClientRectangle);
 
         }
+
     }
 }

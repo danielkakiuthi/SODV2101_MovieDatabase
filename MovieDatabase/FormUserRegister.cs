@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -88,7 +89,7 @@ namespace MovieDatabase {
             }
             else if (inputCountry == "") {
                 MessageBox.Show($"[ERROR] Please fill Country field!");
-                comboBoxCountry_UserRegister.Focus( );
+                comboBoxCountry_UserRegister.Focus();
                 return;
             }
 
@@ -132,6 +133,25 @@ namespace MovieDatabase {
                 myErrorProvider.SetError(textBoxEmail_UserRegister, "Invalid Email Address!");
                 return;
             }
+        }
+
+        private void FormUserRegister_Paint(object sender, PaintEventArgs e) {
+
+            Color c1 = Color.FromArgb(255, 210, 54, 0);
+            Color c2 = Color.FromArgb(255, 211, 87, 0);
+            Color c3 = Color.FromArgb(255, 208, 115, 0);
+            Color c4 = Color.FromArgb(255, 201, 141, 0);
+            Color c5 = Color.FromArgb(255, 190, 165, 0);
+            Color c6 = Color.FromArgb(255, 175, 188, 0);
+            Color c7 = Color.FromArgb(255, 156, 210, 0);
+
+            LinearGradientBrush br = new LinearGradientBrush(this.ClientRectangle, c1, c7, 120, true);
+            ColorBlend cb = new ColorBlend();
+            cb.Positions = new[] { 0, (float)0.146, (float)0.317, (float)0.439, (float)0.585, (float)0.797, 1 };
+            cb.Colors = new[] { c1, c2, c3, c4, c5, c6, c7 };
+            br.InterpolationColors = cb;
+
+            e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
     }
 }

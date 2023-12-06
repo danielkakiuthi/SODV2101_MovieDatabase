@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 using MovieDatabase.OmdbApi;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace MovieDatabase.TmdbApi {
     internal class TmdbApiClient {
@@ -21,11 +22,9 @@ namespace MovieDatabase.TmdbApi {
         }
 
 
-        public async Task<ClassTmdbResponse> GetTopRated() {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1");
-
+        public async Task<T> MakeTmdbRequest<T>(RestClientOptions _options) {
             try {
-                using (var client = new RestClient(options)) {
+                using (var client = new RestClient(_options)) {
                     RestRequest request = new RestRequest("");
                     request.AddHeader("accept", "application/json");
                     request.AddHeader("Authorization", $"Bearer {tmdbApiKey}");
@@ -33,65 +32,51 @@ namespace MovieDatabase.TmdbApi {
 
                     Debug.WriteLine($"{response.Content}");
 
-                    ClassTmdbResponse? deserializedObj = JsonConvert.DeserializeObject<ClassTmdbResponse>(response.Content);
-                    return deserializedObj;
+                    Object? deserializedObj = JsonConvert.DeserializeObject<T>(response.Content);
+                    return (T)deserializedObj;
                 }
             }
             catch (Exception ex) {
                 string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
                 Debug.WriteLine(message);
-                return null;
+                return default(T);
             }
         }
 
 
-        public async Task<ClassTmdbResponse> GetPopular() {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1");
-
-            try {
-                using (var client = new RestClient(options)) {
-                    RestRequest request = new RestRequest("");
-                    request.AddHeader("accept", "application/json");
-                    request.AddHeader("Authorization", $"Bearer {tmdbApiKey}");
-                    var response = await client.GetAsync(request);
-
-                    Debug.WriteLine($"{response.Content}");
-
-                    ClassTmdbResponse? deserializedObj = JsonConvert.DeserializeObject<ClassTmdbResponse>(response.Content);
-                    return deserializedObj;
-                }
-            }
-            catch (Exception ex) {
-                string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
-                Debug.WriteLine(message);
-                return null;
-            }
+        public async Task<ClassTmdbMovieListResponse> GetNowPlaying() {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1");
+            ClassTmdbMovieListResponse _responseMovieList = await MakeTmdbRequest<ClassTmdbMovieListResponse>(options);
+            return _responseMovieList;
         }
 
 
-        public async Task<ClassTmdbResponse> GetUpcoming() {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1");
-
-            try {
-                using (var client = new RestClient(options)) {
-                    RestRequest request = new RestRequest("");
-                    request.AddHeader("accept", "application/json");
-                    request.AddHeader("Authorization", $"Bearer {tmdbApiKey}");
-                    var response = await client.GetAsync(request);
-
-                    Debug.WriteLine($"{response.Content}");
-
-                    ClassTmdbResponse? deserializedObj = JsonConvert.DeserializeObject<ClassTmdbResponse>(response.Content);
-                    return deserializedObj;
-                }
-            }
-            catch (Exception ex) {
-                string message = $"[API Error]: {ex.Message}" + Environment.NewLine;
-                Debug.WriteLine(message);
-                return null;
-            }
+        public async Task<ClassTmdbMovieListResponse> GetTopRated() {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1");
+            ClassTmdbMovieListResponse _responseMovieList = await MakeTmdbRequest<ClassTmdbMovieListResponse>(options);
+            return _responseMovieList;
         }
 
+
+        public async Task<ClassTmdbMovieListResponse> GetPopular() {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/popular?language=en-US&page=1");
+            ClassTmdbMovieListResponse _responseMovieList = await MakeTmdbRequest<ClassTmdbMovieListResponse>(options);
+            return _responseMovieList;
+        }
+
+
+        public async Task<ClassTmdbMovieListResponse> GetUpcoming() {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1");
+            ClassTmdbMovieListResponse _responseMovieList = await MakeTmdbRequest<ClassTmdbMovieListResponse>(options);
+            return _responseMovieList;
+        }
+
+
+        public async Task<ClassTmdbMovieDetailsResponse> GetMovieDetailsById(int id) {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{id}?language=en-US");
+            ClassTmdbMovieDetailsResponse _responseMovieDetails = await MakeTmdbRequest<ClassTmdbMovieDetailsResponse>(options);
+            return _responseMovieDetails;
+        }
     }
 }
 
