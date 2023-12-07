@@ -164,49 +164,97 @@ namespace MovieDatabase {
 
 
         public async void NowPlayingTitle_ClickOn(object sender, MouseEventArgs e) {
+            
+            //TMDB API
             int _row = tableLayoutPanelNowPlaying.GetRow((Control)sender);
             int _column = tableLayoutPanelNowPlaying.GetColumn((Control)sender);
-            Debug.WriteLine($"[TableLayoutPanel NowPlaying] Cell chosen: ({_row}, {_column})");
-
+            //Debug.WriteLine($"[TableLayoutPanel NowPlaying] Cell chosen: ({_row}, {_column})");
             string _selectedTmdbTitle = myNowPlayingResponse.Results[_column].ToString();
-            Debug.WriteLine($"_selectedTmdbTitle: {_selectedTmdbTitle}");
-
+            //Debug.WriteLine($"_selectedTmdbTitle: {_selectedTmdbTitle}");
             int _selectedTmdbId = myNowPlayingResponse.Results[_column].Id;
-            Debug.WriteLine($"_selectedTmdbId: {_selectedTmdbId}");
-            ClassTmdbMovieDetailsResponse _selectedTmdbMovieDetails = await tmdbApiClient.GetMovieDetailsById(_selectedTmdbId);
-            string _selectedImdbId = _selectedTmdbMovieDetails.ImdbId;
-            Debug.WriteLine($"_selectedImdbId: {_selectedImdbId}");
+            //Debug.WriteLine($"_selectedTmdbId: {_selectedTmdbId}");
 
-            ClassOmdbTitle _selectedOmdbTitle = await omdbApiClient.GetByImdbId(_selectedImdbId);
+            //Get imdbId from TMDB API
+            ClassTmdbMovieDetailsResponse _selectedTmdbMovieDetails = await tmdbApiClient.GetMovieDetailsById(_selectedTmdbId);
+            string _imdbId = _selectedTmdbMovieDetails.ImdbId;
+            //Debug.WriteLine($"_imdbId: {_imdbId}");
+
+            //OMDB API
+            ClassOmdbTitle _selectedOmdbTitle = await omdbApiClient.GetByImdbId(_imdbId);
             Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
 
+            //Open Dialog with Title Details from OMDB API
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            formTitleDetails.ShowDialog();
         }
 
-        public void TopRatedTitle_ClickOn(object sender, MouseEventArgs e) {
+        public async void TopRatedTitle_ClickOn(object sender, MouseEventArgs e) {
+
+            //TMDB API
             int _row = tableLayoutPanelTopRated.GetRow((Control)sender);
             int _column = tableLayoutPanelTopRated.GetColumn((Control)sender);
-            Debug.WriteLine($"[TableLayoutPanel TopRated] Cell chosen: ({_row}, {_column})");
+            //Debug.WriteLine($"[TableLayoutPanel TopRated] Cell chosen: ({_row}, {_column})");
+            int _selectedTmdbId = myTopRatedResponse.Results[_column].Id;
+            //Debug.WriteLine($"_selectedTmdbId: {_selectedTmdbId}");
 
-            string _selectedTitle = myTopRatedResponse.Results[_column].ToString();
-            Debug.WriteLine($"_selectedTitle: {_selectedTitle}");
+            //Get imdbId from TMDB API
+            ClassTmdbMovieDetailsResponse _selectedTmdbMovieDetails = await tmdbApiClient.GetMovieDetailsById(_selectedTmdbId);
+            string _imdbId = _selectedTmdbMovieDetails.ImdbId;
+            //Debug.WriteLine($"_imdbId: {_imdbId}");
+
+            //OMDB API
+            ClassOmdbTitle _selectedOmdbTitle = await omdbApiClient.GetByImdbId(_imdbId);
+            Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
+
+            //Open Dialog with Title Details from OMDB API
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            formTitleDetails.ShowDialog();
         }
 
-        public void PopularTitle_ClickOn(object sender, MouseEventArgs e) {
+        public async void PopularTitle_ClickOn(object sender, MouseEventArgs e) {
+
+            //TMDB API
             int _row = tableLayoutPanelPopular.GetRow((Control)sender);
             int _column = tableLayoutPanelPopular.GetColumn((Control)sender);
-            Debug.WriteLine($"[TableLayoutPanel Popular] Cell chosen: ({_row}, {_column})");
+            //Debug.WriteLine($"[TableLayoutPanel Popular] Cell chosen: ({_row}, {_column})");
+            int _selectedTmdbId = myPopularResponse.Results[_column].Id;
+            //Debug.WriteLine($"_selectedTmdbId: {_selectedTmdbId}");
 
-            string _selectedTitle = myPopularResponse.Results[_column].ToString();
-            Debug.WriteLine($"_selectedTitle: {_selectedTitle}");
+            //Get imdbId from TMDB API
+            ClassTmdbMovieDetailsResponse _selectedTmdbMovieDetails = await tmdbApiClient.GetMovieDetailsById(_selectedTmdbId);
+            string _imdbId = _selectedTmdbMovieDetails.ImdbId;
+            //Debug.WriteLine($"_imdbId: {_imdbId}");
+
+            //OMDB API
+            ClassOmdbTitle _selectedOmdbTitle = await omdbApiClient.GetByImdbId(_imdbId);
+            Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
+
+            //Open Dialog with Title Details from OMDB API
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            formTitleDetails.ShowDialog();
         }
 
-        public void UpcomingTitle_ClickOn(object sender, MouseEventArgs e) {
+        public async void UpcomingTitle_ClickOn(object sender, MouseEventArgs e) {
+
+            //TMDB API
             int _row = tableLayoutPanelUpcoming.GetRow((Control)sender);
             int _column = tableLayoutPanelUpcoming.GetColumn((Control)sender);
-            Debug.WriteLine($"[TableLayoutPanel Upcoming] Cell chosen: ({_row}, {_column})");
+            //Debug.WriteLine($"[TableLayoutPanel Upcoming] Cell chosen: ({_row}, {_column})");
+            int _selectedTmdbId = myUpcomingResponse.Results[_column].Id;
+            //Debug.WriteLine($"_selectedTmdbId: {_selectedTmdbId}");
 
-            string _selectedTitle = myUpcomingResponse.Results[_column].ToString();
-            Debug.WriteLine($"_selectedTitle: {_selectedTitle}");
+            //Get imdbId from TMDB API
+            ClassTmdbMovieDetailsResponse _selectedTmdbMovieDetails = await tmdbApiClient.GetMovieDetailsById(_selectedTmdbId);
+            string _imdbId = _selectedTmdbMovieDetails.ImdbId;
+            //Debug.WriteLine($"_imdbId: {_imdbId}");
+
+            //OMDB API
+            ClassOmdbTitle _selectedOmdbTitle = await omdbApiClient.GetByImdbId(_imdbId);
+            Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
+
+            //Open Dialog with Title Details from OMDB API
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            formTitleDetails.ShowDialog();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace MovieDatabase.OmdbApi {
             queryString += $"/?apikey={omdbApiKey}";                                //API KEY parameter
             queryString += $"&r=json";                                              //The data type to return
             queryString += $"&v=1";                                                 //API version (reserved for future use).
-            queryString += $"&plot=short";                                          //Return short or full plot.
+            queryString += $"&plot=full";                                          //Return short or full plot.
             queryString += $"&i={imdbID}";                                          //A valid IMDb ID (e.g. tt1285016)
 
             ClassOmdbTitle _responseTitle = await MakeOmdbRequest<ClassOmdbTitle>(queryString);

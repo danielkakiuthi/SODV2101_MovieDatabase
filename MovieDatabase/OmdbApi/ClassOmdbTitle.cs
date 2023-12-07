@@ -19,6 +19,10 @@ namespace MovieDatabase.OmdbApi
             Source = source;
             Value = value;
         }
+
+        public override string ToString() {
+            return $"Source: {Source}, Value: {Value}";
+        }
     }
 
 
