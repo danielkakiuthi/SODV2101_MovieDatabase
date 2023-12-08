@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelHeader_UserDetails = new Label();
             groupBox_UserRegister = new GroupBox();
             comboBoxCountry_UserDetails = new ComboBox();
@@ -216,6 +217,7 @@
             Controls.Add(labelHeader_UserDetails);
             Name = "FormUserDetails";
             Text = "[FormUserDetails]";
+            Load += FormUserDetails_Load;
             Paint += FormUserDetails_Paint;
             groupBox_UserRegister.ResumeLayout(false);
             groupBox_UserRegister.PerformLayout();

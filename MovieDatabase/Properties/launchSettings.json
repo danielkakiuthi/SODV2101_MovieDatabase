@@ -3,7 +3,8 @@
     "MovieDatabase": {
       "commandName": "Project",
       "environmentVariables": {
-        "OMDB_APIKEY": "400a5f9b"
+        "OMDB_APIKEY": "400a5f9b",
+        "TMDB_APIKEY": "88fde61adbb37cf4884d01818429410b"
       }
     }
   }

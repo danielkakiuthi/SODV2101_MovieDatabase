@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserRegister));
             labelHeader_UserRegister = new Label();
             groupBox_UserRegister = new GroupBox();
@@ -232,6 +233,7 @@
             Margin = new Padding(4);
             Name = "FormUserRegister";
             Text = "[FormUserRegister]";
+            Load += FormUserRegister_Load;
             Paint += FormUserRegister_Paint;
             groupBox_UserRegister.ResumeLayout(false);
             groupBox_UserRegister.PerformLayout();

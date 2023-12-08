@@ -15,13 +15,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormUserRegister : Form {
+    public partial class FormUserRegister : Form
+    {
 
         public string ConnectionString { get; set; }
         ErrorProvider myErrorProvider { get; set; }
 
 
-        public FormUserRegister(string connectionString) {
+        public FormUserRegister(string connectionString)
+        {
             InitializeComponent();
             ConnectionString = connectionString;
             myErrorProvider = new ErrorProvider();
@@ -40,22 +42,26 @@ namespace MovieDatabase {
 
 
         //Populate comboBoxCountry_Register
-        private void PopulateCountryComboBox() {
+        private void PopulateCountryComboBox()
+        {
             RegionInfo country = new RegionInfo(new CultureInfo("en-US", false).LCID);
             List<string> countryNames = new List<string>();
-            foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
+            foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
+            {
                 country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
                 countryNames.Add(country.EnglishName.ToString());
             }
             IEnumerable nameAdded = countryNames.OrderBy(names => names).Distinct();
-            foreach (string item in nameAdded) {
+            foreach (string item in nameAdded)
+            {
                 comboBoxCountry_UserRegister.Items.Add(item);
             }
             comboBoxCountry_UserRegister.SelectedItem = "Canada";
         }
 
 
-        private void buttonRegister_Register_Click(object sender, EventArgs e) {
+        private void buttonRegister_Register_Click(object sender, EventArgs e)
+        {
 
             //Build Select Query
             string inputEmail = textBoxEmail_UserRegister.Text;
@@ -67,27 +73,32 @@ namespace MovieDatabase {
 
 
             //Check for empty fields
-            if (inputEmail == "") {
+            if (inputEmail == "")
+            {
                 MessageBox.Show($"[ERROR] Please fill Email field!");
                 textBoxEmail_UserRegister.Focus();
                 return;
             }
-            else if (inputPassword == "") {
+            else if (inputPassword == "")
+            {
                 MessageBox.Show($"[ERROR] Please fill Password field!");
                 textBoxPassword_UserRegister.Focus();
                 return;
             }
-            else if (inputFirstName == "") {
+            else if (inputFirstName == "")
+            {
                 MessageBox.Show($"[ERROR] Please fill First Name field!");
                 textBoxFirstName_UserRegister.Focus();
                 return;
             }
-            else if (inputLastName == "") {
+            else if (inputLastName == "")
+            {
                 MessageBox.Show($"[ERROR] Please fill Last Name field!");
                 textBoxLastName_UserRegister.Focus();
                 return;
             }
-            else if (inputCountry == "") {
+            else if (inputCountry == "")
+            {
                 MessageBox.Show($"[ERROR] Please fill Country field!");
                 comboBoxCountry_UserRegister.Focus();
                 return;
@@ -98,9 +109,12 @@ namespace MovieDatabase {
             string insertQuery = "INSERT INTO dbo.Users (email, password, firstName, lastName, dateBirth, country) ";
             insertQuery += $"VALUES ('{inputEmail}', '{inputPassword}', '{inputFirstName}', '{inputLastName}', '{inputDateBirth}', '{inputCountry}'); ";
 
-            try {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, cnn)) {
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, cnn))
+                    {
                         cnn.Open();
                         cmd.ExecuteNonQuery();
 
@@ -111,31 +125,37 @@ namespace MovieDatabase {
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
             }
         }
 
 
-        private void buttonCancel_Register_Click(object sender, EventArgs e) {
+        private void buttonCancel_Register_Click(object sender, EventArgs e)
+        {
             //Switch Forms
             this.Owner.Show();
             this.Close();
         }
 
-        private void textBoxEmail_UserRegister_Validating(object sender, CancelEventArgs e) {
+        private void textBoxEmail_UserRegister_Validating(object sender, CancelEventArgs e)
+        {
             Regex regex = new Regex(@"^([a-zA-Z]([-\.\w]*[a-zA-Z0-9])*@[a-zA-Z]*[-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,10}$");
 
-            if (regex.IsMatch(textBoxEmail_UserRegister.Text)) {
+            if (regex.IsMatch(textBoxEmail_UserRegister.Text))
+            {
                 myErrorProvider.Clear();
             }
-            else {
+            else
+            {
                 myErrorProvider.SetError(textBoxEmail_UserRegister, "Invalid Email Address!");
                 return;
             }
         }
 
-        private void FormUserRegister_Paint(object sender, PaintEventArgs e) {
+        private void FormUserRegister_Paint(object sender, PaintEventArgs e)
+        {
 
             Color c1 = Color.FromArgb(255, 210, 54, 0);
             Color c2 = Color.FromArgb(255, 211, 87, 0);
@@ -152,6 +172,11 @@ namespace MovieDatabase {
             br.InterpolationColors = cb;
 
             e.Graphics.FillRectangle(br, this.ClientRectangle);
+        }
+
+        private void FormUserRegister_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

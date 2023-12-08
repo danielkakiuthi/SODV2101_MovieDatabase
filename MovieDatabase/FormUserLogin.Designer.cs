@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserLogin));
             groupBox_UserLogin = new GroupBox();
             pictureBoxLogo_Login = new PictureBox();
@@ -135,6 +136,7 @@
             Margin = new Padding(4);
             Name = "FormUserLogin";
             Text = "[FormUserLogin]";
+            Load += FormUserLogin_Load;
             groupBox_UserLogin.ResumeLayout(false);
             groupBox_UserLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo_Login).EndInit();

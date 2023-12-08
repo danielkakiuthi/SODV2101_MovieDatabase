@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelInputSearch = new Label();
             labelInputYear = new Label();
             labelInputType = new Label();
@@ -30,25 +31,26 @@
             textBoxInputYear = new TextBox();
             labelSearchResults = new Label();
             listBoxResponseSearch = new ListBox();
-            listBoxFavorites = new ListBox();
             buttonSearch = new Button();
             buttonAddFavorites = new Button();
-            textBoxTitleDetails = new TextBox();
-            textBoxFavoriteDetails = new TextBox();
+            textBoxDirector = new TextBox();
             labelTitleDetails = new Label();
-            labelFavoriteDetails = new Label();
             labelTitlePoster = new Label();
-            labelFavoritePoster = new Label();
             pictureBoxTitlePoster = new PictureBox();
-            pictureBoxFavoritePoster = new PictureBox();
             comboBoxInputType = new ComboBox();
             labelHeader_TitleSearch = new Label();
-            gp_SearchFavorites = new GroupBox();
-            buttonDelFavorites = new Button();
             groupBox1 = new GroupBox();
+            label5 = new Label();
+            textBoxPlot = new TextBox();
+            label4 = new Label();
+            textBoxGenre = new TextBox();
+            label3 = new Label();
+            textBoxRuntime = new TextBox();
+            label2 = new Label();
+            textBoxReleased = new TextBox();
+            label1 = new Label();
+            textBoxRated = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).BeginInit();
-            gp_SearchFavorites.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -115,22 +117,11 @@
             listBoxResponseSearch.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             listBoxResponseSearch.FormattingEnabled = true;
             listBoxResponseSearch.ItemHeight = 25;
-            listBoxResponseSearch.Location = new Point(12, 238);
+            listBoxResponseSearch.Location = new Point(6, 44);
             listBoxResponseSearch.Name = "listBoxResponseSearch";
-            listBoxResponseSearch.Size = new Size(319, 279);
+            listBoxResponseSearch.Size = new Size(406, 679);
             listBoxResponseSearch.TabIndex = 7;
             listBoxResponseSearch.SelectedIndexChanged += listBoxResponseSearch_SelectedIndexChanged;
-            // 
-            // listBoxFavorites
-            // 
-            listBoxFavorites.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            listBoxFavorites.FormattingEnabled = true;
-            listBoxFavorites.ItemHeight = 25;
-            listBoxFavorites.Location = new Point(868, 238);
-            listBoxFavorites.Name = "listBoxFavorites";
-            listBoxFavorites.Size = new Size(319, 279);
-            listBoxFavorites.TabIndex = 8;
-            listBoxFavorites.SelectedIndexChanged += listBoxFavorites_SelectedIndexChanged;
             // 
             // buttonSearch
             // 
@@ -150,7 +141,7 @@
             buttonAddFavorites.BackColor = Color.Olive;
             buttonAddFavorites.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonAddFavorites.ForeColor = Color.White;
-            buttonAddFavorites.Location = new Point(8, 329);
+            buttonAddFavorites.Location = new Point(6, 733);
             buttonAddFavorites.Name = "buttonAddFavorites";
             buttonAddFavorites.Size = new Size(181, 38);
             buttonAddFavorites.TabIndex = 11;
@@ -158,87 +149,45 @@
             buttonAddFavorites.UseVisualStyleBackColor = false;
             buttonAddFavorites.Click += buttonAddFavorites_Click;
             // 
-            // textBoxTitleDetails
+            // textBoxDirector
             // 
-            textBoxTitleDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxTitleDetails.Location = new Point(12, 598);
-            textBoxTitleDetails.Multiline = true;
-            textBoxTitleDetails.Name = "textBoxTitleDetails";
-            textBoxTitleDetails.Size = new Size(319, 379);
-            textBoxTitleDetails.TabIndex = 12;
-            // 
-            // textBoxFavoriteDetails
-            // 
-            textBoxFavoriteDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxFavoriteDetails.Location = new Point(868, 598);
-            textBoxFavoriteDetails.Multiline = true;
-            textBoxFavoriteDetails.Name = "textBoxFavoriteDetails";
-            textBoxFavoriteDetails.Size = new Size(319, 379);
-            textBoxFavoriteDetails.TabIndex = 13;
+            textBoxDirector.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxDirector.Location = new Point(907, 47);
+            textBoxDirector.Name = "textBoxDirector";
+            textBoxDirector.Size = new Size(521, 33);
+            textBoxDirector.TabIndex = 12;
             // 
             // labelTitleDetails
             // 
             labelTitleDetails.AutoSize = true;
             labelTitleDetails.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelTitleDetails.ForeColor = Color.White;
-            labelTitleDetails.Location = new Point(12, 571);
+            labelTitleDetails.Location = new Point(907, 15);
             labelTitleDetails.Name = "labelTitleDetails";
-            labelTitleDetails.Size = new Size(118, 26);
+            labelTitleDetails.Size = new Size(86, 26);
             labelTitleDetails.TabIndex = 14;
-            labelTitleDetails.Text = "Title Details";
-            // 
-            // labelFavoriteDetails
-            // 
-            labelFavoriteDetails.AutoSize = true;
-            labelFavoriteDetails.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFavoriteDetails.ForeColor = Color.White;
-            labelFavoriteDetails.Location = new Point(868, 570);
-            labelFavoriteDetails.Name = "labelFavoriteDetails";
-            labelFavoriteDetails.Size = new Size(150, 26);
-            labelFavoriteDetails.TabIndex = 15;
-            labelFavoriteDetails.Text = "Favorite Details";
+            labelTitleDetails.Text = "Director";
             // 
             // labelTitlePoster
             // 
             labelTitlePoster.AutoSize = true;
             labelTitlePoster.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelTitlePoster.ForeColor = Color.White;
-            labelTitlePoster.Location = new Point(361, 20);
+            labelTitlePoster.Location = new Point(432, 18);
             labelTitlePoster.Name = "labelTitlePoster";
             labelTitlePoster.Size = new Size(97, 23);
             labelTitlePoster.TabIndex = 16;
             labelTitlePoster.Text = "Title Poster";
             // 
-            // labelFavoritePoster
-            // 
-            labelFavoritePoster.AutoSize = true;
-            labelFavoritePoster.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFavoritePoster.ForeColor = Color.White;
-            labelFavoritePoster.Location = new Point(411, 21);
-            labelFavoritePoster.Name = "labelFavoritePoster";
-            labelFavoritePoster.Size = new Size(68, 26);
-            labelFavoritePoster.TabIndex = 17;
-            labelFavoritePoster.Text = "Poster";
-            // 
             // pictureBoxTitlePoster
             // 
             pictureBoxTitlePoster.BackColor = Color.Transparent;
-            pictureBoxTitlePoster.Location = new Point(363, 238);
+            pictureBoxTitlePoster.Location = new Point(639, 238);
             pictureBoxTitlePoster.Name = "pictureBoxTitlePoster";
             pictureBoxTitlePoster.Size = new Size(427, 739);
             pictureBoxTitlePoster.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxTitlePoster.TabIndex = 18;
             pictureBoxTitlePoster.TabStop = false;
-            // 
-            // pictureBoxFavoritePoster
-            // 
-            pictureBoxFavoritePoster.BackColor = Color.Transparent;
-            pictureBoxFavoritePoster.Location = new Point(1239, 238);
-            pictureBoxFavoritePoster.Name = "pictureBoxFavoritePoster";
-            pictureBoxFavoritePoster.Size = new Size(427, 739);
-            pictureBoxFavoritePoster.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBoxFavoritePoster.TabIndex = 19;
-            pictureBoxFavoritePoster.TabStop = false;
             // 
             // comboBoxInputType
             // 
@@ -248,7 +197,6 @@
             comboBoxInputType.Name = "comboBoxInputType";
             comboBoxInputType.Size = new Size(195, 29);
             comboBoxInputType.TabIndex = 20;
-            comboBoxInputType.SelectedIndexChanged += comboBoxInputType_SelectedIndexChanged;
             // 
             // labelHeader_TitleSearch
             // 
@@ -261,43 +209,126 @@
             labelHeader_TitleSearch.TabIndex = 21;
             labelHeader_TitleSearch.Text = "Title Search";
             // 
-            // gp_SearchFavorites
-            // 
-            gp_SearchFavorites.Controls.Add(buttonDelFavorites);
-            gp_SearchFavorites.Controls.Add(labelFavoritePoster);
-            gp_SearchFavorites.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            gp_SearchFavorites.ForeColor = Color.White;
-            gp_SearchFavorites.Location = new Point(840, 193);
-            gp_SearchFavorites.Name = "gp_SearchFavorites";
-            gp_SearchFavorites.Size = new Size(844, 792);
-            gp_SearchFavorites.TabIndex = 22;
-            gp_SearchFavorites.TabStop = false;
-            gp_SearchFavorites.Text = "Favorites";
-            // 
-            // buttonDelFavorites
-            // 
-            buttonDelFavorites.BackColor = Color.Olive;
-            buttonDelFavorites.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonDelFavorites.ForeColor = Color.White;
-            buttonDelFavorites.Location = new Point(28, 330);
-            buttonDelFavorites.Name = "buttonDelFavorites";
-            buttonDelFavorites.Size = new Size(181, 38);
-            buttonDelFavorites.TabIndex = 24;
-            buttonDelFavorites.Text = "Delete from Favorites";
-            buttonDelFavorites.UseVisualStyleBackColor = false;
-            buttonDelFavorites.Click += buttonDelFavorites_Click;
-            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(textBoxPlot);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(textBoxGenre);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(textBoxRuntime);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(textBoxReleased);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(textBoxRated);
             groupBox1.Controls.Add(labelSearchResults);
             groupBox1.Controls.Add(labelTitlePoster);
             groupBox1.Controls.Add(buttonAddFavorites);
-            groupBox1.Location = new Point(4, 194);
+            groupBox1.Controls.Add(labelTitleDetails);
+            groupBox1.Controls.Add(listBoxResponseSearch);
+            groupBox1.Controls.Add(textBoxDirector);
+            groupBox1.Location = new Point(207, 194);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(802, 791);
+            groupBox1.Size = new Size(1434, 791);
             groupBox1.TabIndex = 23;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(907, 367);
+            label5.Name = "label5";
+            label5.Size = new Size(45, 26);
+            label5.TabIndex = 26;
+            label5.Text = "Plot";
+            // 
+            // textBoxPlot
+            // 
+            textBoxPlot.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxPlot.Location = new Point(907, 399);
+            textBoxPlot.Multiline = true;
+            textBoxPlot.Name = "textBoxPlot";
+            textBoxPlot.Size = new Size(521, 324);
+            textBoxPlot.TabIndex = 25;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(907, 297);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 26);
+            label4.TabIndex = 24;
+            label4.Text = "Genre";
+            // 
+            // textBoxGenre
+            // 
+            textBoxGenre.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxGenre.Location = new Point(907, 329);
+            textBoxGenre.Name = "textBoxGenre";
+            textBoxGenre.Size = new Size(521, 33);
+            textBoxGenre.TabIndex = 23;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(907, 226);
+            label3.Name = "label3";
+            label3.Size = new Size(81, 26);
+            label3.TabIndex = 22;
+            label3.Text = "Runtime";
+            // 
+            // textBoxRuntime
+            // 
+            textBoxRuntime.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxRuntime.Location = new Point(907, 258);
+            textBoxRuntime.Name = "textBoxRuntime";
+            textBoxRuntime.Size = new Size(521, 33);
+            textBoxRuntime.TabIndex = 21;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(907, 156);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 26);
+            label2.TabIndex = 20;
+            label2.Text = "Released";
+            // 
+            // textBoxReleased
+            // 
+            textBoxReleased.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxReleased.Location = new Point(907, 188);
+            textBoxReleased.Name = "textBoxReleased";
+            textBoxReleased.Size = new Size(521, 33);
+            textBoxReleased.TabIndex = 19;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(907, 85);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 26);
+            label1.TabIndex = 18;
+            label1.Text = "Rated";
+            // 
+            // textBoxRated
+            // 
+            textBoxRated.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxRated.Location = new Point(907, 117);
+            textBoxRated.Name = "textBoxRated";
+            textBoxRated.Size = new Size(521, 33);
+            textBoxRated.TabIndex = 17;
             // 
             // FormTitleSearch
             // 
@@ -308,21 +339,13 @@
             ClientSize = new Size(1700, 989);
             Controls.Add(labelHeader_TitleSearch);
             Controls.Add(comboBoxInputType);
-            Controls.Add(pictureBoxFavoritePoster);
             Controls.Add(pictureBoxTitlePoster);
-            Controls.Add(labelFavoriteDetails);
-            Controls.Add(labelTitleDetails);
-            Controls.Add(textBoxFavoriteDetails);
-            Controls.Add(textBoxTitleDetails);
             Controls.Add(buttonSearch);
-            Controls.Add(listBoxFavorites);
-            Controls.Add(listBoxResponseSearch);
             Controls.Add(textBoxInputYear);
             Controls.Add(textBoxInputSearch);
             Controls.Add(labelInputType);
             Controls.Add(labelInputYear);
             Controls.Add(labelInputSearch);
-            Controls.Add(gp_SearchFavorites);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
@@ -331,9 +354,6 @@
             Load += FormTitleSearch_Load;
             Paint += FormTitleSearch_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
-            gp_SearchFavorites.ResumeLayout(false);
-            gp_SearchFavorites.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -349,21 +369,24 @@
         private TextBox textBoxInputYear;
         private Label labelSearchResults;
         private ListBox listBoxResponseSearch;
-        private ListBox listBoxFavorites;
         private Button buttonSearch;
         private Button buttonAddFavorites;
-        private TextBox textBoxTitleDetails;
-        private TextBox textBoxFavoriteDetails;
+        private TextBox textBoxDirector;
         private Label labelTitleDetails;
-        private Label labelFavoriteDetails;
         private Label labelTitlePoster;
-        private Label labelFavoritePoster;
         private PictureBox pictureBoxTitlePoster;
-        private PictureBox pictureBoxFavoritePoster;
         private ComboBox comboBoxInputType;
         private Label labelHeader_TitleSearch;
-        private GroupBox gp_SearchFavorites;
         private GroupBox groupBox1;
-        private Button buttonDelFavorites;
+        private Label label4;
+        private TextBox textBoxGenre;
+        private Label label3;
+        private TextBox textBoxRuntime;
+        private Label label2;
+        private TextBox textBoxReleased;
+        private Label label1;
+        private TextBox textBoxRated;
+        private Label label5;
+        private TextBox textBoxPlot;
     }
 }

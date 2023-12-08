@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MovieDatabase.OmdbApi;
+using System.Data.SqlClient;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace MovieDatabase {
     public partial class FormTitleSearch : Form {
@@ -17,12 +19,20 @@ namespace MovieDatabase {
         private ClassOmdbResponseSearch? myResponse;
         private readonly OmdbApiClient omdbApiClient;
         private readonly List<ClassOmdbTitle> listFavorites;
+        private ClassUser myUserLogged;
+        public string ConnectionString { get; set; }
+        ErrorProvider myErrorProvider { get; set; }
 
 
-        public FormTitleSearch() {
+
+        public FormTitleSearch(string connectionString, ClassUser userLogged) {
             InitializeComponent();
+            ConnectionString = connectionString;
+            myUserLogged = userLogged;
+            myErrorProvider = new ErrorProvider();
             omdbApiClient = new OmdbApiClient();
             listFavorites = new List<ClassOmdbTitle>();
+
         }
 
 
@@ -37,7 +47,7 @@ namespace MovieDatabase {
 
             string message = string.Empty;
             if (myResponse.Search == null) {
-                textBoxTitleDetails.Text = "No Title found. Try another search term.";
+                textBoxDirector.Text = "No Title found. Try another search term.";
             }
         }
 
@@ -46,14 +56,66 @@ namespace MovieDatabase {
             ClassOmdbTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassOmdbTitle;
             if (selectedTitle != null) {
                 listFavorites.Add(selectedTitle);
-                listBoxFavorites.DataSource = null;
-                listBoxFavorites.DataSource = listFavorites;
+                
+                AddMoviestoFavorites(selectedTitle.ImdbID, myUserLogged.Id);
+            }
+        }
+
+        public void AddMoviestoFavorites(string imdbID, int userID)
+        {
+            string insertQuery = "INSERT INTO dbo.Favorites (id, imdbID) ";
+            insertQuery += $"VALUES ('{userID}', '{imdbID}'); ";
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, cnn))
+                    {
+                        cnn.Open();
+                        cmd.ExecuteNonQuery();
+                        cnn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}"); ;
+            }
+            //FormFavorites Update = new FormFavorites(ConnectionString, myUserLogged);
+            //Update.UpdateFavoriteList(myUserLogged.Id);
+        }
+
+        public void RemoveMovieFromFavorites(string imdbID, int userID)
+        {
+            string deleteQuery = "DELETE FROM dbo.Favorites WHERE id = @userID AND MovieName = @imdbID";
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn))
+                    {
+                        cnn.Open();
+                        cmd.Parameters.AddWithValue("@userID", userID);
+                        cmd.Parameters.AddWithValue("@imdbID", imdbID);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR] Algo deu errado!\n{ex.Message}");
             }
         }
 
 
         private async void listBoxResponseSearch_SelectedIndexChanged(object sender, EventArgs e) {
-            textBoxTitleDetails.Text = string.Empty;
+            textBoxDirector.Text = string.Empty;
+            textBoxRated.Text = string.Empty;
+            textBoxReleased.Text = string.Empty;
+            textBoxRuntime.Text = string.Empty;
+            textBoxGenre.Text = string.Empty;
+            textBoxPlot.Text = string.Empty;
+            
 
             if (listBoxResponseSearch.SelectedIndex >= 0) {
                 string? imdbId = (listBoxResponseSearch.SelectedItem as ClassOmdbTitle)?.ImdbID;
@@ -61,12 +123,12 @@ namespace MovieDatabase {
                 if (imdbId != null) {
                     ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(imdbId);
 
-                    textBoxTitleDetails.Text += $"Director: {selectedTitle.Director}" + Environment.NewLine;
-                    textBoxTitleDetails.Text += $"Rated: {selectedTitle.Rated}" + Environment.NewLine;
-                    textBoxTitleDetails.Text += $"Released: {selectedTitle.Released}" + Environment.NewLine;
-                    textBoxTitleDetails.Text += $"Runtime: {selectedTitle.Runtime}" + Environment.NewLine;
-                    textBoxTitleDetails.Text += $"Genre: {selectedTitle.Genre}" + Environment.NewLine;
-                    textBoxTitleDetails.Text += $"Plot: {selectedTitle.Plot}";
+                    textBoxDirector.Text += $"{selectedTitle.Director}";
+                    textBoxRated.Text += $"{selectedTitle.Rated}";
+                    textBoxReleased.Text += $"{selectedTitle.Released}";
+                    textBoxRuntime.Text += $"{selectedTitle.Runtime}";
+                    textBoxGenre.Text += $"{selectedTitle.Genre}";
+                    textBoxPlot.Text += $"{selectedTitle.Plot}";
 
                     if (!string.IsNullOrEmpty(selectedTitle.Poster) && !selectedTitle.Poster.Equals("N/A")) {
                         pictureBoxTitlePoster.Load(selectedTitle.Poster);
@@ -78,48 +140,10 @@ namespace MovieDatabase {
             }
         }
 
-        private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e) {
-            textBoxFavoriteDetails.Text = string.Empty;
-
-            if (listBoxFavorites.SelectedIndex >= 0) {
-                string? imdbID = (listBoxFavorites.SelectedItem as ClassOmdbTitle)?.ImdbID;
-
-                if (imdbID != null) {
-                    ClassOmdbTitle selectedFavorite = await omdbApiClient.GetByImdbId(imdbID);
-
-                    textBoxFavoriteDetails.Text += $"Director: {selectedFavorite.Director}" + Environment.NewLine;
-                    textBoxFavoriteDetails.Text += $"Rated: {selectedFavorite.Rated}" + Environment.NewLine;
-                    textBoxFavoriteDetails.Text += $"Released: {selectedFavorite.Released}" + Environment.NewLine;
-                    textBoxFavoriteDetails.Text += $"Runtime: {selectedFavorite.Runtime}" + Environment.NewLine;
-                    textBoxFavoriteDetails.Text += $"Genre: {selectedFavorite.Genre}" + Environment.NewLine;
-                    textBoxFavoriteDetails.Text += $"Plot: {selectedFavorite.Plot}";
-
-                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A")) {
-                        pictureBoxFavoritePoster.Load(selectedFavorite.Poster);
-                    }
-                    else {
-                        pictureBoxFavoritePoster.Image = null;
-                    }
-                }
-            }
-        }
-
         private void FormTitleSearch_Load(object sender, EventArgs e) {
 
         }
 
-        private void comboBoxInputType_SelectedIndexChanged(object sender, EventArgs e) {
-
-        }
-
-        private void buttonDelFavorites_Click(object sender, EventArgs e) {
-            ClassOmdbTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassOmdbTitle;
-            if (selectedTitle != null) {
-                listFavorites.Remove(selectedTitle);
-                listBoxFavorites.DataSource = null;
-                listBoxFavorites.DataSource = listFavorites;
-            }
-        }
 
         private void FormTitleSearch_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 0, 3, 88);

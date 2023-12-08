@@ -12,7 +12,8 @@ using System.Windows.Forms;
 
 namespace MovieDatabase {
 
-    public partial class FormUserLogin : Form {
+    public partial class FormUserLogin : Form
+    {
 
         private string ConnectionString { get; set; }
         public ClassUser? MyUserLogged { get; set; }
@@ -20,7 +21,8 @@ namespace MovieDatabase {
         private FormFrame? MyFormFrame { get; set; }
 
 
-        public FormUserLogin() {
+        public FormUserLogin()
+        {
             InitializeComponent();
             MyUserLogged = null;
             MyFormUserRegister = null;
@@ -41,19 +43,25 @@ namespace MovieDatabase {
 
 
 
-        private void buttonLogin_UserLogin_Click(object sender, EventArgs e) {
+        private void buttonLogin_UserLogin_Click(object sender, EventArgs e)
+        {
 
             //Build Select Query
             string selectQuery = "SELECT id, email, password, firstName, lastName, dateBirth, country ";
             selectQuery += "FROM dbo.Users ";
             selectQuery += $"WHERE email = '{textBoxEmail_UserLogin.Text}' AND password = '{textBoxPassword_UserLogin.Text}'; ";
 
-            try {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, cnn)) {
+            try
+            {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, cnn))
+                    {
                         cnn.Open();
-                        using (SqlDataReader myReader = cmd.ExecuteReader()) {
-                            if (myReader.Read()) {
+                        using (SqlDataReader myReader = cmd.ExecuteReader())
+                        {
+                            if (myReader.Read())
+                            {
 
                                 //Create MyUserLogged Object
                                 int inputId = (int)myReader[0];
@@ -72,7 +80,8 @@ namespace MovieDatabase {
                                 this.Hide();
                                 MyFormFrame.Show();
                             }
-                            else {
+                            else
+                            {
                                 MessageBox.Show("[Incorrect Credentials] Try Again!");
                             }
 
@@ -82,17 +91,24 @@ namespace MovieDatabase {
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
             }
         }
 
-        private void linkLabelRegister_UserLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void linkLabelRegister_UserLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             //Switch Forms
             MyFormUserRegister = new FormUserRegister(ConnectionString);
             MyFormUserRegister.Owner = this;
             this.Hide();
             MyFormUserRegister.Show();
+        }
+
+        private void FormUserLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
