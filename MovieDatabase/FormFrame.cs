@@ -13,7 +13,7 @@ namespace MovieDatabase {
         private TabPage? tabHomepage;
         private TabPage? tabUserDetails;
         private TabPage? tabTitleSearch;
-        private TabPage? tabTitleDetails;
+        private TabPage? tabFavorite;
 
         public FormFrame(string connectionString, ClassUser userLogged)
         {
@@ -102,22 +102,23 @@ namespace MovieDatabase {
             };
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
-            //Initialize TitleDetails Tab
-            FormFavorites formTitleDetails = new FormFavorites(ConnectionString, myUserLogged)
+            //Initialize Favorite Tab
+            /*FormFavorites formFavorite = new FormFavorites(ConnectionString, myUserLogged)
             {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
-            formTitleDetails.Show();
-            tabTitleDetails = new TabPage()
+            formFavorite.UpdateFavoriteList(myUserLogged.Id);
+            formFavorite.Show();
+            tabFavorite = new TabPage()
             {
                 Text = "Tab Title Details",
                 Name = "TabTitleDetails",
-                Controls = { formTitleDetails }
+                Controls = { formFavorite }
             };
-            tabControlContent_Frame.TabPages.Add(tabTitleDetails);
+            tabControlContent_Frame.TabPages.Add(tabFavorite);*/
 
             //Adjust Tab Control properties
             tabControlContent_Frame.Location = new Point(groupBoxMenu_Frame.Width, 0);
@@ -173,11 +174,32 @@ namespace MovieDatabase {
         }
         private void buttonFavorites_Frame_Click(object sender, EventArgs e)
         {
-            tabControlContent_Frame.SelectTab(tabTitleDetails);
+            CreateTab();
+            tabControlContent_Frame.SelectTab(tabFavorite);
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
             buttonFavorites_Frame.BackColor = Color.MidnightBlue;
+        }
+
+        private void CreateTab()
+        {
+            //Initialize Favorite Tab
+            FormFavorites formFavorite = new FormFavorites(ConnectionString, myUserLogged)
+            {
+                TopLevel = false,
+                AutoScroll = true,
+                Dock = DockStyle.Fill,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            formFavorite.Show();
+            tabFavorite = new TabPage()
+            {
+                Text = "Tab Title Details",
+                Name = "TabTitleDetails",
+                Controls = { formFavorite }
+            };
+            tabControlContent_Frame.TabPages.Add(tabFavorite);
         }
 
         private void buttonLogout_Frame_Click(object sender, EventArgs e)

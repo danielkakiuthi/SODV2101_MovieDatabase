@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2gSF+lwB+251szI+hECpAxWAWjqnupsxlxPswyrq7HXAf+V63auv8lnHsrlZKWUY3k8o2a+/MElKUhYheltoVw==",
+  "dgSpecHash": "F42SBl82KD3qPZoZmye0nvUcEilLzLabpcitgIimR3qq4OiczeIOpc5j9JZLDfGkCDhmgvHWwCVrXLk6jWi9Sg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\MovieDatabase.csproj",
+  "projectFilePath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\MovieDatabase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafam\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\rafam\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\MovieDatabase.csproj": {}
+    "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\MovieDatabase.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\MovieDatabase.csproj": {
+    "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\MovieDatabase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\MovieDatabase.csproj",
+        "projectUniqueName": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\MovieDatabase.csproj",
         "projectName": "MovieDatabase",
-        "projectPath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\MovieDatabase.csproj",
+        "projectPath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\MovieDatabase.csproj",
         "packagesPath": "C:\\Users\\rafam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\OOP_FinalProject\\MovieDatabase\\obj\\",
+        "outputPath": "C:\\Users\\rafam\\OneDrive\\Documentos\\GitHub\\SODV2101_MovieDatabase\\MovieDatabase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

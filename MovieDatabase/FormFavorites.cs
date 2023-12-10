@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +38,7 @@ namespace MovieDatabase {
             myErrorProvider = new ErrorProvider();
             listFavorites = new List<ClassOmdbTitle>();
             UpdateFavoriteList(myUserLogged.Id);
+            this.Refresh();
         }
 
         private void FormFavorites_Paint(object sender, PaintEventArgs e)
@@ -62,55 +64,70 @@ namespace MovieDatabase {
         {
 
         }
-        public async void UpdateFavoriteList(int userId)
+
+        public async Task<List<string>> GetFavoriteListFromDatabase(int userId)
         {
+            List<string> favorites = new List<string>();
             string selectQuery = "SELECT imdbID FROM dbo.Favorites WHERE id = @userId";
-
-
-            // Opcionalmente, se você quiser garantir que a exibição seja atualizada
-            listBoxFavorites.BeginUpdate();
-            listBoxFavorites.DataBindings.Clear();
 
             try
             {
                 using (SqlConnection cnn = new SqlConnection(ConnectionString))
                 {
+                    await cnn.OpenAsync();
+
                     using (SqlCommand cmd = new SqlCommand(selectQuery, cnn))
                     {
-                        cnn.Open();
                         cmd.Parameters.AddWithValue("@userId", userId);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            while (reader.Read())
+                            while (await reader.ReadAsync())
                             {
                                 string imdbId = reader["imdbID"].ToString();
-                                ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(imdbId);
-                                listFavorites.Add(selectedTitle);
-                                //UpdateListBox(imdbId);
-                                //imdbIdList.Add(imdbId);
+                                favorites.Add(imdbId);
                             }
                         }
-                        cnn.Close();
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error getting favorites list from database: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return favorites;
+        }
+
+        public async Task UpdateFavoriteList(int userId)
+        {
+            listBoxFavorites.BeginUpdate();
+            listBoxFavorites.DataSource = null;
+
+            try
+            {
+                List<string> favoritesFromDatabase = await GetFavoriteListFromDatabase(userId);
+
+                foreach (var favorite in favoritesFromDatabase)
+                {
+                    ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(favorite);
+                    listFavorites.Add(selectedTitle);
+                }
+
                 listBoxFavorites.DataSource = listFavorites;
+            }
+            catch (Exception ex)
+            {
+                // Exibe uma mensagem de erro em um MessageBox
+                MessageBox.Show($"Error updating favorites list: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 listBoxFavorites.EndUpdate();
             }
-            UpdateListBox();
         }
 
-        private async void UpdateListBox()
-        {
-            /*listBoxFavorites.BeginUpdate();
-            ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(imdbId);
-            listFavorites.Add(selectedTitle);
-            listBoxFavorites.EndUpdate();*/
-            listBoxFavorites.Refresh();
 
-        }
         private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
              textBoxDirector.Text = string.Empty;
@@ -197,12 +214,11 @@ namespace MovieDatabase {
             {
                 MessageBox.Show($"[ERROR] Algo deu errado!\n{ex.Message}");
             }
-            //UpdateFavoriteList(userID);
         }
 
-        private void btnUpdateFavorites_Click(object sender, EventArgs e)
+        private void RefreshForm()
         {
-            //UpdateListBox();
+            this.Refresh();
         }
     }
 }

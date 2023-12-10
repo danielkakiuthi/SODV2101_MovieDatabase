@@ -32,7 +32,7 @@ namespace MovieDatabase {
             myErrorProvider = new ErrorProvider();
             omdbApiClient = new OmdbApiClient();
             listFavorites = new List<ClassOmdbTitle>();
-
+            lblFavoriteAdd.Text = "";
         }
 
 
@@ -40,6 +40,7 @@ namespace MovieDatabase {
             string querySearch = textBoxInputSearch.Text;
             string? queryYear = textBoxInputYear.Text;
             string? queryType = comboBoxInputType.Text;
+            lblFavoriteAdd.Text = "";
 
             myResponse = await omdbApiClient.GetBySearch(querySearch, queryYear, queryType);
             //Debug.WriteLine(myResponse.ToString());
@@ -55,13 +56,12 @@ namespace MovieDatabase {
         private void buttonAddFavorites_Click(object sender, EventArgs e) {
             ClassOmdbTitle? selectedTitle = listBoxResponseSearch.SelectedItem as ClassOmdbTitle;
             if (selectedTitle != null) {
-                listFavorites.Add(selectedTitle);
-                
-                AddMoviestoFavorites(selectedTitle.ImdbID, myUserLogged.Id);
+                listFavorites.Add(selectedTitle);             
+                AddMoviestoFavorites(selectedTitle.ImdbID, myUserLogged.Id, selectedTitle.Title);
             }
         }
 
-        public void AddMoviestoFavorites(string imdbID, int userID)
+        public void AddMoviestoFavorites(string imdbID, int userID, string title)
         {
             string insertQuery = "INSERT INTO dbo.Favorites (id, imdbID) ";
             insertQuery += $"VALUES ('{userID}', '{imdbID}'); ";
@@ -76,13 +76,12 @@ namespace MovieDatabase {
                         cnn.Close();
                     }
                 }
+                lblFavoriteAdd.Text = title + " added to favorites";
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}"); ;
             }
-            //FormFavorites Update = new FormFavorites(ConnectionString, myUserLogged);
-            //Update.UpdateFavoriteList(myUserLogged.Id);
         }
 
         public void RemoveMovieFromFavorites(string imdbID, int userID)
@@ -140,8 +139,14 @@ namespace MovieDatabase {
             }
         }
 
-        private void FormTitleSearch_Load(object sender, EventArgs e) {
+        private void FormTitleSearch_Load(object sender, EventArgs e) 
+        {
+            lblFavoriteAdd.Text = "";
+        }
 
+        private void Refresh()
+        {
+            lblFavoriteAdd.Text = "";
         }
 
 

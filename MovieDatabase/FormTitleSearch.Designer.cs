@@ -50,6 +50,7 @@
             textBoxReleased = new TextBox();
             label1 = new Label();
             textBoxRated = new TextBox();
+            lblFavoriteAdd = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTitlePoster).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -330,6 +331,17 @@
             textBoxRated.Size = new Size(521, 33);
             textBoxRated.TabIndex = 17;
             // 
+            // lblFavoriteAdd
+            // 
+            lblFavoriteAdd.AutoSize = true;
+            lblFavoriteAdd.Font = new Font("Comic Sans MS", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblFavoriteAdd.ForeColor = Color.Yellow;
+            lblFavoriteAdd.Location = new Point(639, 156);
+            lblFavoriteAdd.Name = "lblFavoriteAdd";
+            lblFavoriteAdd.Size = new Size(89, 27);
+            lblFavoriteAdd.TabIndex = 24;
+            lblFavoriteAdd.Text = "Director";
+            // 
             // FormTitleSearch
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -337,6 +349,7 @@
             BackColor = Color.Navy;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1700, 989);
+            Controls.Add(lblFavoriteAdd);
             Controls.Add(labelHeader_TitleSearch);
             Controls.Add(comboBoxInputType);
             Controls.Add(pictureBoxTitlePoster);
@@ -388,5 +401,6 @@
         private TextBox textBoxRated;
         private Label label5;
         private TextBox textBoxPlot;
+        private Label lblFavoriteAdd;
     }
 }

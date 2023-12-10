@@ -68,7 +68,7 @@ namespace MovieDatabase {
 
 
             //Check for errors
-            if (myNowPlayingResponse.Results == null) {
+            /*if (myNowPlayingResponse.Results == null) {
                 MessageBox.Show("[ERROR] No Now Playing Title found.");
             }
             if (myTopRatedResponse.Results == null) {
@@ -137,7 +137,7 @@ namespace MovieDatabase {
                 newPictureBox.LoadAsync(listUpcomingImageUrls[i]);
                 newPictureBox.MouseClick += new MouseEventHandler(UpcomingTitle_ClickOn);
                 tableLayoutPanelUpcoming.Controls.Add(newPictureBox, i, 0);
-            }
+            }*/
 
             this.ResumeLayout();
         }
