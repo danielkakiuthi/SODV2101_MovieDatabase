@@ -14,8 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormFavorites : Form
-    {
+    public partial class FormFavorites : Form {
 
         public string KeywordQuery { get; set; }
         public string GenreQuery { get; set; }
@@ -29,8 +28,7 @@ namespace MovieDatabase {
         List<string> imdbIdList = new List<string>();
 
 
-        public FormFavorites(string connectionString, ClassUser userLogged)
-        {
+        public FormFavorites(string connectionString, ClassUser userLogged) {
             InitializeComponent();
             ConnectionString = connectionString;
             myUserLogged = userLogged;
@@ -41,8 +39,8 @@ namespace MovieDatabase {
             this.Refresh();
         }
 
-        private void FormFavorites_Paint(object sender, PaintEventArgs e)
-        {
+
+        private void FormFavorites_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 0, 3, 88);
             Color c2 = Color.FromArgb(255, 0, 18, 94);
             Color c3 = Color.FromArgb(255, 0, 29, 99);
@@ -60,30 +58,24 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
 
-        private void FormFavorites_Load(object sender, EventArgs e)
-        {
 
+        private void FormFavorites_Load(object sender, EventArgs e) {
+            
         }
 
-        public async Task<List<string>> GetFavoriteListFromDatabase(int userId)
-        {
+        public async Task<List<string>> GetFavoriteListFromDatabase(int userId) {
             List<string> favorites = new List<string>();
             string selectQuery = "SELECT imdbID FROM dbo.Favorites WHERE id = @userId";
 
-            try
-            {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString))
-                {
+            try {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
                     await cnn.OpenAsync();
 
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, cnn))
-                    {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, cnn)) {
                         cmd.Parameters.AddWithValue("@userId", userId);
 
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync()) {
+                            while (await reader.ReadAsync()) {
                                 string imdbId = reader["imdbID"].ToString();
                                 favorites.Add(imdbId);
                             }
@@ -91,45 +83,40 @@ namespace MovieDatabase {
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error getting favorites list from database: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex) {
+                MessageBox.Show($"Error getting favorites list from database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return favorites;
         }
 
-        public async Task UpdateFavoriteList(int userId)
-        {
+        public async Task UpdateFavoriteList(int userId) {
+            listFavorites.Clear();
             listBoxFavorites.BeginUpdate();
             listBoxFavorites.DataSource = null;
+            listBoxFavorites.Items.Clear();
 
-            try
-            {
+            try {
                 List<string> favoritesFromDatabase = await GetFavoriteListFromDatabase(userId);
 
-                foreach (var favorite in favoritesFromDatabase)
-                {
+                foreach (var favorite in favoritesFromDatabase) {
                     ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(favorite);
                     listFavorites.Add(selectedTitle);
                 }
 
                 listBoxFavorites.DataSource = listFavorites;
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 // Exibe uma mensagem de erro em um MessageBox
                 MessageBox.Show($"Error updating favorites list: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
+            finally {
                 listBoxFavorites.EndUpdate();
             }
         }
 
 
-        private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e) {
              textBoxDirector.Text = string.Empty;
             textBoxRated.Text = string.Empty;
             textBoxReleased.Text = string.Empty;
@@ -137,12 +124,10 @@ namespace MovieDatabase {
             textBoxGenre.Text = string.Empty;
             textBoxPlot.Text = string.Empty;
 
-            if (listBoxFavorites.SelectedIndex >= 0)
-            {
+            if (listBoxFavorites.SelectedIndex >= 0) {
                 string? imdbID = (listBoxFavorites.SelectedItem as ClassOmdbTitle)?.ImdbID;
 
-                if (imdbID != null)
-                {
+                if (imdbID != null) {
                     ClassOmdbTitle selectedFavorite = await omdbApiClient.GetByImdbId(imdbID);
 
                     textBoxDirector.Text += $"{selectedFavorite.Director}";
@@ -152,13 +137,11 @@ namespace MovieDatabase {
                     textBoxGenre.Text += $"{selectedFavorite.Genre}";
                     textBoxPlot.Text += $"{selectedFavorite.Plot}";
 
-                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A"))
-                    {
+                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A")) {
                         pictureBoxFavoritePoster.Load(selectedFavorite.Poster);
 
                     }
-                    else
-                    {
+                    else {
                         pictureBoxFavoritePoster.Image = null;
                     }
                 }
@@ -166,16 +149,12 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonDelFavorites_Click(object sender, EventArgs e)
-        {
+        private void buttonDelFavorites_Click(object sender, EventArgs e) {
             ClassOmdbTitle? selectedTitle = listBoxFavorites.SelectedItem as ClassOmdbTitle;
-            if (selectedTitle != null)
-            {
+            if (selectedTitle != null) {
                 listBoxFavorites.BeginUpdate();
-                foreach (var item in listBoxFavorites.Items)
-                {
-                    if (selectedTitle == item)
-                    {
+                foreach (var item in listBoxFavorites.Items) {
+                    if (selectedTitle == item) {
                         int index = listFavorites.IndexOf(selectedTitle);
                         listFavorites.RemoveAt(index); break;
                     }
@@ -184,22 +163,17 @@ namespace MovieDatabase {
                 listBoxFavorites.DataSource = listFavorites;
                 listBoxFavorites.EndUpdate();
                 listBoxFavorites.Refresh();
-                if (listBoxFavorites.SelectedItem == null)
-                {
+                if (listBoxFavorites.SelectedItem == null) {
                     pictureBoxFavoritePoster.Image = null;
                 }
                 RemoveMovieFromFavorites(selectedTitle.ImdbID, myUserLogged.Id);
             }
         }
-        public void RemoveMovieFromFavorites(string imdbID, int userID)
-        {
+        public void RemoveMovieFromFavorites(string imdbID, int userID) {
             string deleteQuery = "DELETE FROM dbo.Favorites WHERE id = @userID AND ImdbID = @imdbID";
-            try
-            {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn))
-                    {
+            try {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
+                    using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn)) {
                         cnn.Open();
 
                         // Use parâmetros para evitar SQL Injection e tratar corretamente valores de texto
@@ -210,15 +184,10 @@ namespace MovieDatabase {
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR] Algo deu errado!\n{ex.Message}");
+            catch (Exception ex) {
+                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
             }
         }
 
-        private void RefreshForm()
-        {
-            this.Refresh();
-        }
     }
 }

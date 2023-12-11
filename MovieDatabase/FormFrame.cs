@@ -2,8 +2,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormFrame : Form
-    {
+    public partial class FormFrame : Form {
 
         private int screenWidth;
         private int screenHeight;
@@ -13,10 +12,9 @@ namespace MovieDatabase {
         private TabPage? tabHomepage;
         private TabPage? tabUserDetails;
         private TabPage? tabTitleSearch;
-        private TabPage? tabFavorite;
+        private TabPage? tabFavorites;
 
-        public FormFrame(string connectionString, ClassUser userLogged)
-        {
+        public FormFrame(string connectionString, ClassUser userLogged) {
             //Initialize Objects
             InitializeComponent();
             ConnectionString = connectionString;
@@ -52,16 +50,14 @@ namespace MovieDatabase {
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width)
-            {
+            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None,
             };
             formHomepage.Show();
-            tabHomepage = new TabPage()
-            {
+            tabHomepage = new TabPage() {
                 Text = "Tab Homepage",
                 Name = "TabHomepage",
                 Controls = { formHomepage }
@@ -69,16 +65,14 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabHomepage);
 
             //Initialize UserDetails Tab
-            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged)
-            {
+            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formUserDetails.Show();
-            tabUserDetails = new TabPage()
-            {
+            tabUserDetails = new TabPage() {
                 Text = "Tab User Details",
                 Name = "TabUserDetails",
                 Controls = { formUserDetails }
@@ -86,16 +80,14 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabUserDetails);
 
             //Initialize TitleSearch Tab
-            FormTitleSearch formTitleInformation = new FormTitleSearch(ConnectionString, myUserLogged)
-            {
+            FormTitleSearch formTitleInformation = new FormTitleSearch(ConnectionString, myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
             formTitleInformation.Show();
-            tabTitleSearch = new TabPage()
-            {
+            tabTitleSearch = new TabPage() {
                 Text = "Tab Title Search",
                 Name = "TabTitleSearch",
                 Controls = { formTitleInformation }
@@ -103,22 +95,19 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
             //Initialize Favorite Tab
-            /*FormFavorites formFavorite = new FormFavorites(ConnectionString, myUserLogged)
-            {
+            FormFavorites formFavorites = new FormFavorites(ConnectionString, myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
                 FormBorderStyle = FormBorderStyle.None
             };
-            formFavorite.UpdateFavoriteList(myUserLogged.Id);
-            formFavorite.Show();
-            tabFavorite = new TabPage()
-            {
-                Text = "Tab Title Details",
-                Name = "TabTitleDetails",
-                Controls = { formFavorite }
+            formFavorites.Show();
+            tabFavorites = new TabPage() {
+                Text = "Tab Favorites",
+                Name = "TabFavorites",
+                Controls = { formFavorites }
             };
-            tabControlContent_Frame.TabPages.Add(tabFavorite);*/
+            tabControlContent_Frame.TabPages.Add(tabFavorites);
 
             //Adjust Tab Control properties
             tabControlContent_Frame.Location = new Point(groupBoxMenu_Frame.Width, 0);
@@ -144,8 +133,7 @@ namespace MovieDatabase {
 
         }
 
-        private void buttonHomepage_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonHomepage_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabHomepage);
             buttonHomepage_Frame.BackColor = Color.MidnightBlue;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
@@ -154,8 +142,7 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonUserDetails_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonUserDetails_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabUserDetails);
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.MidnightBlue;
@@ -164,53 +151,31 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonTitleSearch_Frame_Click(object sender, EventArgs e) {
             tabControlContent_Frame.SelectTab(tabTitleSearch);
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.MidnightBlue;
             buttonFavorites_Frame.BackColor = Color.Indigo;
         }
-        private void buttonFavorites_Frame_Click(object sender, EventArgs e)
-        {
-            CreateTab();
-            tabControlContent_Frame.SelectTab(tabFavorite);
+
+
+        private void buttonFavorites_Frame_Click(object sender, EventArgs e) {
+            tabControlContent_Frame.SelectTab(tabFavorites);
             buttonHomepage_Frame.BackColor = Color.Indigo;
             buttonUserDetails_Frame.BackColor = Color.Indigo;
             buttonTitleSearch_Frame.BackColor = Color.Indigo;
             buttonFavorites_Frame.BackColor = Color.MidnightBlue;
         }
 
-        private void CreateTab()
-        {
-            //Initialize Favorite Tab
-            FormFavorites formFavorite = new FormFavorites(ConnectionString, myUserLogged)
-            {
-                TopLevel = false,
-                AutoScroll = true,
-                Dock = DockStyle.Fill,
-                FormBorderStyle = FormBorderStyle.None
-            };
-            formFavorite.Show();
-            tabFavorite = new TabPage()
-            {
-                Text = "Tab Title Details",
-                Name = "TabTitleDetails",
-                Controls = { formFavorite }
-            };
-            tabControlContent_Frame.TabPages.Add(tabFavorite);
-        }
 
-        private void buttonLogout_Frame_Click(object sender, EventArgs e)
-        {
+        private void buttonLogout_Frame_Click(object sender, EventArgs e) {
             this.Owner.Show();
             this.Close();
         }
 
-        private void groupBoxMenu_Frame_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void groupBoxMenu_Frame_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 63, 10, 104);
             Color c2 = Color.FromArgb(255, 69, 12, 112);
             Color c3 = Color.FromArgb(255, 75, 13, 121);
@@ -226,12 +191,15 @@ namespace MovieDatabase {
             br.InterpolationColors = cb;
 
             e.Graphics.FillRectangle(br, this.ClientRectangle);
-
         }
 
-        private void groupBoxMenu_Frame_Enter(object sender, EventArgs e)
-        {
 
+        private void tabControlContent_Frame_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tabControlContent_Frame.SelectedTab.Controls.ContainsKey("formFavorites")) {
+                FormFavorites formFavorites = (FormFavorites)tabControlContent_Frame.SelectedTab.Controls["formFavorites"];
+                formFavorites.UpdateFavoriteList(myUserLogged.Id);
+                //this.Invalidate();
+            }
         }
     }
 }

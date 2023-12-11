@@ -14,19 +14,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieDatabase {
-    public partial class FormUserDetails : Form
-    {
+    public partial class FormUserDetails : Form {
 
         private string ConnectionString { get; set; }
         private ClassUser myUserLogged;
 
 
-        public FormUserDetails(string connectionString, ClassUser userLogged)
-        {
+        public FormUserDetails(string connectionString, ClassUser userLogged) {
             InitializeComponent();
             PopulateCountryComboBox();
             ConnectionString = connectionString;
             myUserLogged = userLogged;
+
+            int _formWidth = this.Width;
+            int _formHeight = this.Height;
+            int _groupBoxUserDetailsWidth = groupBox_UserDetails.Width;
+            int _groupBoxUserDetailsHeight = groupBox_UserDetails.Height;
+
+            //groupBox_UserDetails.Location = new Point(0,0);
+            groupBox_UserDetails.Location = new Point((_formWidth - _groupBoxUserDetailsWidth) / 2, (_formHeight - _groupBoxUserDetailsHeight) / 2);
 
             textBoxEmail_UserDetails.Text = myUserLogged.Email;
             textBoxPassword_UserDetails.Text = myUserLogged.Password;
@@ -38,25 +44,21 @@ namespace MovieDatabase {
 
 
         //Populate comboBoxCountry_Register
-        private void PopulateCountryComboBox()
-        {
+        private void PopulateCountryComboBox() {
             RegionInfo country = new RegionInfo(new CultureInfo("en-US", false).LCID);
             List<string> countryNames = new List<string>();
-            foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
-            {
+            foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
                 country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
                 countryNames.Add(country.EnglishName.ToString());
             }
             IEnumerable nameAdded = countryNames.OrderBy(names => names).Distinct();
-            foreach (string item in nameAdded)
-            {
+            foreach (string item in nameAdded) {
                 comboBoxCountry_UserDetails.Items.Add(item);
             }
         }
 
 
-        private void buttonUpdate_UserDetails_Click(object sender, EventArgs e)
-        {
+        private void buttonUpdate_UserDetails_Click(object sender, EventArgs e) {
             //Build Select Query
             int userId = myUserLogged.Id;
             string newEmail = textBoxEmail_UserDetails.Text;
@@ -67,8 +69,7 @@ namespace MovieDatabase {
             string newCountry = comboBoxCountry_UserDetails.Text;
             Debug.WriteLine($"inputDateBirth: {newDateBirth}");
 
-            if (newEmail == "" || newPassword == "" || newFirstName == "" || newLastName == "" || newCountry == "")
-            {
+            if (newEmail == "" || newPassword == "" || newFirstName == "" || newLastName == "" || newCountry == "") {
                 MessageBox.Show($"[ERROR] Please fill all required (*) fields!");
                 return;
             }
@@ -82,12 +83,9 @@ namespace MovieDatabase {
             updateQuery += $"country = '{newCountry}' ";
             updateQuery += $"WHERE id = '{userId}'; ";
 
-            try
-            {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, cnn))
-                    {
+            try {
+                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, cnn)) {
                         cnn.Open();
                         cmd.ExecuteNonQuery();
 
@@ -98,20 +96,17 @@ namespace MovieDatabase {
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
             }
         }
 
-        private void buttonCancel_UserDetails_Click(object sender, EventArgs e)
-        {
+        private void buttonCancel_UserDetails_Click(object sender, EventArgs e) {
             //Go back to Homepage
             ((TabControl)this.Parent.Parent).SelectTab("TabHomepage");
         }
 
-        private void FormUserDetails_Paint(object sender, PaintEventArgs e)
-        {
+        private void FormUserDetails_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 0, 3, 88);
             Color c2 = Color.FromArgb(255, 0, 18, 94);
             Color c3 = Color.FromArgb(255, 0, 29, 99);
@@ -129,8 +124,7 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
 
-        private void FormUserDetails_Load(object sender, EventArgs e)
-        {
+        private void FormUserDetails_Load(object sender, EventArgs e) {
 
         }
     }

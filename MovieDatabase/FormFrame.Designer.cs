@@ -22,8 +22,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFrame));
             groupBoxMenu_Frame = new GroupBox();
             pictureBoxLogo_Frame = new PictureBox();
@@ -56,7 +55,6 @@
             groupBoxMenu_Frame.TabIndex = 0;
             groupBoxMenu_Frame.TabStop = false;
             groupBoxMenu_Frame.Paint += groupBoxMenu_Frame_Paint;
-            groupBoxMenu_Frame.Enter += groupBoxMenu_Frame_Enter;
             // 
             // pictureBoxLogo_Frame
             // 
@@ -188,6 +186,7 @@
             tabControlContent_Frame.SelectedIndex = 0;
             tabControlContent_Frame.Size = new Size(854, 629);
             tabControlContent_Frame.TabIndex = 0;
+            tabControlContent_Frame.SelectedIndexChanged += tabControlContent_Frame_SelectedIndexChanged;
             // 
             // FormFrame
             // 

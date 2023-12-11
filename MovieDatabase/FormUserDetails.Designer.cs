@@ -22,10 +22,9 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             labelHeader_UserDetails = new Label();
-            groupBox_UserRegister = new GroupBox();
+            groupBox_UserDetails = new GroupBox();
             comboBoxCountry_UserDetails = new ComboBox();
             dateTimePickerDateBirth_UserDetails = new DateTimePicker();
             buttonCancel_UserDetails = new Button();
@@ -40,7 +39,7 @@
             labelPassword_UserDetails = new Label();
             buttonUpdate_UserDetails = new Button();
             labelEmail_UserDetails = new Label();
-            groupBox_UserRegister.SuspendLayout();
+            groupBox_UserDetails.SuspendLayout();
             SuspendLayout();
             // 
             // labelHeader_UserDetails
@@ -54,29 +53,29 @@
             labelHeader_UserDetails.TabIndex = 22;
             labelHeader_UserDetails.Text = "User Details";
             // 
-            // groupBox_UserRegister
+            // groupBox_UserDetails
             // 
-            groupBox_UserRegister.BackColor = Color.White;
-            groupBox_UserRegister.Controls.Add(comboBoxCountry_UserDetails);
-            groupBox_UserRegister.Controls.Add(dateTimePickerDateBirth_UserDetails);
-            groupBox_UserRegister.Controls.Add(buttonCancel_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelCountry_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelDateBirth_UserDetails);
-            groupBox_UserRegister.Controls.Add(textBoxLastName_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelLastName_UserDetails);
-            groupBox_UserRegister.Controls.Add(textBoxFirstName_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelFirstName_UserDetails);
-            groupBox_UserRegister.Controls.Add(textBoxEmail_UserDetails);
-            groupBox_UserRegister.Controls.Add(textBoxPassword_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelPassword_UserDetails);
-            groupBox_UserRegister.Controls.Add(buttonUpdate_UserDetails);
-            groupBox_UserRegister.Controls.Add(labelEmail_UserDetails);
-            groupBox_UserRegister.Location = new Point(35, 67);
-            groupBox_UserRegister.Name = "groupBox_UserRegister";
-            groupBox_UserRegister.Size = new Size(494, 491);
-            groupBox_UserRegister.TabIndex = 23;
-            groupBox_UserRegister.TabStop = false;
-            groupBox_UserRegister.Text = "User Details";
+            groupBox_UserDetails.BackColor = Color.White;
+            groupBox_UserDetails.Controls.Add(comboBoxCountry_UserDetails);
+            groupBox_UserDetails.Controls.Add(dateTimePickerDateBirth_UserDetails);
+            groupBox_UserDetails.Controls.Add(buttonCancel_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelCountry_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelDateBirth_UserDetails);
+            groupBox_UserDetails.Controls.Add(textBoxLastName_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelLastName_UserDetails);
+            groupBox_UserDetails.Controls.Add(textBoxFirstName_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelFirstName_UserDetails);
+            groupBox_UserDetails.Controls.Add(textBoxEmail_UserDetails);
+            groupBox_UserDetails.Controls.Add(textBoxPassword_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelPassword_UserDetails);
+            groupBox_UserDetails.Controls.Add(buttonUpdate_UserDetails);
+            groupBox_UserDetails.Controls.Add(labelEmail_UserDetails);
+            groupBox_UserDetails.Location = new Point(404, 94);
+            groupBox_UserDetails.Name = "groupBox_UserDetails";
+            groupBox_UserDetails.Size = new Size(494, 491);
+            groupBox_UserDetails.TabIndex = 23;
+            groupBox_UserDetails.TabStop = false;
+            groupBox_UserDetails.Text = "User Details";
             // 
             // comboBoxCountry_UserDetails
             // 
@@ -212,15 +211,15 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Navy;
-            ClientSize = new Size(1046, 597);
-            Controls.Add(groupBox_UserRegister);
+            ClientSize = new Size(1184, 661);
+            Controls.Add(groupBox_UserDetails);
             Controls.Add(labelHeader_UserDetails);
             Name = "FormUserDetails";
             Text = "[FormUserDetails]";
             Load += FormUserDetails_Load;
             Paint += FormUserDetails_Paint;
-            groupBox_UserRegister.ResumeLayout(false);
-            groupBox_UserRegister.PerformLayout();
+            groupBox_UserDetails.ResumeLayout(false);
+            groupBox_UserDetails.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,7 +227,7 @@
         #endregion
 
         private Label labelHeader_UserDetails;
-        private GroupBox groupBox_UserRegister;
+        private GroupBox groupBox_UserDetails;
         private ComboBox comboBoxCountry_UserDetails;
         private DateTimePicker dateTimePickerDateBirth_UserDetails;
         private Button buttonCancel_UserDetails;
