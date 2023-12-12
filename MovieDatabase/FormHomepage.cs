@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 using MovieDatabase.OmdbApi;
 using MovieDatabase.TmdbApi;
 
@@ -15,12 +14,14 @@ namespace MovieDatabase {
         private ClassTmdbMovieListResponse myPopularResponse;
         private ClassTmdbMovieListResponse myUpcomingResponse;
         private OmdbApiClient omdbApiClient;
+        private ClassUser myUserLogged;
 
 
-        public FormHomepage(int width) {
+        public FormHomepage(int width, ClassUser userLogged) {
             InitializeComponent();
             tmdbApiClient = new TmdbApiClient();
             omdbApiClient = new OmdbApiClient();
+            myUserLogged = userLogged;
 
             //Adjust tableLayoutPanelNowPlaying
             labelNowPlaying_Homepage.Location = new Point(10, 10);
@@ -184,7 +185,7 @@ namespace MovieDatabase {
             Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
 
             //Open Dialog with Title Details from OMDB API
-            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle, myUserLogged);
             formTitleDetails.ShowDialog();
         }
 
@@ -207,7 +208,7 @@ namespace MovieDatabase {
             Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
 
             //Open Dialog with Title Details from OMDB API
-            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle, myUserLogged);
             formTitleDetails.ShowDialog();
         }
 
@@ -230,7 +231,7 @@ namespace MovieDatabase {
             Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
 
             //Open Dialog with Title Details from OMDB API
-            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle, myUserLogged);
             formTitleDetails.ShowDialog();
         }
 
@@ -253,7 +254,7 @@ namespace MovieDatabase {
             Debug.WriteLine($"_selectedOmdbTitle: {_selectedOmdbTitle}");
 
             //Open Dialog with Title Details from OMDB API
-            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle);
+            FormTitleDetails formTitleDetails = new FormTitleDetails(_selectedOmdbTitle, myUserLogged);
             formTitleDetails.ShowDialog();
         }
     }

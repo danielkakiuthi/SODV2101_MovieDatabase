@@ -70,6 +70,7 @@
             labelProduction = new Label();
             textBoxWebsite = new TextBox();
             labelWebsite = new Label();
+            buttonAddFavorites_TitleDetails = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPoster).BeginInit();
             SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             // pictureBoxPoster
             // 
             pictureBoxPoster.BackColor = Color.Transparent;
-            pictureBoxPoster.Location = new Point(935, 45);
+            pictureBoxPoster.Location = new Point(935, 24);
             pictureBoxPoster.Name = "pictureBoxPoster";
             pictureBoxPoster.Size = new Size(512, 674);
             pictureBoxPoster.SizeMode = PictureBoxSizeMode.Zoom;
@@ -544,12 +545,26 @@
             labelWebsite.TabIndex = 45;
             labelWebsite.Text = "Website:";
             // 
+            // buttonAddFavorites_TitleDetails
+            // 
+            buttonAddFavorites_TitleDetails.BackColor = Color.Olive;
+            buttonAddFavorites_TitleDetails.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAddFavorites_TitleDetails.ForeColor = Color.White;
+            buttonAddFavorites_TitleDetails.Location = new Point(1249, 723);
+            buttonAddFavorites_TitleDetails.Name = "buttonAddFavorites_TitleDetails";
+            buttonAddFavorites_TitleDetails.Size = new Size(181, 38);
+            buttonAddFavorites_TitleDetails.TabIndex = 47;
+            buttonAddFavorites_TitleDetails.Text = "Add to Favorites";
+            buttonAddFavorites_TitleDetails.UseVisualStyleBackColor = false;
+            buttonAddFavorites_TitleDetails.Click += buttonAddFavorites_TitleDetails_Click;
+            // 
             // FormTitleDetails
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkRed;
             ClientSize = new Size(1459, 786);
+            Controls.Add(buttonAddFavorites_TitleDetails);
             Controls.Add(textBoxWebsite);
             Controls.Add(labelWebsite);
             Controls.Add(textBoxProduction);
@@ -656,5 +671,6 @@
         private Label labelProduction;
         private TextBox textBoxWebsite;
         private Label labelWebsite;
+        private Button buttonAddFavorites_TitleDetails;
     }
 }

@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using MovieDatabase.SqlClient;
+
+
 
 namespace MovieDatabase {
     public partial class FormUserRegister : Form
     {
-
-        public string ConnectionString { get; set; }
+        public ClassSqlClient mySqlClient;
         ErrorProvider myErrorProvider { get; set; }
 
 
-        public FormUserRegister(string connectionString)
+        public FormUserRegister()
         {
             InitializeComponent();
-            ConnectionString = connectionString;
+            mySqlClient = new ClassSqlClient();
             myErrorProvider = new ErrorProvider();
 
             this.CenterToScreen();
@@ -104,31 +97,17 @@ namespace MovieDatabase {
                 return;
             }
 
-
-
             string insertQuery = "INSERT INTO dbo.Users (email, password, firstName, lastName, dateBirth, country) ";
             insertQuery += $"VALUES ('{inputEmail}', '{inputPassword}', '{inputFirstName}', '{inputLastName}', '{inputDateBirth}', '{inputCountry}'); ";
 
-            try
-            {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, cnn))
-                    {
-                        cnn.Open();
-                        cmd.ExecuteNonQuery();
+            if(mySqlClient.InsertNewUser(insertQuery)) {
+                MessageBox.Show($"[User Registered] New user {inputEmail} was successfully added!");
+            }
 
-                        //Switch Forms
-                        this.Owner.Show();
-                        this.Close();
-                        MessageBox.Show($"[User Registered] New user {inputEmail} was successfully added!");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
-            }
+
+            //Switch Forms
+            this.Owner.Show();
+            this.Close();
         }
 
 

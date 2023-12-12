@@ -1,17 +1,8 @@
 ﻿using MovieDatabase.OmdbApi;
-using MovieDatabase.TmdbApi;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
+using MovieDatabase.SqlClient;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+
 
 namespace MovieDatabase {
     public partial class FormFavorites : Form {
@@ -20,21 +11,20 @@ namespace MovieDatabase {
         public string GenreQuery { get; set; }
         public int YearQuery { get; set; }
         public string RatingQuery { get; set; }
+        private readonly OmdbApiClient omdbApiClient;
         private readonly List<ClassOmdbTitle> listFavorites;
         private ClassUser myUserLogged;
-        private readonly OmdbApiClient omdbApiClient;
-        public string ConnectionString { get; set; }
-        ErrorProvider myErrorProvider { get; set; }
-        List<string> imdbIdList = new List<string>();
+        public ClassSqlClient mySqlClient { get; set; }
 
 
-        public FormFavorites(string connectionString, ClassUser userLogged) {
-            InitializeComponent();
-            ConnectionString = connectionString;
+
+        public FormFavorites(ClassUser userLogged) {
+            mySqlClient = new ClassSqlClient();
             myUserLogged = userLogged;
             omdbApiClient = new OmdbApiClient();
-            myErrorProvider = new ErrorProvider();
             listFavorites = new List<ClassOmdbTitle>();
+            
+            InitializeComponent();
             UpdateFavoriteList(myUserLogged.Id);
             this.Refresh();
         }
@@ -58,37 +48,7 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
 
-
-        private void FormFavorites_Load(object sender, EventArgs e) {
-            
-        }
-
-        public async Task<List<string>> GetFavoriteListFromDatabase(int userId) {
-            List<string> favorites = new List<string>();
-            string selectQuery = "SELECT imdbID FROM dbo.Favorites WHERE id = @userId";
-
-            try {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
-                    await cnn.OpenAsync();
-
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, cnn)) {
-                        cmd.Parameters.AddWithValue("@userId", userId);
-
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync()) {
-                            while (await reader.ReadAsync()) {
-                                string imdbId = reader["imdbID"].ToString();
-                                favorites.Add(imdbId);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"Error getting favorites list from database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return favorites;
-        }
+        
 
         public async Task UpdateFavoriteList(int userId) {
             listFavorites.Clear();
@@ -96,8 +56,10 @@ namespace MovieDatabase {
             listBoxFavorites.DataSource = null;
             listBoxFavorites.Items.Clear();
 
+            string selectQuery = $"SELECT imdbID FROM dbo.Favorites WHERE id = {userId}";
+
             try {
-                List<string> favoritesFromDatabase = await GetFavoriteListFromDatabase(userId);
+                List<string> favoritesFromDatabase = await mySqlClient.GetFavoriteListFromDatabase(selectQuery);
 
                 foreach (var favorite in favoritesFromDatabase) {
                     ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(favorite);
@@ -117,7 +79,7 @@ namespace MovieDatabase {
 
 
         private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e) {
-             textBoxDirector.Text = string.Empty;
+            textBoxDirector.Text = string.Empty;
             textBoxRated.Text = string.Empty;
             textBoxReleased.Text = string.Empty;
             textBoxRuntime.Text = string.Empty;
@@ -166,28 +128,15 @@ namespace MovieDatabase {
                 if (listBoxFavorites.SelectedItem == null) {
                     pictureBoxFavoritePoster.Image = null;
                 }
-                RemoveMovieFromFavorites(selectedTitle.ImdbID, myUserLogged.Id);
+
+                string deleteQuery = $"DELETE FROM dbo.Favorites WHERE id = {myUserLogged.Id} AND ImdbID = '{selectedTitle.ImdbID}'";
+
+                mySqlClient.RemoveMovieFromFavorites(deleteQuery);
             }
         }
-        public void RemoveMovieFromFavorites(string imdbID, int userID) {
-            string deleteQuery = "DELETE FROM dbo.Favorites WHERE id = @userID AND ImdbID = @imdbID";
-            try {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
-                    using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn)) {
-                        cnn.Open();
 
-                        // Use parâmetros para evitar SQL Injection e tratar corretamente valores de texto
-                        cmd.Parameters.AddWithValue("@userID", userID);
-                        cmd.Parameters.AddWithValue("@imdbID", imdbID);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
-            }
-        }
+        
 
     }
 }

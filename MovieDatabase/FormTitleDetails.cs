@@ -1,25 +1,25 @@
 ﻿using MovieDatabase.OmdbApi;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using MovieDatabase.SqlClient;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+
 
 namespace MovieDatabase {
     public partial class FormTitleDetails : Form {
 
+        private ClassSqlClient mySqlClient;
         private ClassOmdbTitle myOmdbTitle;
+        private ClassUser myUserLogged;
 
 
-        public FormTitleDetails(ClassOmdbTitle classOmdb) {
+        public FormTitleDetails(ClassOmdbTitle classOmdb, ClassUser loggedUser) {
+            myOmdbTitle = classOmdb;
+            mySqlClient = new ClassSqlClient();
+            myUserLogged = loggedUser;
+
             InitializeComponent();
             this.CenterToParent();
-            myOmdbTitle = classOmdb;
+
 
             textBoxTitle.Text = myOmdbTitle.Title;
             textBoxYear.Text = myOmdbTitle.Year;
@@ -80,5 +80,13 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
 
+
+        private void buttonAddFavorites_TitleDetails_Click(object sender, EventArgs e) {
+
+            string insertQuery = "INSERT INTO dbo.Favorites (id, imdbID) ";
+            insertQuery += $"VALUES ('{myUserLogged.Id}', '{myOmdbTitle.ImdbID}'); ";
+
+            mySqlClient.AddMoviesToFavorites(insertQuery);
+        }
     }
 }

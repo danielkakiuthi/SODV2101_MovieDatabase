@@ -1,30 +1,25 @@
-﻿using System;
+﻿using MovieDatabase.SqlClient;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+
 
 namespace MovieDatabase {
     public partial class FormUserDetails : Form {
 
-        private string ConnectionString { get; set; }
+        private ClassSqlClient mySqlClient;
         private ClassUser myUserLogged;
 
 
-        public FormUserDetails(string connectionString, ClassUser userLogged) {
+        public FormUserDetails(ClassUser userLogged) {
+            mySqlClient = new ClassSqlClient();
+            myUserLogged = userLogged;
+
             InitializeComponent();
             PopulateCountryComboBox();
-            ConnectionString = connectionString;
-            myUserLogged = userLogged;
 
             int _formWidth = this.Width;
             int _formHeight = this.Height;
@@ -83,28 +78,20 @@ namespace MovieDatabase {
             updateQuery += $"country = '{newCountry}' ";
             updateQuery += $"WHERE id = '{userId}'; ";
 
-            try {
-                using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, cnn)) {
-                        cnn.Open();
-                        cmd.ExecuteNonQuery();
+            mySqlClient.UpdateUser(updateQuery);
 
+            MessageBox.Show($"[User Updated] Fieldsfor {newEmail} were successfully updated!");
 
-                        MessageBox.Show($"[User Updated] Fieldsfor {newEmail} were successfully updated!");
-                        //Reload Form
-                        this.Parent.Parent.Parent.Invalidate();
-                    }
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
-            }
+            //Reload Form
+            this.Parent.Parent.Parent.Invalidate();
         }
+
 
         private void buttonCancel_UserDetails_Click(object sender, EventArgs e) {
             //Go back to Homepage
             ((TabControl)this.Parent.Parent).SelectTab("TabHomepage");
         }
+
 
         private void FormUserDetails_Paint(object sender, PaintEventArgs e) {
             Color c1 = Color.FromArgb(255, 0, 3, 88);

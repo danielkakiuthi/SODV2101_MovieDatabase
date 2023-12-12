@@ -1,25 +1,21 @@
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
+
 
 namespace MovieDatabase {
     public partial class FormFrame : Form {
 
         private int screenWidth;
         private int screenHeight;
-        private string ConnectionString;
         private ClassUser myUserLogged;
-        private ClassController myController;
         private TabPage? tabHomepage;
         private TabPage? tabUserDetails;
         private TabPage? tabTitleSearch;
         private TabPage? tabFavorites;
 
-        public FormFrame(string connectionString, ClassUser userLogged) {
+        public FormFrame(ClassUser userLogged) {
             //Initialize Objects
             InitializeComponent();
-            ConnectionString = connectionString;
             myUserLogged = userLogged;
-            myController = new ClassController();
 
             //Set Frame Window properties
             WindowState = FormWindowState.Maximized;
@@ -50,7 +46,7 @@ namespace MovieDatabase {
 
 
             //Initialize Homepage Tab
-            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width) {
+            FormHomepage formHomepage = new FormHomepage(screenWidth - groupBoxMenu_Frame.Width, myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
@@ -65,7 +61,7 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabHomepage);
 
             //Initialize UserDetails Tab
-            FormUserDetails formUserDetails = new FormUserDetails(ConnectionString, myUserLogged) {
+            FormUserDetails formUserDetails = new FormUserDetails(myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
@@ -80,7 +76,7 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabUserDetails);
 
             //Initialize TitleSearch Tab
-            FormTitleSearch formTitleInformation = new FormTitleSearch(ConnectionString, myUserLogged) {
+            FormTitleSearch formTitleInformation = new FormTitleSearch(myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,
@@ -95,7 +91,7 @@ namespace MovieDatabase {
             tabControlContent_Frame.TabPages.Add(tabTitleSearch);
 
             //Initialize Favorite Tab
-            FormFavorites formFavorites = new FormFavorites(ConnectionString, myUserLogged) {
+            FormFavorites formFavorites = new FormFavorites(myUserLogged) {
                 TopLevel = false,
                 AutoScroll = true,
                 Dock = DockStyle.Fill,

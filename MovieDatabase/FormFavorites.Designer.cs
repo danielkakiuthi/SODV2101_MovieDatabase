@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             labelHeader_Favorites = new Label();
             pictureBoxFavoritePoster = new PictureBox();
             listBoxFavorites = new ListBox();
@@ -49,6 +48,7 @@
             // labelHeader_Favorites
             // 
             labelHeader_Favorites.AutoSize = true;
+            labelHeader_Favorites.BackColor = Color.Transparent;
             labelHeader_Favorites.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             labelHeader_Favorites.ForeColor = Color.White;
             labelHeader_Favorites.Location = new Point(12, 9);
@@ -80,6 +80,7 @@
             // 
             // gp_SearchFavorites
             // 
+            gp_SearchFavorites.BackColor = Color.Transparent;
             gp_SearchFavorites.Controls.Add(label5);
             gp_SearchFavorites.Controls.Add(textBoxPlot);
             gp_SearchFavorites.Controls.Add(labelFavoritePoster);
@@ -256,7 +257,6 @@
             Margin = new Padding(4);
             Name = "FormFavorites";
             Text = "[FormTitleDetails]";
-            Load += FormFavorites_Load;
             Paint += FormFavorites_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
             gp_SearchFavorites.ResumeLayout(false);
