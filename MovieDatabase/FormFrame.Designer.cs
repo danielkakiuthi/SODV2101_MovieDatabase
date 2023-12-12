@@ -22,8 +22,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFrame));
             groupBoxMenu_Frame = new GroupBox();
             pictureBoxLogo_Frame = new PictureBox();
@@ -199,7 +198,6 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
-            MaximizeBox = false;
             Name = "FormFrame";
             Text = "[FormFrame] Landing Page";
             groupBoxMenu_Frame.ResumeLayout(false);

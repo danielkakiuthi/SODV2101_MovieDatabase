@@ -86,7 +86,12 @@ namespace MovieDatabase {
             string insertQuery = "INSERT INTO dbo.Favorites (id, imdbID) ";
             insertQuery += $"VALUES ('{myUserLogged.Id}', '{myOmdbTitle.ImdbID}'); ";
 
-            mySqlClient.AddMoviesToFavorites(insertQuery);
+            if (mySqlClient.AddMoviesToFavorites(insertQuery)) {
+                MessageBox.Show($"[Movie Added to Favorites] {myOmdbTitle.Title} added to favorites");
+            }
+            else {
+                MessageBox.Show($"[ERROR] This movie is already in your list of favorites!");
+            }
         }
     }
 }

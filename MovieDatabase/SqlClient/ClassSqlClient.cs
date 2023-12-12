@@ -16,7 +16,7 @@ namespace MovieDatabase.SqlClient {
 
         public ClassSqlClient() {
             string path_RootFolder = $"{Directory.GetParent(System.IO.Directory.GetCurrentDirectory())?.Parent?.Parent}";
-            Debug.WriteLine($"path_RootFolder: {path_RootFolder}");       //DEBUG
+            //Debug.WriteLine($"path_RootFolder: {path_RootFolder}");       //DEBUG
             ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB; ";
             ConnectionString += $"AttachDbFilename={path_RootFolder}\\LocalDatabase.mdf; ";
             ConnectionString += "Integrated Security=True; ";
@@ -34,7 +34,7 @@ namespace MovieDatabase.SqlClient {
                 return true;
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
+                Debug.WriteLine($"[ERROR] Something went wrong!\n{ex.Message}");
                 return false;
             }
         }
@@ -50,7 +50,7 @@ namespace MovieDatabase.SqlClient {
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
+                Debug.WriteLine($"[ERROR] Something went wrong!\n{ex.Message}");
             }
         }
 
@@ -85,7 +85,7 @@ namespace MovieDatabase.SqlClient {
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
+                Debug.WriteLine($"[ERROR] Something went wrong!\n{ex.Message}");
                 return null;
             }
         }
@@ -104,7 +104,7 @@ namespace MovieDatabase.SqlClient {
                 return true;
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] This movie is already in the database as one of your favorites!");
+                Debug.WriteLine($"[ERROR] Something went wrong!\n{ex.Message}");
                 return false;
             }
         }
@@ -130,13 +130,13 @@ namespace MovieDatabase.SqlClient {
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show($"Error getting favorites list from database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine($"Error getting favorites list from database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return favorites;
         }
 
 
-        public void RemoveMovieFromFavorites(string deleteQuery) {
+        public bool RemoveMovieFromFavorites(string deleteQuery) {
             try {
                 using (SqlConnection cnn = new SqlConnection(ConnectionString)) {
                     using (SqlCommand cmd = new SqlCommand(deleteQuery, cnn)) {
@@ -149,9 +149,11 @@ namespace MovieDatabase.SqlClient {
                         int rowsAffected = cmd.ExecuteNonQuery();
                     }
                 }
+                return true;
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
+                Debug.WriteLine($"[ERROR] Something went wrong!\n{ex.Message}");
+                return false;
             }
         }
     }

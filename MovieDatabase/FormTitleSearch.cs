@@ -55,6 +55,9 @@ namespace MovieDatabase {
                 if (mySqlClient.AddMoviesToFavorites(insertQuery)) {
                     MessageBox.Show($"[Movie Added to Favorites] {selectedTitle.Title} added to favorites");
                 }
+                else {
+                MessageBox.Show($"[ERROR] This movie is already in your list of favorites!");
+            }
             }
         }
 

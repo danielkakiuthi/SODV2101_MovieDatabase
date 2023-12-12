@@ -148,7 +148,9 @@ namespace MovieDatabase {
 
                 string deleteQuery = $"DELETE FROM dbo.Favorites WHERE id = {myUserLogged.Id} AND ImdbID = '{selectedTitle.ImdbID}'";
 
-                mySqlClient.RemoveMovieFromFavorites(deleteQuery);
+                if(mySqlClient.RemoveMovieFromFavorites(deleteQuery)) {
+                    MessageBox.Show($"[Movie Removed from Favorites] {selectedTitle.Title} removed from favorites");
+                }
             }
         }
 
