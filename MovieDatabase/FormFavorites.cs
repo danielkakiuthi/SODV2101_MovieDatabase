@@ -5,7 +5,8 @@ using System.Drawing.Drawing2D;
 
 
 namespace MovieDatabase {
-    public partial class FormFavorites : Form {
+    public partial class FormFavorites : Form
+    {
 
         public string KeywordQuery { get; set; }
         public string GenreQuery { get; set; }
@@ -18,19 +19,21 @@ namespace MovieDatabase {
 
 
 
-        public FormFavorites(ClassUser userLogged) {
+        public FormFavorites(ClassUser userLogged)
+        {
             mySqlClient = new ClassSqlClient();
             myUserLogged = userLogged;
             omdbApiClient = new OmdbApiClient();
             listFavorites = new List<ClassOmdbTitle>();
-            
+
             InitializeComponent();
             UpdateFavoriteList(myUserLogged.Id);
             this.Refresh();
         }
 
 
-        private void FormFavorites_Paint(object sender, PaintEventArgs e) {
+        private void FormFavorites_Paint(object sender, PaintEventArgs e)
+        {
             Color c1 = Color.FromArgb(255, 0, 3, 88);
             Color c2 = Color.FromArgb(255, 0, 18, 94);
             Color c3 = Color.FromArgb(255, 0, 29, 99);
@@ -48,9 +51,10 @@ namespace MovieDatabase {
             e.Graphics.FillRectangle(br, this.ClientRectangle);
         }
 
-        
 
-        public async Task UpdateFavoriteList(int userId) {
+
+        public async Task UpdateFavoriteList(int userId)
+        {
             listFavorites.Clear();
             listBoxFavorites.BeginUpdate();
             listBoxFavorites.DataSource = null;
@@ -58,27 +62,31 @@ namespace MovieDatabase {
 
             string selectQuery = $"SELECT imdbID FROM dbo.Favorites WHERE id = {userId}";
 
-            try {
+            try
+            {
                 List<string> favoritesFromDatabase = await mySqlClient.GetFavoriteListFromDatabase(selectQuery);
 
-                foreach (var favorite in favoritesFromDatabase) {
+                foreach (var favorite in favoritesFromDatabase)
+                {
                     ClassOmdbTitle selectedTitle = await omdbApiClient.GetByImdbId(favorite);
                     listFavorites.Add(selectedTitle);
                 }
 
                 listBoxFavorites.DataSource = listFavorites;
             }
-            catch (Exception ex) {
-                // Exibe uma mensagem de erro em um MessageBox
+            catch (Exception ex)
+            {
                 MessageBox.Show($"Error updating favorites list: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally {
+            finally
+            {
                 listBoxFavorites.EndUpdate();
             }
         }
 
 
-        private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e) {
+        private async void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
+        {
             textBoxDirector.Text = string.Empty;
             textBoxRated.Text = string.Empty;
             textBoxReleased.Text = string.Empty;
@@ -86,10 +94,12 @@ namespace MovieDatabase {
             textBoxGenre.Text = string.Empty;
             textBoxPlot.Text = string.Empty;
 
-            if (listBoxFavorites.SelectedIndex >= 0) {
+            if (listBoxFavorites.SelectedIndex >= 0)
+            {
                 string? imdbID = (listBoxFavorites.SelectedItem as ClassOmdbTitle)?.ImdbID;
 
-                if (imdbID != null) {
+                if (imdbID != null)
+                {
                     ClassOmdbTitle selectedFavorite = await omdbApiClient.GetByImdbId(imdbID);
 
                     textBoxDirector.Text += $"{selectedFavorite.Director}";
@@ -99,11 +109,13 @@ namespace MovieDatabase {
                     textBoxGenre.Text += $"{selectedFavorite.Genre}";
                     textBoxPlot.Text += $"{selectedFavorite.Plot}";
 
-                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A")) {
+                    if (!string.IsNullOrEmpty(selectedFavorite.Poster) && !selectedFavorite.Poster.Equals("N/A"))
+                    {
                         pictureBoxFavoritePoster.Load(selectedFavorite.Poster);
 
                     }
-                    else {
+                    else
+                    {
                         pictureBoxFavoritePoster.Image = null;
                     }
                 }
@@ -111,12 +123,16 @@ namespace MovieDatabase {
         }
 
 
-        private void buttonDelFavorites_Click(object sender, EventArgs e) {
+        private void buttonDelFavorites_Click(object sender, EventArgs e)
+        {
             ClassOmdbTitle? selectedTitle = listBoxFavorites.SelectedItem as ClassOmdbTitle;
-            if (selectedTitle != null) {
+            if (selectedTitle != null)
+            {
                 listBoxFavorites.BeginUpdate();
-                foreach (var item in listBoxFavorites.Items) {
-                    if (selectedTitle == item) {
+                foreach (var item in listBoxFavorites.Items)
+                {
+                    if (selectedTitle == item)
+                    {
                         int index = listFavorites.IndexOf(selectedTitle);
                         listFavorites.RemoveAt(index); break;
                     }
@@ -125,7 +141,8 @@ namespace MovieDatabase {
                 listBoxFavorites.DataSource = listFavorites;
                 listBoxFavorites.EndUpdate();
                 listBoxFavorites.Refresh();
-                if (listBoxFavorites.SelectedItem == null) {
+                if (listBoxFavorites.SelectedItem == null)
+                {
                     pictureBoxFavoritePoster.Image = null;
                 }
 
@@ -135,8 +152,9 @@ namespace MovieDatabase {
             }
         }
 
+        private void FormFavorites_Load(object sender, EventArgs e)
+        {
 
-        
-
+        }
     }
 }

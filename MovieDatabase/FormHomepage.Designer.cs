@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelTopRated_Homepage = new Label();
             tableLayoutPanelTopRated = new TableLayoutPanel();
             labelPopular_Homepage = new Label();
@@ -184,7 +185,9 @@
             Controls.Add(tableLayoutPanelTopRated);
             Controls.Add(labelTopRated_Homepage);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormHomepage";
             Text = "[FormHomepage]";
             Load += FormHomepage_Load;

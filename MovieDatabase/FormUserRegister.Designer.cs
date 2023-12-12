@@ -230,7 +230,9 @@
             Controls.Add(groupBox_UserRegister);
             Controls.Add(labelHeader_UserRegister);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormUserRegister";
             Text = "[FormUserRegister]";
             Load += FormUserRegister_Load;

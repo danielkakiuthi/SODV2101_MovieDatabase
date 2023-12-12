@@ -4,7 +4,7 @@
       "commandName": "Project",
       "environmentVariables": {
         "OMDB_APIKEY": "400a5f9b",
-        "TMDB_APIKEY": "88fde61adbb37cf4884d01818429410b"
+        "TMDB_APIKEY": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OGZkZTYxYWRiYjM3Y2Y0ODg0ZDAxODE4NDI5NDEwYiIsInN1YiI6IjY1NzI3OTkyMTVjNjM2MDBmZWYwYjc0MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uSxZxVTb8qe62_aS4yUP1NfxT63w2I5SyWt93ZR7xwA"
       }
     }
   }

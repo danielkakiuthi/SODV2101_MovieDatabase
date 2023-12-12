@@ -104,7 +104,7 @@ namespace MovieDatabase.SqlClient {
                 return true;
             }
             catch (Exception ex) {
-                MessageBox.Show($"[ERROR] Something went wrong!\n{ex.Message}");
+                MessageBox.Show($"[ERROR] This movie is already in the database as one of your favorites!");
                 return false;
             }
         }

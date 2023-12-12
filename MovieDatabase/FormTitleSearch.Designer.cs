@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelInputSearch = new Label();
             labelInputYear = new Label();
             labelInputType = new Label();
@@ -362,7 +363,9 @@
             Controls.Add(labelInputSearch);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormTitleSearch";
             Text = "[FormTitleSearch]";
             Load += FormTitleSearch_Load;

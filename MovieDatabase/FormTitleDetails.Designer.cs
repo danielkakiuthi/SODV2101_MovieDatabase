@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelTitle = new Label();
             textBoxTitle = new TextBox();
             pictureBoxPoster = new PictureBox();
@@ -613,7 +614,9 @@
             Controls.Add(textBoxTitle);
             Controls.Add(labelTitle);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormTitleDetails";
             Text = "[FormTitleDetails]";
             Paint += FormTitleDetails_Paint;

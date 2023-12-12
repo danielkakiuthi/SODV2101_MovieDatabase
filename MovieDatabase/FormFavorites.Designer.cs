@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             labelHeader_Favorites = new Label();
             pictureBoxFavoritePoster = new PictureBox();
             listBoxFavorites = new ListBox();
@@ -254,9 +255,12 @@
             Controls.Add(gp_SearchFavorites);
             Controls.Add(labelHeader_Favorites);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormFavorites";
             Text = "[FormTitleDetails]";
+            Load += FormFavorites_Load;
             Paint += FormFavorites_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBoxFavoritePoster).EndInit();
             gp_SearchFavorites.ResumeLayout(false);

@@ -133,7 +133,9 @@
             ClientSize = new Size(734, 661);
             Controls.Add(groupBox_UserLogin);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "FormUserLogin";
             Text = "[FormUserLogin]";
             Load += FormUserLogin_Load;
